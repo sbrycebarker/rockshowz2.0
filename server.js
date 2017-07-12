@@ -9,7 +9,7 @@ let express = require('express'),
     app.use(bodyParser.json())
     app.use(cors());
 
-    // app.get('/artists/incubus/events', bands.read)
+    // app.get('/artists/:artistname', bands.read)
 
 
     app.use(express.static('./public'))
