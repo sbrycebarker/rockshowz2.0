@@ -1,10 +1,18 @@
-angular.module('myApp').controller('mainCtrl', function ($scope, mainService, $StateParams) {
+angular.module('myApp').controller('mainCtrl', function ($scope, service) {
 
-  $scope.getBandData() = function(data) {
-    mainService.getBandData().then(function(results){
-      $scope.bandData = results
-      console.log("band data",results)
+  $scope.getBandEvents = function() {
+    service.getBandEvents().then(function(events){
+      $scope.eventData = events.data
+      console.log("Event data", events.data)
     })
   }
-  getBandData()
+  $scope.getBandEvents()
+
+  $scope.getBandData = function() {
+    service.getBandData().then(function(band){
+      $scope.bandData = band.data
+      console.log("Band data", band.data)
+    })
+  }
+  $scope.getBandData()
 })

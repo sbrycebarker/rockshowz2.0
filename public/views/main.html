@@ -1,0 +1,11 @@
+<h1>ROCKSHOW</h1>
+
+<input class="Band" ng>
+
+<h2>Band</h2>
+<h1>{{bandData.name}}</h1>
+<h2>Band Events</h2>
+<div ng-repeat="event in eventData">
+<p><h3>{{event.venue.city}} , {{event.venue.region}}</h3></p>
+<p>{{event.venue.name}}</p>
+</div>
