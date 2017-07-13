@@ -1,8 +1,19 @@
 <!DOCTYPE HTML>
-<html>
+<html ng-app="myApp">
 <head>
+  <title>Rockshow</title>
+<link rel="stylesheet" href="./styles/styles.css" media="screen" title="no title" charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
-<h1>ROCKSHOW</h1>
+<body ng-controller="mainCtrl">
+    <meta charset="utf-8">
+
+  <ui-view></ui-view>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+<script src="./js/app.js"></script>
+<script src="./js/mainCtrl.js"></script>
+<script src="./js/service.js"></script>
 </body>
 </html>
