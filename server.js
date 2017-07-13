@@ -58,7 +58,7 @@ const express = require('express'),
     })
     // 1234a password
     // app.get('/artists/incubus/events', bands.read)
-    
+
     //This section is for Spotify API
     http.createServer(function(req, res) {
          res.writeHead(200, {"Content-Type": "text/plain"});
