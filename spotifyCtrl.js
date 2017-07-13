@@ -1,4 +1,5 @@
-const MUSIC = require();
-module.exports = {
+angular.module('myApp').controller('spotifyCtrl', function($scope, spotifyServ){
 
-};
+   
+
+});
