@@ -11,7 +11,7 @@ let express = require('express'),
     var app = express();
 
     const client_id = "915c4e67aa804345b234fc3290ae7e91",
-          client_secret = SECRET;
+          client_secret = SECRET.secret;
 
     app.use(bodyParser.json())
     app.use(cors());
