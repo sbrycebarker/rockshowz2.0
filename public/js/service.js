@@ -14,5 +14,12 @@ angular.module('myApp').service('service', function($http, $stateParams) {
       url: 'https://rest.bandsintown.com/artists/' + data.text + '?app_id=rockshowz',
       controller: 'mainCtrl'
     })
+  },
+  this.getLocation = function() {
+    return $http({
+      method: 'POST',
+      url: 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAisRSShuY4yJB-8XCv9jYMyp4WLTmD9tQ',
+      controller: 'mainCtrl'
+    })
   }
 })

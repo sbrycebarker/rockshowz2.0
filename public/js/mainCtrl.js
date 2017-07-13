@@ -9,8 +9,15 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, $state
 
   $scope.getBandData = function(data) {
     service.getBandData(data).then(function(band){
+      console.log('band', band)
       $scope.bandData = band.data
       // console.log("Band data", band.data)
     })
+  },
+  $scope.getLocation = function() {
+    service.getLocation().then(function(location) {
+      $scope.location = location.data.location
+    })
   }
+    $scope.getLocation()
 })

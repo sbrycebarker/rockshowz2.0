@@ -1,0 +1,17 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+html, body, h1, h2, img, header, footer {
+  margin: 0
+}
+
+.bandimg {
+  height: auto;
+  width: auto;
+  float: right;
+}
+
+.events {
+}
