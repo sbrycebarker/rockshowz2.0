@@ -1,2 +1,2 @@
-select * from users
+select * from public.users
 where authid = $1;
