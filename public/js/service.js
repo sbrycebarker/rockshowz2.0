@@ -15,12 +15,12 @@ angular.module('myApp').service('service', function($http, $stateParams) {
       controller: 'mainCtrl'
     })
   },
-  this.getVenueData = function() {
-    return $http({
-      method: 'GET',
-      url: 
-    })
-  }
+  // this.getVenueData = function() {
+  //   return $http({
+  //     method: 'GET',
+  //     url: 
+  //   })
+  // }
   this.getLocation = function() {
     return $http({
       method: 'POST',
