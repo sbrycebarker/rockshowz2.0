@@ -1,4 +1,4 @@
-angular.module('myApp').service('service', function($http, $stateParams) {
+angular.module('myApp').service('service', function($http) {
 
   this.getBandEvents = function(events) {
     console.log("server", events.text)
@@ -15,12 +15,18 @@ angular.module('myApp').service('service', function($http, $stateParams) {
       controller: 'mainCtrl'
     })
   },
-  // this.getVenueData = function() {
-  //   return $http({
-  //     method: 'GET',
-  //     url:
-  //   })
-  // }
+  this.getVenueId = function(data) {
+    return $http({
+      method: 'GET',
+      url: 'http://api.jambase.com/venues?name=' + 'SAP Center' + '&page=0&api_key=53tkjbp2d36gw7bqguzvga9d',
+    })
+  }
+  this.getVenueData = function(venueId) {
+    return $http({
+      method: 'GET',
+      url: 'http://api.jambase.com/venues?venueId=' + 'venueId' + '+&page=0&api_key=62zdhmggqdhbbnsca78bvd6y',
+    })
+  }
   this.getLocation = function() {
     return $http({
       method: 'POST',

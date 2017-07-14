@@ -1,4 +1,4 @@
-angular.module('myApp', ['ui.router']).config(function($stateProvider, $urlRouterProvider, $stateParams) {
+angular.module('myApp', ['ui.router']).config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.when('', '/');
           $stateProvider
           .state('home', {
@@ -7,6 +7,6 @@ angular.module('myApp', ['ui.router']).config(function($stateProvider, $urlRoute
             controller: 'mainCtrl'
           })
           .state('user', {
-            url: '/' + $stateParams.userId
+            url: '/'
           })
 })
