@@ -1,4 +1,7 @@
-<h1>ROCKSHOW</h1> <h2>{{location}}</h2>
+<h1>ROCKSHOWZ</h1> 
+
+<h2>{{location}}</h2>
+
 <div class="container">
   <div class="row">
     <h1>Hello! {{user}}</h1>
@@ -10,24 +13,34 @@
       </div>
     </form> -->
   </div>
+
   <div class="row">
     <a href="/auth"><button class="button-primary">Login with Auth0</button></a>
   </div>
+
   <div class="row">
     <a href="/auth/logout"><button class="button-primary">Logout</button></a>
   </div>
 </div>
 
 <input class="Band"  type="text" name="text" ng-model="text" placeholder="Artist">
+
 <button class="submit" ng-click="getBandData( { text:text} ); getBandEvents( { text:text } ) ">Find</button>
+
 <h2>Band</h2>
+
 <h1>{{bandData.name}}</h1>
+
 <h1>{{bandData.upcoming_event_count}} Shows</h1>
+
 <img class="bandimg" src="{{bandData.image_url}}">
+
 <div class="events">
-<div ng-repeat="event in eventData">
-<p><h2>{{event.venue.city}} , {{event.venue.region}}</h2></p>
-<h3>{{event.venue.name}}</h3>
-<p>{{event.datetime}}</p>
-</div>
+
+  <div ng-repeat="event in eventData">
+    <p><h2>{{event.venue.city}} , {{event.venue.region}}</h2></p>
+    <h3>{{event.venue.name}}</h3>
+    <p>{{event.datetime}}</p>
+  </div>
+
 </div>
