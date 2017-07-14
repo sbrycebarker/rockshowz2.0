@@ -14,11 +14,11 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, $state
       // console.log("Band data", band.data)
     })
   },
-  $scope.getVenueData = function(){
-    service.getVenueData().then(function(venue) {
-      $scope.venueData = venue.data
-    })
-  }
+  // $scope.getVenueData = function(){
+  //   service.getVenueData().then(function(venue) {
+  //     $scope.venueData = venue.data
+  //   })
+  // }
   $scope.getLocation = function() {
     service.getLocation().then(function(location) {
       $scope.location = location.data.location
