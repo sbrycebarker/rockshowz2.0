@@ -5,9 +5,8 @@ const express = require('express'),
     http = require("http"),
     request = require('request'),
     query = require('querystring'),
-    auth0 = require('auth0-js'),
-    passport = require('passport'),
     Auth0Strategy = require('passport-auth0'),
+    passport = require('passport'),
     config = require('./config.js'),
     cors = require('cors');
     connectionString = "postgres://postgres:1234a@localhost/rockshow";
@@ -22,15 +21,24 @@ const express = require('express'),
     app.use(session({
       resave: true, //Without this you get a constant warning about default values
       saveUninitialized: true, //Without this you get a constant warning about default values
-      secret: 'keyboardcat'
+      secret: 'pizzaisgood'
     }))
     app.use(passport.initialize());
     app.use(passport.session());
 
     app.use(express.static('./public'))
 
-    massive(connectionString).then(function(db) {
+    massive(connectionString).then((db) => {
         app.set('db', db);
+
+        app.get('/users', function(req, res) {
+          const db = req.app.get('db');
+          console.log('running')
+          db.getallusers().then(data =>{
+            console.log('users', data)
+            res.status(200).json(data)
+          })
+        })
         passport.use(new Auth0Strategy({
            domain:       config.auth0.domain,
            clientID:     config.auth0.clientID,
@@ -38,24 +46,50 @@ const express = require('express'),
            callbackURL:  '/auth/callback'
           },
           function(accessToken, refreshToken, extraParams, profile, done) {
+            console.log(profile.id)
+            console.log(profile.displayName)
+            // console.log('db', db)
             //Find user in database
-            db.getUserByAuthId([profile.id], function(err, user) {
-              user = user[0];
-              if (!user) { //if there isn't one, we'll create one!
+            db.getUserByAuthId([profile.id]).then(function(user) {
+              console.log('gettinguser')
+              // if (!err) {
+                // user = user[0]
+
+              if (!user[0]) { //if there isn't one, we'll create one!
                 console.log('CREATING USER');
-                db.createUserByAuth([profile.displayName, profile.id], function(err, user) {
-                  console.log(err)
-                  console.log('USER CREATED', user);
-                  return done(err, user[0]); // GOES TO SERIALIZE USER
+                db.createUserByAuth([profile.displayName, profile.id]).then(function(user2) {
+                  // console.log("er2", err2)
+                  console.log('USER CREATED', user2);
+                  return done("user2", user2[0]); // GOES TO SERIALIZE USER
                 })
-              } else { //when we find the user, return it
-                console.log('FOUND USER', user);
-                return done(err, user);
+              } else {
+                
+                //when we find the user, return it
+                return done(user[0]);
               }
+            // } else {
+            //   console.log("err", err)
+            // }
             })
           }
         ));
+
     })
+
+      app.get('/auth', passport.authenticate('auth0'));
+
+      app.get('/auth/callback', passport.authenticate('auth0', {successRedirect: '/'}), function(req, res) {
+        console.log('runningcallback')
+        res.status(200).send(req.user);
+      })
+      app.get('/auth/me', function(req, res) {
+        if (!req.user) return res.sendStatus(404);
+        res.status(200).send(req.user);
+      })
+      app.get('/auth/logout', function(req, res) {
+        req.logout();
+        res.redirect('/');
+      })
     // 1234a password
     // app.get('/artists/incubus/events', bands.read)
 
@@ -67,21 +101,6 @@ const express = require('express'),
       }).listen(8888);
 
 
-
-    app.get('/auth', passport.authenticate('auth0'));
-
-    app.get('/auth/callback',
-  passport.authenticate('auth0', {successRedirect: '/'}), function(req, res) {
-    res.status(200).send(req.user);
-})
-  app.get('/auth/me', function(req, res) {
-    if (!req.user) return res.sendStatus(404);
-    res.status(200).send(req.user);
-  })
-  app.get('/auth/logout', function(req, res) {
-    req.logout();
-    res.redirect('/');
-  })
 
 
           var port = 3000

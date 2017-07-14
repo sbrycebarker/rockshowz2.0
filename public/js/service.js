@@ -18,13 +18,14 @@ angular.module('myApp').service('service', function($http) {
   this.getVenueId = function(data) {
     return $http({
       method: 'GET',
-      url: 'http://api.jambase.com/venues?name=' + 'SAP Center' + '&page=0&api_key=53tkjbp2d36gw7bqguzvga9d',
+      url: 'http://api.jambase.com/venues?name=' + 'SAP Center' + '&page=0&api_key=m852p45q4hjqk85q6ety49zq',
     })
   }
   this.getVenueData = function(venueId) {
+    console.log('venid', venueId)
     return $http({
       method: 'GET',
-      url: 'http://api.jambase.com/venues?venueId=' + 'venueId' + '+&page=0&api_key=62zdhmggqdhbbnsca78bvd6y',
+      url: 'http://api.jambase.com/events?artistId=2698&page=0&api_key=m852p45q4hjqk85q6ety49zq',
     })
   }
   this.getLocation = function() {
