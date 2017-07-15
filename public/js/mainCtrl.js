@@ -24,7 +24,7 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service) {
         }, 2100)
   })
   }
-    // $scope.getVenueData()
+    $scope.getVenueData('uccu center')
     // only call when necessary
     $scope.getVenueId = function(data){
       service.getVenueId().then(function(venId){
