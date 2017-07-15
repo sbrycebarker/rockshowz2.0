@@ -51,7 +51,7 @@ const express = require('express'),
             // console.log('db', db)
             //Find user in database
             db.getUserByAuthId([profile.id]).then(function(user) {
-              console.log('gettinguser')
+              console.log('gettinguser', user)
               // if (!err) {
                 // user = user[0]
 
@@ -63,9 +63,10 @@ const express = require('express'),
                   return done("user2", user2[0]); // GOES TO SERIALIZE USER
                 })
               } else {
-                
+                console.log("fixthis", user[0].username)
+                user = user[0].username
                 //when we find the user, return it
-                return done(user[0]);
+                return done(user);
               }
             // } else {
             //   console.log("err", err)
@@ -75,10 +76,26 @@ const express = require('express'),
         ));
 
     })
+      passport.serializeUser(function(userA, done) {
+      console.log('serializing', userA);
+      var userB = userA;
+      //Things you might do here :
+      //Serialize just the id, get other information to add to session,
+      done(null, userB); //PUTS 'USER' ON THE SESSION
+      });
+
+      //USER COMES FROM SESSION - THIS IS INVOKED FOR EVERY ENDPOINT
+      passport.deserializeUser(function(userB, done) {
+      var userC = userC;
+      //Things you might do here :
+      // Query the database with the user id, get other information to put on req.user
+      done(null, userB); //PUTS 'USER' ON REQ.USER
+      });
 
       app.get('/auth', passport.authenticate('auth0'));
 
-      app.get('/auth/callback', passport.authenticate('auth0', {successRedirect: '/'}), function(req, res) {
+      app.get('/auth/callback',
+      passport.authenticate('auth0', { successRedirect: '/', failureRedirect: '/'}), function(req, res) {
         console.log('runningcallback')
         res.status(200).send(req.user);
       })
@@ -99,9 +116,9 @@ const express = require('express'),
          res.write("Hello World");
          res.end();
       }).listen(8888);
-    
+
     let redirect_uri = "";
-    
+
     // @params {number}
     // @return {string}
     let generateRandomString = function(length){
@@ -115,7 +132,7 @@ const express = require('express'),
 
     var stateKey = 'spotify_auth_state';
 
-    
+
     app.get('/login', function(req, res) {
 
       var state = generateRandomString(16);
@@ -130,7 +147,7 @@ const express = require('express'),
         state: state
       }));
     });
-    
+
     app.get ('/callback', function(req, res){
 
       var code = req.query.code || null;
@@ -186,7 +203,7 @@ const express = require('express'),
           }));
       }
     });
-    
+
   });
 
 
