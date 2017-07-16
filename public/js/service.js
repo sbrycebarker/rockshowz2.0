@@ -29,10 +29,19 @@ angular.module('myApp').service('service', function($http) {
       url: 'http://api.jambase.com/events?artistId=' + venueId + '&page=0&api_key=m852p45q4hjqk85q6ety49zq',
     })
   }
-  this.getLocation = function() {
+  this.getCoOrd = function() {
     return $http({
       method: 'POST',
       url: 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAisRSShuY4yJB-8XCv9jYMyp4WLTmD9tQ',
+
+    })
+  }
+  this.getLocation = function(lat, lng) {
+    console.log(lat)
+    console.log(lng)
+    return $http({
+      method: 'GET',
+      url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&sensor=false',
       controller: 'mainCtrl'
     })
   }

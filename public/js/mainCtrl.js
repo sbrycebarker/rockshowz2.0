@@ -24,7 +24,7 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service) {
         }, 2100)
   })
   }
-    $scope.getVenueData('uccu center')
+    // $scope.getVenueData('uccu center')
     // only call when necessary
     $scope.getVenueId = function(data){
       service.getVenueId().then(function(venId){
@@ -32,10 +32,23 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service) {
       })
     }
 
-  $scope.getLocation = function() {
-    service.getLocation().then(function(location) {
-      $scope.location = location.data.location
+  $scope.getCoOrd = function() {
+    service.getCoOrd().then(function(latlng) {
+      $scope.coord = latlng.data.location
+      $scope.lat = latlng.data.location.lat
+      $scope.lng = latlng.data.location.lng
+      $scope.getLocation()
     })
   }
-    $scope.getLocation()
+  $scope.getCoOrd()
+
+    $scope.getLocation = function() {
+      var lat = $scope.lat
+      var lng = $scope.lng
+      service.getLocation(lat, lng).then(function(result) {
+        console.log(result.data.results[0].address_components[5].short_name)
+        var loc = result.data.results[0].address_components[5].short_name
+        $scope.location = loc
+      })
+    }
 })

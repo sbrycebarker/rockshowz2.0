@@ -31,36 +31,29 @@ const express = require('express'),
     massive(connectionString).then((db) => {
         app.set('db', db);
 
-        app.get('/users', function(req, res) {
-          const db = req.app.get('db');
-          console.log('running')
-          db.getallusers().then(data =>{
-            console.log('users', data)
-            res.status(200).json(data)
-          })
-        })
+        // app.get('/users', function(req, res) {
+        //   const db = req.app.get('db');
+        //   db.getallusers().then(data =>{
+        //     res.status(200).json(data)
+        //   })
+        // })
         passport.use(new Auth0Strategy({
            domain:       config.auth0.domain,
            clientID:     config.auth0.clientID,
            clientSecret: config.auth0.clientSecret,
-           callbackURL:  '/auth/callback'
+           callbackURL:  '/callback'
           },
           function(accessToken, refreshToken, extraParams, profile, done) {
-            console.log(profile.id)
-            console.log(profile.displayName)
-            // console.log('db', db)
-            //Find user in database
             db.getUserByAuthId([profile.id]).then(function(user) {
               console.log('gettinguser', user)
-              // if (!err) {
-                // user = user[0]
 
-              if (!user[0]) { //if there isn't one, we'll create one!
+              if (!user[0]) {
+                 //if there isn't one, we'll create one!
                 console.log('CREATING USER');
                 db.createUserByAuth([profile.displayName, profile.id]).then(function(user2) {
-                  // console.log("er2", err2)
-                  console.log('USER CREATED', user2);
-                  return done("user2", user2[0]); // GOES TO SERIALIZE USER
+                  console.log('USER CREATED', user2[0].username);
+                  return done("user2", user2[0].username);
+
                 })
               } else {
                 console.log("fixthis", user[0].username)
@@ -68,9 +61,6 @@ const express = require('express'),
                 //when we find the user, return it
                 return done(user);
               }
-            // } else {
-            //   console.log("err", err)
-            // }
             })
           }
         ));
@@ -94,11 +84,11 @@ const express = require('express'),
 
       app.get('/auth', passport.authenticate('auth0'));
 
-      app.get('/auth/callback',
-      passport.authenticate('auth0', { successRedirect: '/', failureRedirect: '/'}), function(req, res) {
-        console.log('runningcallback')
-        res.status(200).send(req.user);
-      })
+      app.get('/callback', passport.authenticate('auth0', { successRedirect: '/', failureRedirect: '/login' }),
+        function(req, res) {
+          console.log('redirecting')
+        }
+      );
       app.get('/auth/me', function(req, res) {
         if (!req.user) return res.sendStatus(404);
         res.status(200).send(req.user);
