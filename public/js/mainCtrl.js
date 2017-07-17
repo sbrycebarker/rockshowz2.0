@@ -36,22 +36,25 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service) {
     service.getCoOrd().then(function(latlng) {
       $scope.lat = latlng.data.location.lat
       $scope.lng = latlng.data.location.lng
-      $scope.getLocation()
+      $scope.getZip()
     })
   }
-  $scope.getCoOrd()
-
-    $scope.getLocation = function() {
+  // $scope.getCoOrd()
+    // only call when needed
+    $scope.getZip = function() {
       var lat = $scope.lat
       var lng = $scope.lng
-      service.getLocation(lat, lng).then(function(result) {
-        console.log(result.data.results[0].address_components[5].short_name)
-        var loc = result.data.results[0].address_components[5].short_name
+      service.getZip(lat, lng).then(function(result) {
+        console.log(result.data.results[0].address_components[7].short_name)
+        var loc = result.data.results[0].address_components[7].short_name
         $scope.location = loc
+            $scope.getLocal()
       })
     }
+
     $scope.getLocal = function() {
       var zip = $scope.location
+      console.log('zip', zip)
       service.getLocal(zip).then(function(local){
         console.log('byZIP', local.data.Events)
         $scope.local = local.data.Events

@@ -35,7 +35,7 @@ angular.module('myApp').service('service', function($http) {
       url: 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAisRSShuY4yJB-8XCv9jYMyp4WLTmD9tQ',
     })
   }
-  this.getLocation = function(lat, lng) {
+  this.getZip = function(lat, lng) {
     console.log(lat)
     console.log(lng)
     return $http({
