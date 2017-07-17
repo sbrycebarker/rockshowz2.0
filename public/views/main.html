@@ -1,5 +1,6 @@
-<h1>ROCKSHOWZ</h1> 
+<h1>ROCKSHOWZ</h1>
 
+<h2>{{coord}}</h2>
 <h2>{{location}}</h2>
 
 <div class="container">
@@ -26,6 +27,7 @@
 <input class="Band"  type="text" name="text" ng-model="text" placeholder="Artist">
 
 <button class="submit" ng-click="getBandData( { text:text} ); getBandEvents( { text:text } ) ">Find</button>
+<button class="location" ng-click="getLocal()">Local</button>
 
 <h2>Band</h2>
 
@@ -38,9 +40,16 @@
 <div class="events">
 
   <div ng-repeat="event in eventData">
-    <p><h2>{{event.venue.city}} , {{event.venue.region}}</h2></p>
+    <p><h2>{{event.venue.city}}, {{event.venue.region}}</h2></p>
     <h3>{{event.venue.name}}</h3>
     <p>{{event.datetime}}</p>
+  </div>
+
+  <div ng-repeat="show in local">
+    <h1>{{show.Artists[0].Name}}</h1>
+    <p><h2>{{show.Venue.City}}, {{show.Venue.State}}</h2></p>
+    <h3>{{show.Venue.Name}}</h3>
+    <p>{{show.Date}}</p>
   </div>
 
 </div>

@@ -33,5 +33,9 @@ html, body, h1, h2, img, header, footer {
   border-radius: 35px;
 }
 
+.location {
+  border-radius: 35px;
+}
+
 .events{
 }
