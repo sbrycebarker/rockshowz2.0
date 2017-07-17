@@ -34,7 +34,6 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service) {
 
   $scope.getCoOrd = function() {
     service.getCoOrd().then(function(latlng) {
-      $scope.coord = latlng.data.location
       $scope.lat = latlng.data.location.lat
       $scope.lng = latlng.data.location.lng
       $scope.getLocation()
@@ -49,6 +48,13 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service) {
         console.log(result.data.results[0].address_components[5].short_name)
         var loc = result.data.results[0].address_components[5].short_name
         $scope.location = loc
+      })
+    }
+    $scope.getLocal = function() {
+      var zip = $scope.location
+      service.getLocal(zip).then(function(local){
+        console.log('byZIP', local.data.Events)
+        $scope.local = local.data.Events
       })
     }
 })
