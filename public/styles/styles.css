@@ -15,6 +15,7 @@ html {
 html, body, h1, h2, img, header, footer {
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
+  color: white; 
 
 }
 
@@ -24,18 +25,36 @@ html, body, h1, h2, img, header, footer {
   width: auto;
   float: right;
 }
-.row a {
-  text-decoration: none;
+.row{
+  display: flex;
+  justify-content: center;
+  align-content: center
 }
 .button-primary{
-  border-radius: 35px;
+   border-radius: 35px;
    background-color: #4c9014; 
    color: black;
     
 }
-.title{
+#header{
+  display: flex;
+  margin-left: 33.33%;
+  margin-right: 33.333%;
+  padding-top: 33.5rem;
   justify-content: center;
-  align-content: center;
+  /* align-content: center; */
+  /* border: 5px solid yellow; */
+}
+.title{
+  font-size:7rem;
+  /* background-image: url(./img/metal_music_filled1600.png); */
+ 
+}
+#header h1 {
+  color: black;
+}
+#header img{
+  color: black;
 }
 #box1{
   height: 100vh;
@@ -58,16 +77,32 @@ html, body, h1, h2, img, header, footer {
   background-size: cover;
   
 }
-.Band{
-  border-radius: 35px;
-}
-.submit{
-  border-radius: 35px;
-}
+.artist-title{
+  display: flex;
+  justify-content: center;
+  align-content: center;
 
+}
+.container h1{
+  color: black;
+}
+.band{
+  border-radius: 35px;
+}
+.submit{ 
+  border-radius: 35px;
+  background-color: #4c9014; 
+}
 .location {
   border-radius: 35px;
+  background-color: #4c9014; 
 }
-
+.venues{
+  display: flex;
+  justify-content: center;
+  align-content: center;  
+  border-radius: 35px;
+}
 .events{
+  border-radius: 35px;
 }

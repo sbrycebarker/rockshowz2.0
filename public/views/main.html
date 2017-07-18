@@ -3,7 +3,11 @@
 
 
 <div id="box1">
-  <h1 class="title">ROCKSHOWZ</h1>
+  <div id="header">
+     <img src="./styles/img/metal_music_filled1600.png" width="100" height="100" alt="rockhandz"> 
+    <h1 class="title">ROCKSHOWZ</h1>
+  </div>
+  
 
   <h2>{{coord}}</h2>
   <h2>{{location}}</h2>
@@ -32,16 +36,19 @@
 </div>
 
 <div id="box2">
-  <input class="Band"  type="text" name="text" ng-model="text" placeholder="Artist">
+  <h1 class="artist-title">ARTISTS</h1>
+  <input class="band"  type="text" name="text" ng-model="text" placeholder="Artist">
+
   <button class="submit" ng-click="getBandData( { text:text} ); getBandEvents( { text:text } ) ">Find</button>
+  
   <button class="location" ng-click="getLocal()">Local</button>
   
 
   <h2>Band</h2>
 
-  <h1>{{bandData.name}}</h1>
+  <h2>{{bandData.name}}</h2>
 
-  <h1>{{bandData.upcoming_event_count}} Shows</h1>
+  <h3>{{bandData.upcoming_event_count}} Shows</h3>
 
   <img class="bandimg" src="{{bandData.image_url}}">
 
@@ -62,6 +69,9 @@
 </div>
 
 <div id="box3">
+  <h1 class="venues" >Venues</h1>
+  <input class="events"  type="text" name="Venues" ng-model="text" placeholder="Venues">
+  <button class="submit" ng-click="getBandData( { text:text} ); getBandEvents( { text:text } )">Find</button>
   
 </div>
 
