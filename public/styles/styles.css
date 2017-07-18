@@ -18,6 +18,12 @@ html, body, h1, h2, img, header, footer {
   color: white; 
 
 }
+header {
+  height: 75px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
 
 /* main.html page css */
 .bandimg {
@@ -25,10 +31,11 @@ html, body, h1, h2, img, header, footer {
   width: auto;
   float: right;
 }
+
 .row{
   display: flex;
   justify-content: center;
-  align-content: center
+  align-content: center;
 }
 .button-primary{
    border-radius: 35px;
@@ -42,14 +49,12 @@ html, body, h1, h2, img, header, footer {
   margin-right: 33.333%;
   padding-top: 33.5rem;
   justify-content: center;
-  /* align-content: center; */
-  /* border: 5px solid yellow; */
+  
 }
 .title{
-  font-size:7rem;
-  /* background-image: url(./img/metal_music_filled1600.png); */
- 
+  font-size:7rem; 
 }
+
 #header h1 {
   color: black;
 }
@@ -87,7 +92,13 @@ html, body, h1, h2, img, header, footer {
   color: black;
 }
 .band{
+
   border-radius: 35px;
+  color: white;
+}
+
+.shows {
+  color: white;
 }
 .submit{ 
   border-radius: 35px;
