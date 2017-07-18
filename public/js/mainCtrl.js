@@ -39,7 +39,7 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service) {
       $scope.getZip()
     })
   }
-  $scope.getCoOrd()
+  // $scope.getCoOrd()
     // only call when needed
     $scope.getZip = function() {
       var lat = $scope.lat

@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body ng-controller="mainCtrl">
-<header>
+<header id="header" class="header">
   <div class="row">
     <h1>Hello! {{user}}</h1>
     <!-- <form ng-submit="loginLocal(username, password)">
@@ -35,10 +35,13 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="./js/app.js"></script>
 <script src="./js/mainCtrl.js"></script>
 <script src='./js/spotifyCtrl.js'></script>
 <script src='./js/spotifyService.js'></script>
 <script src="./js/service.js"></script>
+<script src="./js/animations.js"></script>
 </body>
 </html>
