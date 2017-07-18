@@ -1,6 +1,11 @@
 *{
 
 }
+body {
+  margin: 0;
+  padding: 0;
+
+}
 
 html {
   height: 100%;
@@ -10,6 +15,7 @@ html {
 html, body, h1, h2, img, header, footer {
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
+  color: white; 
 
 }
 header {
@@ -26,22 +32,67 @@ header {
   float: right;
 }
 
-.row {
-  border: 1px solid black;
+.row{
   display: flex;
-  flex-direction: row;
-  margin: auto;
-}
-.row a {
-  text-decoration: none;
-  margin: 40px 50px
+  justify-content: center;
+  align-content: center;
 }
 .button-primary{
-  border-radius: 35px;
-  /* background-color: #4c9014;  */
+   border-radius: 35px;
+   background-color: #4c9014; 
+   color: black;
+    
+}
+#header{
+  display: flex;
+  margin-left: 33.33%;
+  margin-right: 33.333%;
+  padding-top: 33.5rem;
+  justify-content: center;
+  
+}
+.title{
+  font-size:7rem; 
 }
 
-.band {
+#header h1 {
+  color: black;
+}
+#header img{
+  color: black;
+}
+#box1{
+  height: 100vh;
+  width: 100%;
+  background-color: #e8e9ea;
+  background-size: cover;
+
+}
+#box2{
+  height: 100vh;
+  width: 100%;
+  background-image: url(./img/felix-russell-saw-128881.jpg);
+  background-size: cover;
+  
+}
+#box3{
+  height: 100vh;
+  width: 100%;
+  background-image: url(./img/bill-hamway-272424.jpg);
+  background-size: cover;
+  
+}
+.artist-title{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+}
+.container h1{
+  color: black;
+}
+.band{
+
   border-radius: 35px;
   color: white;
 }
@@ -49,65 +100,20 @@ header {
 .shows {
   color: white;
 }
-.submit{
+.submit{ 
   border-radius: 35px;
+  background-color: #4c9014; 
 }
-
 .location {
   border-radius: 35px;
+  background-color: #4c9014; 
 }
-
+.venues{
+  display: flex;
+  justify-content: center;
+  align-content: center;  
+  border-radius: 35px;
+}
 .events{
-}
-
-#one {
-  height: 1100px;
-  width: 100%;
-  border-bottom: 1px solid black;
-  background: url("./img/blueconcert.jpg");
-  background-size: cover;
-  display: table;
-  background-attachment: fixed;
-}
-
-#two {
-  height: 1100px;
-  width: 100%;
-  border-bottom: 1px solid black;
-  background: url("./img/greenconcert.jpg");
-  background-size: cover;
-  display: table;
-  background-attachment: fixed;
-  color: white;
-  text-align: center;
-}
-
-#three {
-  height: 1100px;
-  width: 100%;
-  border-bottom: 1px solid black;
-  background: url("./img/redconcert.jpg");
-  background-size: cover;
-  display: table;
-  background-attachment: fixed;
-}
-
-#four {
-  height: 1100px;
-  width: 100%;
-  border-bottom: 1px solid black;
-  background: url("./img/yellowconcert.jpg");
-  background-size: cover;
-  display: table;
-  background-attachment: fixed;
-}
-
-.search {
-  height: 100px;
-  width: 500px;
-  position: relative;
-  margin: auto;
-  top: 400px;
-  background: black;
-  opacity: .9
+  border-radius: 35px;
 }
