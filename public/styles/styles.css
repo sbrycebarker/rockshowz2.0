@@ -12,6 +12,12 @@ html, body, h1, h2, img, header, footer {
   font-family: 'Ubuntu', sans-serif;
 
 }
+header {
+  height: 75px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
 
 /* main.html page css */
 .bandimg {
@@ -19,15 +25,29 @@ html, body, h1, h2, img, header, footer {
   width: auto;
   float: right;
 }
+
+.row {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
 .row a {
   text-decoration: none;
+  margin: 40px 50px
 }
 .button-primary{
   border-radius: 35px;
   /* background-color: #4c9014;  */
 }
-.Band{
+
+.band {
   border-radius: 35px;
+  color: white;
+}
+
+.shows {
+  color: white;
 }
 .submit{
   border-radius: 35px;
@@ -38,4 +58,44 @@ html, body, h1, h2, img, header, footer {
 }
 
 .events{
+}
+
+#one {
+  height: 900px;
+  width: 100%;
+  border-bottom: 1px solid black;
+  background: url("./img/blueconcert.jpg");
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+}
+
+#two {
+  height: 900px;
+  width: 100%;
+  border-bottom: 1px solid black;
+  background: url("./img/greenconcert.jpg");
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+}
+
+#three {
+  height: 900px;
+  width: 100%;
+  border-bottom: 1px solid black;
+  background: url("./img/redconcert.jpg");
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+}
+
+#four {
+  height: 900px;
+  width: 100%;
+  border-bottom: 1px solid black;
+  background: url("./img/yellowconcert.jpg");
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
 }
