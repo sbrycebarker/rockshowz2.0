@@ -97,9 +97,11 @@ const express = require('express'),
         req.logout();
         res.redirect('/');
       })
+
+      let favebands = require('./server/favebands')
     // 1234a password
     // app.get('/artists/incubus/events', bands.read)
-
+    app.get('/favorites/bands', favebands.read)
     //This section is for Spotify API
     http.createServer(function(req, res) {
          res.writeHead(200, {"Content-Type": "text/plain"});
