@@ -1,6 +1,11 @@
 *{
 
 }
+body {
+  margin: 0;
+  padding: 0;
+
+}
 
 html {
   height: 100%;
@@ -24,7 +29,34 @@ html, body, h1, h2, img, header, footer {
 }
 .button-primary{
   border-radius: 35px;
-  /* background-color: #4c9014;  */
+   background-color: #4c9014; 
+   color: black;
+    
+}
+.title{
+  justify-content: center;
+  align-content: center;
+}
+#box1{
+  height: 100vh;
+  width: 100%;
+  background-color: #e8e9ea;
+  background-size: cover;
+
+}
+#box2{
+  height: 100vh;
+  width: 100%;
+  background-image: url(./img/felix-russell-saw-128881.jpg);
+  background-size: cover;
+  
+}
+#box3{
+  height: 100vh;
+  width: 100%;
+  background-image: url(./img/bill-hamway-272424.jpg);
+  background-size: cover;
+  
 }
 .Band{
   border-radius: 35px;
