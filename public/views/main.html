@@ -5,11 +5,6 @@
 <h2>{{location}}</h2>
 
 <div id="one" class="container">
-
-  <input class="Band"  type="text" name="text" ng-model="text" placeholder="Artist">
-
-  <button class="submit" ng-click="getBandData( { text:text} ); getBandEvents( { text:text } ) ">Find</button>
-  <button class="location" ng-click="getLocal()">Local</button>
   <div class="band">
     <h2>Band</h2>
   </div>
@@ -29,18 +24,24 @@
       <p>{{event.datetime}}</p>
     </div>
 
-    <div ng-repeat="show in local">
-      <h1>{{show.Artists[0].Name}}</h1>
-      <p><h2>{{show.Venue.City}}, {{show.Venue.State}}</h2></p>
-      <h3>{{show.Venue.Name}}</h3>
-      <p>{{show.Date}}</p>
-    </div>
-
-
   </div>
 </div>
-<div id="two" class="container"></div>
-<div id="three" class="container"></div>
+<div id="two" class="container">
+  <div ng-repeat="show in local | limitTo: 10">
+    <h1>{{show.Artists[0].Name}}</h1>
+    <p><h2>{{show.Venue.City}}, {{show.Venue.State}}</h2></p>
+    <h3>{{show.Venue.Name}}</h3>
+    <p>{{show.Date}}</p>
+  </div>
+</div>
+<div id="three" class="container">
+  <div class="search">
+    <input class="bandinput"  type="text" name="text" ng-model="text" placeholder="ARTIST">
+    <button class="getband" ng-click="getBandData( { text:text} ); getBandEvents( { text:text } )">Find</button>
+    <input class="venueinput"  type="text" name="text" ng-model="text" placeholder="VENUE">
+    <button class="getvenue" ng-click="getVenueData( {text:text} ); getBandEvents( { text: text} )">Find</button>
+  </div>
+</div>
 <div id="four" class="container"></div>
 </div>
 <body>

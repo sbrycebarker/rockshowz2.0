@@ -61,7 +61,7 @@ header {
 }
 
 #one {
-  height: 900px;
+  height: 1100px;
   width: 100%;
   border-bottom: 1px solid black;
   background: url("./img/blueconcert.jpg");
@@ -71,17 +71,19 @@ header {
 }
 
 #two {
-  height: 900px;
+  height: 1100px;
   width: 100%;
   border-bottom: 1px solid black;
   background: url("./img/greenconcert.jpg");
   background-size: cover;
   display: table;
   background-attachment: fixed;
+  color: white;
+  text-align: center;
 }
 
 #three {
-  height: 900px;
+  height: 1100px;
   width: 100%;
   border-bottom: 1px solid black;
   background: url("./img/redconcert.jpg");
@@ -91,11 +93,21 @@ header {
 }
 
 #four {
-  height: 900px;
+  height: 1100px;
   width: 100%;
   border-bottom: 1px solid black;
   background: url("./img/yellowconcert.jpg");
   background-size: cover;
   display: table;
   background-attachment: fixed;
+}
+
+.search {
+  height: 100px;
+  width: 500px;
+  position: relative;
+  margin: auto;
+  top: 400px;
+  background: black;
+  opacity: .9
 }

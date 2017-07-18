@@ -39,14 +39,14 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service) {
       $scope.getZip()
     })
   }
-  // $scope.getCoOrd()
+  $scope.getCoOrd()
     // only call when needed
     $scope.getZip = function() {
       var lat = $scope.lat
       var lng = $scope.lng
       service.getZip(lat, lng).then(function(result) {
-        console.log(result.data.results[0].address_components[7].short_name)
-        var loc = result.data.results[0].address_components[7].short_name
+        console.log(result.data.results[0].address_components[6].short_name)
+        var loc = result.data.results[0].address_components[6].short_name
         $scope.location = loc
             $scope.getLocal()
       })
