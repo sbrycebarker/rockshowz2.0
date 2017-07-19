@@ -1,9 +1,9 @@
-<!-- <div class="venuepop">
+<div class="venuepop">
   <h1>MATCHES</h1>
-  <div class="matches" ng-repeat="match in venueId | startFrom: (currentPage - 1) * pageSize  | limitTo: pageSize | orderBy: 'Name'">
+  <div class="matches" ng-repeat="match in venueId | startFrom: (currentPage - 1) * pageSize  | limitTo: pageSize">
     <ul ng-click="getBandData( { venue:text} ); getBandEvents( { text:text } )">
       <ul>{{match.Name}} {{match.City}}, {{match.StateCode}}</ul>
     </ul>
-    <div class="pagenav"><ul class="pages" uib-pagination total-items="data.length" ng-model="currentPage" items-per-page="pageSize"></ul></div>
+    <div class="pagenav"><ul class="pages" uib-pagination total-items="match.length" ng-model="currentPage" items-per-page="pageSize"></ul></div>
   </div>
-</div> -->
+</div>

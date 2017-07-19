@@ -1,5 +1,5 @@
-angular.module('myApp', ['ui.router']).config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.when('/');
+angular.module('myApp', ['ui.router','ui.bootstrap']).config(function($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise('/');
           $stateProvider
           .state('home', {
             url: '/',
@@ -9,4 +9,8 @@ angular.module('myApp', ['ui.router']).config(function($stateProvider, $urlRoute
           .state('user', {
             url: '/user/:id' //+ $stateParams.userId
           })
-})
+}).filter('startFrom', function() {
+            return function(match, start) {
+              return match.slice(start);
+            }
+          })
