@@ -2,10 +2,10 @@
 
 <div id="box1">
   <div id="header">
-     <img src="./styles/img/metal_music_filled1600.png" width="100" height="100" alt="rockhandz"> 
+     <img src="./styles/img/metal_music_filled1600.png" width="100" height="100" alt="rockhandz">
     <h1 class="title">ROCKSHOWZ</h1>
-   </div> 
-   
+   </div>
+
 
 
   <h2>{{coord}}</h2>
@@ -28,33 +28,19 @@
       </form> -->
     </div>
 
-    
-  </div>  
+
+  </div>
 </div>
 
 <div id="box2">
-  <h1 class="artist-title">ARTISTS</h1>
-  <input class="band"  type="text" name="text" ng-model="text" placeholder="Artist">
+  <h1 class="artist-title">Local Shows</h1>
 
-  <button class="submit" ng-click="getBandData( { text:text} ); getBandEvents( { text:text } ) ">Find</button>
-  
   <button class="location" ng-click="getLocal()">Local</button>
-  
+
 
   <h2>Band</h2>
 
-  <h2>{{bandData.name}}</h2>
-
-  <h3>{{bandData.upcoming_event_count}} Shows</h3>
-
   <img class="bandimg" src="{{bandData.image_url}}">
-
-  <div class="events">
-    <div ng-repeat="event in eventData">
-      <p><h2>{{event.venue.city}}, {{event.venue.region}}</h2></p>
-      <h3>{{event.venue.name}}</h3>
-      <p>{{event.datetime}}</p>
-    </div>
 
     <div ng-repeat="show in local">
       <h1>{{show.Artists[0].Name}}</h1>
@@ -62,14 +48,34 @@
       <h3>{{show.Venue.Name}}</h3>
       <p>{{show.Date}}</p>
     </div>
-  </div>  
+  </div>
 </div>
 
 <div id="box3">
+  <h1 class="venues" >Artists</h1>
+  <input class="band"  type="text" name="text" ng-model="text" placeholder="Artist">
+  <button class="submit" ng-click="getBandData( { text:text} ); artistmatches = !artistmatches; getBandEvents( { text:text } ) ">Find</button>
+  <h2>Band</h2>
+
+  <img class="bandimg" src="{{bandData.image_url}}">
+  <h2>{{bandData.name}}</h2>
+
+  <h3>{{bandData.upcoming_event_count}} Shows</h3>
+  <bandpop ng-show="artistmatches"></bandpop>
+  <div class="events">
+    <div ng-repeat="event in bandEventData">
+      <p><h2>{{event.venue.city}}, {{event.venue.region}}</h2></p>
+      <h3>{{event.venue.name}}</h3>
+      <p>{{event.datetime}}</p>
+    </div>
+  </div>
+
+</div>
+
+<div id="box4">
   <h1 class="venues" >Venues</h1>
   <input class="events"  type="text" name="Venues" ng-model="text" placeholder="Venues">
   <button class="submit" ng-click="getBandData( { text:text} ); getBandEvents( { text:text } )">Find</button>
-  
+
 </div>
 </body>
-
