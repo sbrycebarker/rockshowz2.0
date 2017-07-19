@@ -2,10 +2,10 @@
 
 <div id="box1">
   <div id="header">
-     <img src="./styles/img/metal_music_filled1600.png" width="100" height="100" alt="rockhandz"> 
+     <img src="./styles/img/metal_music_filled1600.png" width="100" height="100" alt="rockhandz">
     <h1 class="title">ROCKSHOWZ</h1>
-   </div> 
-   
+   </div>
+
 
 
   <h2>{{coord}}</h2>
@@ -28,8 +28,8 @@
       </form> -->
     </div>
 
-    
-  </div>  
+
+  </div>
 </div>
 
 <div id="box2">
@@ -37,9 +37,9 @@
   <input class="band"  type="text" name="text" ng-model="text" placeholder="Artist">
 
   <button class="submit" ng-click="getBandData( { text:text} ); getBandEvents( { text:text } ) ">Find</button>
-  
+
   <button class="location" ng-click="getLocal()">Local</button>
-  
+
 
   <h2>Band</h2>
 
@@ -62,14 +62,20 @@
       <h3>{{show.Venue.Name}}</h3>
       <p>{{show.Date}}</p>
     </div>
-  </div>  
+  </div>
 </div>
 
 <div id="box3">
   <h1 class="venues" >Venues</h1>
   <input class="events"  type="text" name="Venues" ng-model="text" placeholder="Venues">
   <button class="submit" ng-click="getBandData( { text:text} ); getBandEvents( { text:text } )">Find</button>
-  
+
+</div>
+
+<div id="box4">
+  <h1 class="venues" >Venues</h1>
+  <input class="events"  type="text" name="Venues" ng-model="text" placeholder="Venues">
+  <button class="submit" ng-click="getVenueData( { text:text} );">Find</button>
+
 </div>
 </body>
-
