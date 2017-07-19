@@ -14,7 +14,8 @@ const express = require('express'),
     const app = express();
 
     const client_id = "915c4e67aa804345b234fc3290ae7e91",
-          client_secret = config.spotifySecret;
+          client_secret = config.spotifySecret
+          redirect_uri = "http://localhost:8888/callback";
 
     app.use(bodyParser.json())
     app.use(cors())
