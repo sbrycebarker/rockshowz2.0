@@ -2,7 +2,7 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service) {
 
   $scope.getBandEvents = function(events) {
     service.getBandEvents(events).then(function(result){
-      $scope.eventData = result.data
+      $scope.bandEventData = result.data
       console.log("band events", result.data)
     })
   }
@@ -60,4 +60,6 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service) {
         $scope.local = local.data.Events
       })
     }
+
+    $scope.artistmatches = false
 })
