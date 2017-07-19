@@ -33,7 +33,7 @@
 </div>
 
 <div id="box2">
-  <h1 class="artist-title">Local Shows</h1>
+  <h1 class="local">Local Shows</h1>
 
   <button class="location" ng-click="getLocal()">Local</button>
 
@@ -52,9 +52,9 @@
 </div>
 
 <div id="box3">
-  <h1 class="venues" >Artists</h1>
-  <input class="band"  type="text" name="text" ng-model="text" placeholder="Artist">
-  <button class="submit" ng-click="getBandData( { text:text} ); artistmatches = !artistmatches; getBandEvents( { text:text } ) ">Find</button>
+  <h1 class="artist-title" >Artists</h1>
+  <input class="band"  type="text" name="artinput" ng-model="art" placeholder="Artist">
+  <button class="submit" ng-click="getBandData( { text:art} ); artistmatches = !artistmatches; getBandEvents( { text:text } ) ">Find</button>
   <h2>Band</h2>
 
   <img class="bandimg" src="{{bandData.image_url}}">
@@ -74,8 +74,9 @@
 
 <div id="box4">
   <h1 class="venues" >Venues</h1>
-  <input class="events"  type="text" name="Venues" ng-model="text" placeholder="Venues">
-  <button class="submit" ng-click="getBandData( { text:text} ); getBandEvents( { text:text } )">Find</button>
+  <input class="events"  type="text" name="Venues" ng-model="venue" placeholder="Venues">
+  <button class="submit" ng-click="getVenueId( { text: venue} ); venuematches = !venuematches ">Find</button>
+  <venuepop ng-show="venuematches"></venuepop>
 
 </div>
 </body>

@@ -4,7 +4,7 @@
 body {
   margin: 0;
   padding: 0;
-
+  -webkit-font-smoothing: antialiased;
 }
 
 html {
@@ -76,7 +76,8 @@ header {
   background-size: cover;
   display: table;
   background-attachment: fixed;
-  color: white
+  color: white;
+  border-bottom: 2px solid black;
 }
 
 #box3{
@@ -86,7 +87,8 @@ header {
   background-size: cover;
   display: table;
   background-attachment: fixed;
-  color: white
+  color: white;
+  border-bottom: 2px solid black;
 }
 
 #box4{
@@ -96,7 +98,8 @@ header {
   background-size: cover;
   display: table;
   background-attachment: fixed;
-  color: white
+  color: white;
+  border-bottom: 2px solid black;
 }
 
 #box5{
@@ -109,6 +112,12 @@ header {
   color: white
 }
 
+.local {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: white
+}
 .artist-title{
   display: flex;
   justify-content: center;
@@ -153,10 +162,33 @@ header {
 }
 
 .bandpop {
-  height: 100px;
-  width: 200px;
-  background-color: black;
-  position: absolute;
+  height: 300px;
+  width: 600px;
+  background-color: #e8e9ea;
+  color: black;
+  position: relative;
+  border-radius: 25px;
+  border: 1px solid black;
   top: 100px;
   left: 300px;
+}
+
+.venuepop {
+  height: 300px;
+  width: 600px;
+  background-color: #e8e9ea;
+  color: black;
+  position: relative;
+  border-radius: 25px;
+  border: 1px solid black;
+  top: 100px;
+  left: 300px;
+}
+
+.matches {
+  height: 25px;
+  width: 300px;
+  margin: 15px auto;
+  background-color: #4c9014;
+  border: 1px solid black;
 }

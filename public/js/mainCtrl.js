@@ -4,10 +4,12 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service) {
     service.getBandEvents(events).then(function(result){
       $scope.bandEventData = result.data
       console.log("band events", result.data)
+
     })
   }
 
   $scope.getBandData = function(data) {
+    console.log("getband",data)
     service.getBandData(data).then(function(band){
       console.log('band', band)
       $scope.bandData = band.data
@@ -26,9 +28,10 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service) {
   }
     // $scope.getVenueData('uccu center')
     // only call when necessary
-    $scope.getVenueId = function(data){
-      service.getVenueId().then(function(venId){
-        $scope.venueId = venId.data
+    $scope.getVenueId = function(venuename){
+      service.getVenueId(venuename).then(function(venuedata){
+        console.log(venuedata.data.Venues)
+        $scope.venueId = venuedata.data.Venues
       })
     }
 
@@ -62,4 +65,7 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service) {
     }
 
     $scope.artistmatches = false
+    $scope.venuematches = false
+    $scope.pageSize = 5;
+    $scope.currentPage = 1;
 })
