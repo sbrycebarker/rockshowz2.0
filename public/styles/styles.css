@@ -24,6 +24,18 @@ header {
   flex-direction: row;
 }
 
+button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
 /* main.html page css */
 .bandimg {
   height: auto;
@@ -138,7 +150,8 @@ header {
 .submit{
   border-radius: 35px;
   background-color: #4c9014;
-  color: white
+  color: white;
+  margin-left: 25px
 }
 .location {
   border-radius: 35px;
@@ -157,7 +170,6 @@ header {
 }
 .events {
   height: auto;
-  width: 300px;
   border-radius: 35px;
   color: black;
   background-color: #e8e9ea
@@ -166,7 +178,7 @@ header {
 .eventsearch {
   height: 30px;
   width: 400px;
-  margin-top: 100px;  
+  margin-top: 100px;
   position: relative;
 }
 

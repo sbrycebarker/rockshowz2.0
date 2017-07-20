@@ -74,8 +74,8 @@
 
 <div id="box4">
   <div class="eventsearch">
-  <input class="events"  type="text" name="Venues" ng-model="venue" placeholder="Venues">
-  <button class="submit" ng-click="venuematches = !venuematches ">Find</button>
+  <input class="events"  type="text" name="Venues" ng-model="venue" placeholder="Venue">
+  <button class="submit" ng-click="getVenueId( { name : venue } ); venuematches = !venuematches ">Find</button>
   </div>
   <h1 class="venues" >Venues</h1>
   <venuepop ng-show="venuematches"></venuepop>

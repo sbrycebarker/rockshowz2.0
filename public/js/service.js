@@ -15,11 +15,11 @@ angular.module('myApp').service('service', function($http) {
       controller: 'mainCtrl'
     })
   },
-  this.getVenueId = function(venuename) {
-    console.log('venuename', venuename)
+  this.getVenueId = function(venue) {
+    console.log('venuename', venue)
     return $http({
       method: 'GET',
-      url: 'http://api.jambase.com/venues?name=' + 'the pit' + '&page=0&api_key=m852p45q4hjqk85q6ety49zq',
+      url: 'http://api.jambase.com/venues?name=' + venue.name + '&page=0&api_key=m852p45q4hjqk85q6ety49zq',
     })
   }
   this.getVenueData = function(data) {
