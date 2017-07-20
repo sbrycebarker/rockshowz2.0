@@ -10,7 +10,7 @@ angular.module('myApp', ['ui.router','ui.bootstrap']).config(function($stateProv
             url: '/user/:id' //+ $stateParams.userId
           })
 }).filter('startFrom', function() {
-            return function(venueId, start) {
-              return venueId.slice(start);
+            return function(data, start) {
+              return data.slice(start);
             }
           })

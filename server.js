@@ -84,7 +84,7 @@ const express = require('express'),
 
       app.get('/auth', passport.authenticate('auth0'));
 
-      app.get('/callback', passport.authenticate('auth0', { successRedirect: '/', failureRedirect: '/login' }),
+      app.get('/callback', passport.authenticate('auth0', { successRedirect: '/', failureRedirect: '/' }),
         function(req, res) {
           console.log('redirecting')
         }

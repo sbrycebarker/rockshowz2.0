@@ -145,20 +145,29 @@ header {
   background-color: #4c9014;
   color: white
 }
-.venues{
+.venues {
+  height: auto;
+  width: 200px;
   display: flex;
   margin: auto;
-  top: 100px;
+  margin-top: 100px;
   justify-content: center;
   border-radius: 35px;
   color: white
 }
-.events{
+.events {
   height: auto;
   width: 300px;
   border-radius: 35px;
   color: black;
   background-color: #e8e9ea
+}
+
+.eventsearch {
+  height: 30px;
+  width: 400px;
+  margin-top: 100px;  
+  position: relative;
 }
 
 .bandpop {
@@ -189,6 +198,7 @@ header {
   height: 25px;
   width: 300px;
   margin: 15px auto;
+  color: black;
   background-color: #4c9014;
   border: 1px solid black;
 }

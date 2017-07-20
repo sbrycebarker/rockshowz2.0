@@ -19,7 +19,7 @@ angular.module('myApp').service('service', function($http) {
     console.log('venuename', venuename)
     return $http({
       method: 'GET',
-      url: 'http://api.jambase.com/venues?name=' + 'oyster' + '&page=0&api_key=53tkjbp2d36gw7bqguzvga9d',
+      url: 'http://api.jambase.com/venues?name=' + 'the pit' + '&page=0&api_key=m852p45q4hjqk85q6ety49zq',
     })
   }
   this.getVenueData = function(data) {

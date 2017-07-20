@@ -31,7 +31,7 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service) {
     $scope.getVenueId = function(venuename){
       service.getVenueId(venuename).then(function(venuedata){
         console.log(venuedata.data.Venues)
-        $scope.venueId = venuedata.data.Venues
+        $scope.venues = venuedata.data.Venues
       })
     }
 
