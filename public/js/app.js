@@ -1,4 +1,4 @@
-angular.module('myApp', ['ui.router']).config(function($stateProvider, $urlRouterProvider) {
+angular.module('myApp', ['ui.router','ui.bootstrap']).config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
           $stateProvider
           .state('home', {
@@ -9,4 +9,12 @@ angular.module('myApp', ['ui.router']).config(function($stateProvider, $urlRoute
           .state('user', {
             url: '/user/:id' //+ $stateParams.userId
           })
-})
+}).filter('startFrom', function() {
+            return function(data, start) {
+              if (data == null) {
+                return "No Venue Entered"
+              } else {
+              return data.slice(start);
+            }
+            }
+          })

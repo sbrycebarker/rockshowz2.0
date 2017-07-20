@@ -4,7 +4,7 @@
 body {
   margin: 0;
   padding: 0;
-
+  -webkit-font-smoothing: antialiased;
 }
 
 html {
@@ -22,6 +22,18 @@ header {
   width: 100%;
   display: flex;
   flex-direction: row;
+}
+
+button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
 /* main.html page css */
@@ -76,7 +88,9 @@ header {
   background-size: cover;
   display: table;
   background-attachment: fixed;
-  color: white
+  color: white;
+  border-bottom: 2px solid black;
+  text-align: center;
 }
 
 #box3{
@@ -86,7 +100,8 @@ header {
   background-size: cover;
   display: table;
   background-attachment: fixed;
-  color: white
+  color: white;
+  border-bottom: 2px solid black;
 }
 
 #box4{
@@ -96,7 +111,8 @@ header {
   background-size: cover;
   display: table;
   background-attachment: fixed;
-  color: white
+  color: white;
+  border-bottom: 2px solid black;
 }
 
 #box5{
@@ -109,6 +125,12 @@ header {
   color: white
 }
 
+.local {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: white
+}
 .artist-title{
   display: flex;
   justify-content: center;
@@ -129,34 +151,67 @@ header {
 .submit{
   border-radius: 35px;
   background-color: #4c9014;
-  color: white
+  color: white;
+  margin-left: 25px
 }
 .location {
   border-radius: 35px;
   background-color: #4c9014;
   color: white
 }
-.venues{
+.venues {
+  height: auto;
+  width: 200px;
   display: flex;
   margin: auto;
-  top: 100px;
+  margin-top: 100px;
   justify-content: center;
   border-radius: 35px;
   color: white
 }
-.events{
+.events {
   height: auto;
-  width: 300px;
   border-radius: 35px;
   color: black;
   background-color: #e8e9ea
 }
 
+.eventsearch {
+  height: 30px;
+  width: 400px;
+  margin-top: 100px;
+  position: relative;
+}
+
 .bandpop {
-  height: 100px;
-  width: 200px;
-  background-color: black;
-  position: absolute;
+  height: 300px;
+  width: 600px;
+  background-color: #e8e9ea;
+  color: black;
+  position: relative;
+  border-radius: 25px;
+  border: 1px solid black;
   top: 100px;
   left: 300px;
+}
+
+.venuepop {
+  height: 300px;
+  width: 600px;
+  background-color: #e8e9ea;
+  color: black;
+  position: relative;
+  border-radius: 25px;
+  border: 1px solid black;
+  top: 100px;
+  left: 300px;
+}
+
+.matches {
+  height: 25px;
+  width: 300px;
+  margin: 15px auto;
+  color: black;
+  background-color: #4c9014;
+  border: 1px solid black;
 }
