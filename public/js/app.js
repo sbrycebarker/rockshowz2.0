@@ -11,6 +11,10 @@ angular.module('myApp', ['ui.router','ui.bootstrap']).config(function($stateProv
           })
 }).filter('startFrom', function() {
             return function(data, start) {
+              if (data == null) {
+                return "No Venue Entered"
+              } else {
               return data.slice(start);
+            }
             }
           })

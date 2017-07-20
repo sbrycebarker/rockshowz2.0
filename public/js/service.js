@@ -7,7 +7,7 @@ angular.module('myApp').service('service', function($http) {
       url: 'https://rest.bandsintown.com/artists/' + events.text +'/events?app_id=rockshowz',
       controller: 'mainCtrl'
     })
-  },
+  }
   this.getBandData = function(data) {
     return $http({
       method: 'GET',

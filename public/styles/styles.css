@@ -90,6 +90,7 @@ button {
   background-attachment: fixed;
   color: white;
   border-bottom: 2px solid black;
+  text-align: center;
 }
 
 #box3{
