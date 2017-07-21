@@ -17,6 +17,7 @@
     <h2>{{coord}}</h2>
     <h2>{{location}}</h2>
     <div class="row">
+
       <a href="/auth"><button class="button-primary">Login with Auth0</button></a>
     </div>
     <div class="containerOne">
@@ -41,12 +42,18 @@
           </div>
         </form> -->
       </div>
+
+      <h1>Hello! {{ user }}</h1>
+
+
+
     </div>
   </div>
 
+
   <div id="box2" name='box2'>
     <h1 class="artist-title">Local Shows</h1>
-
+    
     <button class="location" ng-click="getLocal()">Local</button>
 
     <h2>Band</h2>
@@ -60,6 +67,7 @@
         <p>{{show.Date}}</p>
       </div>
   </div>
+
   
 
   <div id="box3" name='box3'>
