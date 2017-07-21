@@ -1,12 +1,12 @@
 const express = require('express'),
-    bodyParser = require('body-parser'),
     session = require('express-session'),
+    bodyParser = require('body-parser'),
     massive = require('massive'),
     http = require("http"),
     request = require('request'),
     query = require('querystring'),
-    Auth0Strategy = require('passport-auth0'),
     passport = require('passport'),
+    Auth0Strategy = require('passport-auth0'),
     config = require('./config.js'),
     cors = require('cors');
     connectionString = "postgres://postgres:1234a@localhost/rockshow";
@@ -14,9 +14,6 @@ const express = require('express'),
     const app = express();
 
 // <<===========================SERVER SETUP======================>>
-
-    const client_id = "915c4e67aa804345b234fc3290ae7e91",
-          client_secret = config.spotifySecret;
 
     app.use(bodyParser.json())
     app.use(cors())
@@ -56,10 +53,9 @@ const express = require('express'),
 
                 })
               } else {
-                console.log("fixthis", user[0].username)
+                console.log("found User", user[0].username)
                 user = user[0].username
-                //when we find the user, return it
-                return done(user);
+                return done(null , user);
               }
             })
           }
@@ -69,30 +65,57 @@ const express = require('express'),
       passport.serializeUser(function(userA, done) {
       console.log('serializing', userA);
       var userB = userA;
-      //Things you might do here :
-      //Serialize just the id, get other information to add to session,
       done(null, userB); //PUTS 'USER' ON THE SESSION
       });
 
       //USER COMES FROM SESSION - THIS IS INVOKED FOR EVERY ENDPOINT
       passport.deserializeUser(function(userB, done) {
-      var userC = userC;
+      var userC = userB;
       //Things you might do here :
       // Query the database with the user id, get other information to put on req.user
-      done(null, userB); //PUTS 'USER' ON REQ.USER
+      done(null, userC); //PUTS 'USER' ON REQ.USER
       });
 
       app.get('/auth', passport.authenticate('auth0'));
 
-      app.get('/callback', passport.authenticate('auth0', { successRedirect: '/', failureRedirect: '/' }),
+      app.get('/callback',
+        passport.authenticate('auth0', { failureRedirect: '/login' }),
         function(req, res) {
-          console.log('redirecting')
+          if (!req.user) {
+            throw new Error('user null');
+          }
+          res.redirect("/");
         }
       );
+      app.get('/login',
+        passport.authenticate('auth0', {connection: 'google-oauth2'}), function (req, res) {
+        res.redirect("/");
+      });
+      // app.get('/auth/callback', function(req, res, next) {
+      //   console.log("callback");
+      //    next();
+      //  },
+      // //  passport.authenticate('auth0', { successRedirect: '/' }),
+      // //   function(req, res) {
+      // //     console.log('redirecting')
+      // //   }
+      // passport.authenticate('auth0', { failureRedirect: '/' }),
+      //     function(req, res) {
+      //       console.log('redirecting')
+      //       if (!req.user) {
+      //         console.log("err")
+      //         throw new Error('user null');
+      //       }
+      //       console.log("redirect2")
+      //       res.redirect("/");
+      // });
+
       app.get('/auth/me', function(req, res) {
         if (!req.user) return res.sendStatus(404);
+        console.log("me", req.user)
         res.status(200).send(req.user);
       })
+
       app.get('/auth/logout', function(req, res) {
         req.logout();
         res.redirect('/');
@@ -112,104 +135,6 @@ const express = require('express'),
     app.delete('/favorites/:userId/:venueId', favevenues.delete)
 
 // <<==================END OF FAVORITES==========================>>
-    //This section is for Spotify API
-    http.createServer(function(req, res) {
-         res.writeHead(200, {"Content-Type": "text/plain"});
-         res.write("Hello World");
-         res.end();
-      }).listen(8888);
-
-    let redirect_uri = "";
-
-    // @params {number}
-    // @return {string}
-    let generateRandomString = function(length){
-      var text = "";
-      var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-      for (var i = 0; i < length; i++) {
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-      }
-      return text;
-    };
-
-    var stateKey = 'spotify_auth_state';
-
-
-    app.get('/login', function(req, res) {
-
-      var state = generateRandomString(16);
-      res.cookie(stateKey, state);
-
-      var scope = "user-read-private user-read-email";
-      res.redirect('http://acounts.spotify.com/authorize?' + querystring.stringify({
-        response_type: 'code',
-        client_id: client_id,
-        scope: scope,
-        redirect_uri: redirect_uri,
-        state: state
-      }));
-    });
-
-    app.get ('/callback', function(req, res){
-
-      var code = req.query.code || null;
-      var state = req.query.state || null;
-      var storedState = req.cookies ? req.cookies[stateKey] : null;
-
-      if(state === null || state !== storedState) {
-        res.redirect('/#' + querystring.stringify({
-          error: "state_mismatch"
-        }));
-      } else {
-        res.clearCookie(stateKey);
-        var authOptions = {
-          url: 'https://accounts.spotify.com/api/token',
-          form: {
-            code: code,
-            redirect_uri: redirect_uri,
-            grant_type: 'authorization_code'
-          },
-          headers: {
-            "Authorization" :"Basic " + (new Buffer(client_id + ':' + client_secret).toString('base64'))
-          },
-          json: true
-        }
-      };
-      request.post(authOptions, function(error, response, body) {
-      if (!error && response.statusCode === 200) {
-
-        var access_token = body.access_token,
-            refresh_token = body.refresh_token;
-
-        var options = {
-          url: 'https://api.spotify.com/v1/me',
-          headers: { 'Authorization': 'Bearer ' + access_token },
-          json: true
-        };
-
-        // use the access token to access the Spotify Web API
-        request.get(options, function(error, response, body) {
-          console.log(body);
-        });
-
-        // we can also pass the token to the browser to make requests from there
-        res.redirect('/#' +
-          querystring.stringify({
-            access_token: access_token,
-            refresh_token: refresh_token
-          }));
-      } else {
-        res.redirect('/#' +
-          querystring.stringify({
-            error: 'invalid_token'
-          }));
-      }
-    });
-
-  });
-
-
-
 
           var port = 3000
       app.listen(port, function() {

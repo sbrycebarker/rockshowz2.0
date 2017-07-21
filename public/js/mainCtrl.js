@@ -1,4 +1,4 @@
-angular.module('myApp').controller('mainCtrl', function ($scope, service) {
+angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0Service) {
 
   $scope.getBandEvents = function(events) {
     service.getBandEvents(events).then(function(result){
@@ -62,6 +62,14 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service) {
         $scope.local = local.data.Events
       })
     }
+    function getUser() {
+      auth0Service.getUser().then(function(user) {
+        if (user) $scope.user = user;
+        else   $scope.user = 'LOG IN!';
+      })
+    }
+
+    getUser();
 
     $scope.artistmatches = false
     $scope.venuematches = false
