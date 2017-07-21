@@ -1,6 +1,6 @@
 
   <div id="myNavbar" class="navbar">
-    <ul class="">
+    <ul class="navItems">
       <li><a href="#box1"><img src="./styles/img/metal_music_filled1600.png" width="45" height="45"></a></li>
       <li><a href="#box2">Local</a></li>
       <li><a href="#box3">Artist</a></li>
@@ -22,23 +22,12 @@
       <div id="login">
       </div>
       <div id="loggedin">
-        <!-- <div id="user-profile">
-        </div>
-        <div id="oauth">
-        </div>
-        <button class="btn btn-default" id='obtain-new-token'>  </button> -->
+
       </div>
     </div>
     <div class="container">
       <div class="row">
         <h1>Hello! {{user}}</h1>
-        <!-- <form ng-submit="loginLocal(username, password)">
-          <div class="six columns">
-            <input class="u-full-width" placeholder="username" ng-model="username"/>
-            <input class="u-full-width" placeholder="password" ng-model="password"/>
-            <input class="button-primary" type="submit" value="Login"/>
-          </div>
-        </form> -->
       </div>
 
 
@@ -65,10 +54,9 @@
       </div>
   </div>
 
-
-
   <div id="box3" name='box3'>
     <h1 class="artist-title" >Artists</h1>
+
     <input class="band"  type="text" name="text" ng-model="text" placeholder="Artist">
     <button class="submit" ng-click="getBandData( { text:text} ); artistmatches = !artistmatches; getBandEvents( { text:text } ) ">Find</button>
     <h2>Band</h2>
