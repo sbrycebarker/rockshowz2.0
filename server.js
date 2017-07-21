@@ -15,6 +15,7 @@ const express = require('express'),
 
 // <<===========================SERVER SETUP======================>>
 
+
     app.use(bodyParser.json())
     app.use(cors())
     app.use(session({
@@ -120,6 +121,12 @@ const express = require('express'),
         req.logout();
         res.redirect('/');
       })
+
+    // 1234a password
+    // app.get('/artists/incubus/events', bands.read)
+
+    
+
 // <<====================LOGIN ENDS================================>>
 
 // <<====================FAVORITES===============================>>
@@ -135,6 +142,7 @@ const express = require('express'),
     app.delete('/favorites/:userId/:venueId', favevenues.delete)
 
 // <<==================END OF FAVORITES==========================>>
+
 
           var port = 3000
       app.listen(port, function() {
