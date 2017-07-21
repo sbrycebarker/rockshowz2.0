@@ -20,7 +20,7 @@ $(document).ready(function(){
       }, 800, function(){
         console.log(hash)
         // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
+        window.location.hash;
       });
     }  // End if
   });

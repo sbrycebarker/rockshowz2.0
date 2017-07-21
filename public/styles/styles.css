@@ -2,7 +2,7 @@
 
 }
 body {
-  position: relative; 
+  position: relative;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -20,16 +20,16 @@ html, body, h1, h2, img, header, footer, a {
 }
 ul {
   list-style-type: none;
-  margin: 0; 
+  margin: 0;
   padding-left: 10px;
   max-width: 150px;
-  
+
 }
 li {
   padding-top: 1rem;
 }
 li a {
-    display: block;  
+    display: block;
     /* float: left;   */
 
 }
@@ -54,14 +54,14 @@ button {
 
 /* main.html page css */
 .navbar{
-  display: flex;
+  display: none;
   position: fixed;
   opacity: .9;
   background-color: #606061;
   /* flex-direction: ; */
 }
 .navbar-inverse{
-  
+
 }
 .text-overflow {
   overflow: hidden;
