@@ -29,7 +29,8 @@ li {
   padding-top: 1rem;
 }
 li a {
-    display: block;  
+    display: block; 
+    color: whitesmoke; 
     /* float: left;   */
 
 }
@@ -39,17 +40,32 @@ header {
   display: flex;
   flex-direction: row;
 }
+hr {
+  margin-top: 12px;
+  margin-bottom: 3px;
+  /* color: black; */
+}
 
 /* main.html page css */
+
+.icon{
+  padding-right: 10px;
+}
+.tag{
+  padding-right: 10px;
+  font-size: 22px;
+}
 .navbar{
   display: flex;
   position: fixed;
-  opacity: .8;
+  opacity: .6;
   background-color: #474747;
   /* flex-direction: ; */
 }
-.navbar-inverse{
-  
+#myNavbar{
+  height: 100vh;
+  padding-top: 28.75rem;
+  max-width: 150px;
 }
 .text-overflow {
   overflow: hidden;
@@ -81,18 +97,6 @@ header {
 }
 .title{
   font-size:7rem;
-}
-#myNavbar{
-  height: 100vh;
-  padding-top: 28.75rem;
-  max-width: 150px;
-}
-.icon{
-  padding-right: 10px;
-}
-.tag{
-  padding-right: 10px;
-  font-size: 22px;
 }
 #header h1 {
   color: black;
