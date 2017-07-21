@@ -1,6 +1,11 @@
 *{
 
 }
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
 
 html {
   height: 100%;
@@ -20,6 +25,18 @@ header {
   flex-direction: row;
 }
 
+button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
 /* main.html page css */
 .bandimg {
   height: auto;
@@ -27,88 +44,175 @@ header {
   float: right;
 }
 
-.row {
-  border: 1px solid black;
+.row{
   display: flex;
-  flex-direction: row;
-  margin: auto;
-}
-.row a {
-  text-decoration: none;
-  margin: 40px 50px
+  justify-content: center;
+  align-content: center;
 }
 .button-primary{
-  border-radius: 35px;
-  /* background-color: #4c9014;  */
+   border-radius: 35px;
+   background-color: #4c9014;
+   color: black;
+
+}
+#header{
+  display: flex;
+  margin-left: 33.33%;
+  margin-right: 33.333%;
+  padding-top: 33.5rem;
+  justify-content: center;
+
+}
+.title{
+  font-size:7rem;
 }
 
-.band {
-  border-radius: 35px;
-  color: white;
+#header h1 {
+  color: black;
 }
-
-.shows {
-  color: white;
+#header img{
+  color: black;
 }
-.submit{
-  border-radius: 35px;
-}
-
-.location {
-  border-radius: 35px;
-}
-
-.events{
-}
-
-#one {
-  height: 1100px;
+#box1{
+  height: 100vh;
   width: 100%;
-  border-bottom: 1px solid black;
-  background: url("./img/blueconcert.jpg");
+  background-color: #e8e9ea;
   background-size: cover;
   display: table;
   background-attachment: fixed;
 }
 
-#two {
-  height: 1100px;
+#box2{
+  height: 100vh;
   width: 100%;
-  border-bottom: 1px solid black;
-  background: url("./img/greenconcert.jpg");
+  background-image: url(./img/blueconcert.jpg);
   background-size: cover;
   display: table;
   background-attachment: fixed;
   color: white;
+  border-bottom: 2px solid black;
   text-align: center;
 }
 
-#three {
-  height: 1100px;
+#box3{
+  height: 100vh;
   width: 100%;
-  border-bottom: 1px solid black;
-  background: url("./img/redconcert.jpg");
+  background-image: url(./img/redconcert.jpg);
   background-size: cover;
   display: table;
   background-attachment: fixed;
+  color: white;
+  border-bottom: 2px solid black;
 }
 
-#four {
-  height: 1100px;
+#box4{
+  height: 100vh;
   width: 100%;
-  border-bottom: 1px solid black;
-  background: url("./img/yellowconcert.jpg");
+  background-image: url(./img/greenconcert.jpg);
   background-size: cover;
   display: table;
   background-attachment: fixed;
+  color: white;
+  border-bottom: 2px solid black;
 }
 
-.search {
-  height: 100px;
-  width: 500px;
-  position: relative;
+#box5{
+  height: 100vh;
+  width: 100%;
+  background-image: url(./img/yellowconcert.jpg);
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+  color: white
+}
+
+.local {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: white
+}
+.artist-title{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: white
+}
+.container h1{
+  color: black;
+}
+.band{
+  border-radius: 35px;
+  color: black;
+}
+
+.shows {
+  color: black;
+}
+.submit{
+  border-radius: 35px;
+  background-color: #4c9014;
+  color: white;
+  margin-left: 25px
+}
+.location {
+  border-radius: 35px;
+  background-color: #4c9014;
+  color: white
+}
+.venues {
+  height: auto;
+  width: 200px;
+  display: flex;
   margin: auto;
-  top: 400px;
-  background: black;
-  opacity: .9
+  margin-top: 100px;
+  justify-content: center;
+  border-radius: 35px;
+  color: white
+}
+.events {
+  height: auto;
+  border-radius: 35px;
+  color: black;
+  background-color: #e8e9ea
+}
+
+.eventsearch {
+  height: 30px;
+  width: 400px;
+  margin-top: 100px;
+  position: relative;
+}
+
+.bandpop {
+  height: 300px;
+  width: 600px;
+  background-color: #e8e9ea;
+  color: black;
+  position: relative;
+  border-radius: 25px;
+  border: 1px solid black;
+  top: 100px;
+  left: 300px;
+}
+
+.venuepop {
+  height: 300px;
+  width: 600px;
+  background-color: #e8e9ea;
+  color: black;
+  position: relative;
+  border-radius: 25px;
+  border: 1px solid black;
+  top: 100px;
+  left: 300px;
+}
+
+.matches {
+  height: 25px;
+  width: 300px;
+  margin: 15px auto;
+  color: black;
+  background-color: #4c9014;
+  border: 1px solid black;
 }

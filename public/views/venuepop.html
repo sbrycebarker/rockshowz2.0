@@ -1,0 +1,9 @@
+<div class="venuepop">
+  <h1>MATCHES</h1>
+  <div class="matches" ng-repeat="venue in venues | startFrom: (currentPage - 1) * pageSize  | limitTo: pageSize">
+    <ul ng-click="getVenueData( { venue:text} );">
+      <ul>{{venue.Name}} {{venue.City}}, {{venue.StateCode}}</ul>
+    </ul>
+  </div>
+<div class="pagenav"><ul class="pages" uib-pagination total-items="venues.length" ng-model="currentPage" items-per-page="pageSize"></ul></div>
+</div>

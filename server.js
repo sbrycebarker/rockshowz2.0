@@ -10,8 +10,10 @@ const express = require('express'),
     config = require('./config.js'),
     cors = require('cors');
     connectionString = "postgres://postgres:1234a@localhost/rockshow";
-
+    // 1234a password
     const app = express();
+
+// <<===========================SERVER SETUP======================>>
 
     const client_id = "915c4e67aa804345b234fc3290ae7e91",
           client_secret = config.spotifySecret;
@@ -31,12 +33,10 @@ const express = require('express'),
     massive(connectionString).then((db) => {
         app.set('db', db);
 
-        // app.get('/users', function(req, res) {
-        //   const db = req.app.get('db');
-        //   db.getallusers().then(data =>{
-        //     res.status(200).json(data)
-        //   })
-        // })
+// <<=================SERVER SETUP ENDS========================>>
+
+// <<========================LOGIN=================================>>
+
         passport.use(new Auth0Strategy({
            domain:       config.auth0.domain,
            clientID:     config.auth0.clientID,
@@ -84,7 +84,7 @@ const express = require('express'),
 
       app.get('/auth', passport.authenticate('auth0'));
 
-      app.get('/callback', passport.authenticate('auth0', { successRedirect: '/', failureRedirect: '/login' }),
+      app.get('/callback', passport.authenticate('auth0', { successRedirect: '/', failureRedirect: '/' }),
         function(req, res) {
           console.log('redirecting')
         }
@@ -97,9 +97,21 @@ const express = require('express'),
         req.logout();
         res.redirect('/');
       })
-    // 1234a password
-    // app.get('/artists/incubus/events', bands.read)
+// <<====================LOGIN ENDS================================>>
 
+// <<====================FAVORITES===============================>>
+      let favebands = require('./server/favebands')
+      let favevenues = require('./server/favevenues')
+
+
+    app.get('/favorites/bands/:userId', favebands.read)
+    app.get('/favorites/venues/:userId', favevenues.read)
+    app.post('/favorites/bands/', favebands.create)
+    app.post('/favorites/venues', favevenues.create)
+    app.delete('/favorites/:userId/:bandId', favebands.delete)
+    app.delete('/favorites/:userId/:venueId', favevenues.delete)
+
+// <<==================END OF FAVORITES==========================>>
     //This section is for Spotify API
     http.createServer(function(req, res) {
          res.writeHead(200, {"Content-Type": "text/plain"});
