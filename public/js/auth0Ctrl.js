@@ -9,7 +9,11 @@ angular.module('myApp')
     })
   }
 
+<<<<<<< HEAD
   getUser();
+=======
+  // getUser();
+>>>>>>> master
 
   // $scope.loginLocal = function(username, password) {
   //   console.log('Logging in with', username, password);
