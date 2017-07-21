@@ -1,14 +1,15 @@
 
-  <div class="navbar">
+  <div id="myNavbar" class="navbar">
     <ul class="">
-      <li><a href="#home"><img src="./styles/img/metal_music_filled1600.png" width="45" height="45"></a></li>
-      <li><a href="#local">Local</a></li>
-      <li><a href="#artist">Artist</a></li>
-      <li><a href="#venues">Venues</a></li>
+      <li><a href="#box1"><img src="./styles/img/metal_music_filled1600.png" width="45" height="45"></a></li>
+      <li><a href="#box2">Local</a></li>
+      <li><a href="#box3">Artist</a></li>
+      <li><a href="#box4">Venues</a></li>
+      <li><a href="#box5">Profiles</a></li>
     </ul>
   </div>
 
-  <div id="home" name='home'>
+  <div id="box1" name='box1'>
     <div id="header">
       <img src="./styles/img/metal_music_filled1600.png" width="100" height="100" alt="rockhandz">
       <h1 class="title">ROCKSHOWZ</h1>
@@ -43,7 +44,7 @@
     </div>
   </div>
 
-  <div id="local" name='local'>
+  <div id="box2" name='box2'>
     <h1 class="artist-title">Local Shows</h1>
 
     <button class="location" ng-click="getLocal()">Local</button>
@@ -61,8 +62,8 @@
   </div>
   
 
-  <div id="artist" name='artist'>
-    <h1 class="band" >Artists</h1>
+  <div id="box3" name='box3'>
+    <h1 class="artist-title" >Artists</h1>
     <input class="band"  type="text" name="text" ng-model="text" placeholder="Artist">
     <button class="submit" ng-click="getBandData( { text:text} ); artistmatches = !artistmatches; getBandEvents( { text:text } ) ">Find</button>
     <h2>Band</h2>
@@ -81,9 +82,13 @@
     </div>
   </div>
 
-  <div id="venues" name='venues'>
+  <div id="box4" name='box4'>
     <h1 class="venues" >Venues</h1>
     <input class="events"  type="text" name="Venues" ng-model="text" placeholder="Venues">
     <button class="submit" ng-click="getBandData( { text:text} ); getBandEvents( { text:text } )">Find</button>
+  </div>
+
+  <div id="box5">
+      <h1 class="artist-title">Profiles</h1>
   </div>
 
