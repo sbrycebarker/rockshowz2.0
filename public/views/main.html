@@ -1,32 +1,18 @@
-<body>
-  <nav>
-    <div>
-      <!-- <button type="button" class="" data-toggle="" data-target="">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button> -->
-      <a class="navbar-brand" href="#box1" <img src="./styles/img/metal_music_filled1600.png" width="50" height="50">ROCKSHOWZ</a>
-    </div>
-    <div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><a href="#box2">Local</a></li>
-          <li><a href="#box3">Artist</a></li>
-          <li><a href="#box4">Venues</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-  <div id="box1">
+  <div class="navbar">
+    <ul class="">
+      <li><a href="#home"><img src="./styles/img/metal_music_filled1600.png" width="45" height="45"></a></li>
+      <li><a href="#local">Local</a></li>
+      <li><a href="#artist">Artist</a></li>
+      <li><a href="#venues">Venues</a></li>
+    </ul>
+  </div>
+
+  <div id="home" name='home'>
     <div id="header">
       <img src="./styles/img/metal_music_filled1600.png" width="100" height="100" alt="rockhandz">
       <h1 class="title">ROCKSHOWZ</h1>
     </div>
-
-
-
     <h2>{{coord}}</h2>
     <h2>{{location}}</h2>
     <div class="row">
@@ -43,9 +29,6 @@
         <button class="btn btn-default" id='obtain-new-token'>  </button> -->
       </div>
     </div>
-
-
-
     <div class="container">
       <div class="row">
         <h1>Hello! {{user}}</h1>
@@ -60,11 +43,10 @@
     </div>
   </div>
 
-  <div id="box2">
+  <div id="local" name='local'>
     <h1 class="artist-title">Local Shows</h1>
 
     <button class="location" ng-click="getLocal()">Local</button>
-
 
     <h2>Band</h2>
 
@@ -76,11 +58,11 @@
         <h3>{{show.Venue.Name}}</h3>
         <p>{{show.Date}}</p>
       </div>
-    </div>
   </div>
+  
 
-  <div id="box3">
-    <h1 class="venues" >Artists</h1>
+  <div id="artist" name='artist'>
+    <h1 class="band" >Artists</h1>
     <input class="band"  type="text" name="text" ng-model="text" placeholder="Artist">
     <button class="submit" ng-click="getBandData( { text:text} ); artistmatches = !artistmatches; getBandEvents( { text:text } ) ">Find</button>
     <h2>Band</h2>
@@ -97,13 +79,11 @@
         <p>{{event.datetime}}</p>
       </div>
     </div>
-
   </div>
 
-  <div id="box4">
+  <div id="venues" name='venues'>
     <h1 class="venues" >Venues</h1>
     <input class="events"  type="text" name="Venues" ng-model="text" placeholder="Venues">
     <button class="submit" ng-click="getBandData( { text:text} ); getBandEvents( { text:text } )">Find</button>
-
   </div>
-</body>
+
