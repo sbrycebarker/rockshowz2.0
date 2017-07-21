@@ -22,7 +22,7 @@ ul {
   list-style-type: none;
   margin: 0; 
   padding-left: 10px;
-  max-width: 150px;
+  /* max-width: 150px; */
   
 }
 li {
@@ -44,8 +44,8 @@ header {
 .navbar{
   display: flex;
   position: fixed;
-  opacity: .9;
-  background-color: #606061;
+  opacity: .8;
+  background-color: #474747;
   /* flex-direction: ; */
 }
 .navbar-inverse{
@@ -82,6 +82,18 @@ header {
 .title{
   font-size:7rem;
 }
+#myNavbar{
+  height: 100vh;
+  padding-top: 28.75rem;
+  max-width: 150px;
+}
+.icon{
+  padding-right: 10px;
+}
+.tag{
+  padding-right: 10px;
+  font-size: 22px;
+}
 #header h1 {
   color: black;
 }
@@ -93,6 +105,9 @@ header {
   justify-content: center;
   align-content: center;
   color: white
+}
+.info{
+  margin-left: 500px;
 }
 .container h1{
   color: black;
@@ -109,15 +124,24 @@ header {
   background-color: #4c9014;
   color: white
 }
+.artist-search{
+  margin-left: 618px;
+}
+.venue-search{
+  margin-left: 80rem;
+}
 .location {
+  display: flex;
+  justify-content: center;
   border-radius: 35px;
   background-color: #4c9014;
-  color: white
+  margin-left: 680px;
+  color: white;
 }
 .venues{
   display: flex;
   margin: auto;
-  padding-top: 100px;
+  padding-top: 60px;
   justify-content: center;
   border-radius: 35px;
   color: white
