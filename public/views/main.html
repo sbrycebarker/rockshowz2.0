@@ -88,11 +88,14 @@
 
   <div id="box4" name='box4'>
     <h1 class="venues title" >Venues</h1>
-    <div class="venue-search">
-      <input class="events"  type="text" name="Venues" ng-model="text" placeholder="Venues">
-      <button class="submit" ng-click="getBandData( { text:text} ); getBandEvents( { text:text } )">Find</button>
-    </div>
-    
+    <div class="container">
+      <div class="row">
+        <div class="venue-search">
+          <input class="events"  type="text" name="Venues" ng-model="text" placeholder="Venues">
+          <button class="submit" ng-click="getBandData( { text:text} ); getBandEvents( { text:text } )">Find</button>
+        </div> 
+      </div>
+    </div>       
   </div>
 
   <div id="box5">
