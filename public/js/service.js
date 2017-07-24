@@ -7,7 +7,7 @@ angular.module('myApp').service('service', function($http) {
       url: 'https://rest.bandsintown.com/artists/' + events.text +'/events?app_id=rockshowz',
       controller: 'mainCtrl'
     })
-  },
+  }
   this.getBandData = function(data) {
     return $http({
       method: 'GET',
@@ -15,18 +15,18 @@ angular.module('myApp').service('service', function($http) {
       controller: 'mainCtrl'
     })
   },
-  this.getVenueId = function(data) {
-    console.log('name', data)
+  this.getVenueId = function(venue) {
+    console.log('venuename', venue)
     return $http({
       method: 'GET',
-      url: 'http://api.jambase.com/venues?name=' + 'SAP Center' + '&page=0&api_key=m852p45q4hjqk85q6ety49zq',
+      url: 'http://api.jambase.com/venues?name=' + venue.name + '&page=0&api_key=m852p45q4hjqk85q6ety49zq',
     })
   }
-  this.getVenueData = function(venueId) {
-    console.log('venid', venueId)
+  this.getVenueData = function(data) {
+    console.log('venid', data)
     return $http({
       method: 'GET',
-      url: 'http://api.jambase.com/events?artistId=' + venueId + '&page=0&api_key=m852p45q4hjqk85q6ety49zq',
+      url: 'http://api.jambase.com/events?artistId=' + data + '&page=0&api_key=m852p45q4hjqk85q6ety49zq',
     })
   }
   this.getCoOrd = function() {

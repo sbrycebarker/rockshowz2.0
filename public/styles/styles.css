@@ -2,9 +2,10 @@
 
 }
 body {
+  position: relative; 
   margin: 0;
   padding: 0;
-
+  -webkit-font-smoothing: antialiased;
 }
 
 html {
@@ -12,9 +13,24 @@ html {
   width: 100%;
 }
 
-html, body, h1, h2, img, header, footer {
+html, body, h1, h2, img, header, footer, a {
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
+
+}
+ul {
+  list-style-type: none;
+  margin: 0; 
+  padding-left: 10px;
+  max-width: 150px;
+  
+}
+li {
+  padding-top: 1rem;
+}
+li a {
+    display: block;  
+    /* float: left;   */
 
 }
 header {
@@ -24,13 +40,40 @@ header {
   flex-direction: row;
 }
 
+button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
 /* main.html page css */
+.navbar{
+  display: flex;
+  position: fixed;
+  opacity: .9;
+  background-color: #606061;
+  /* flex-direction: ; */
+}
+.navbar-inverse{
+  
+}
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 200px;
+}
 .bandimg {
   height: auto;
   width: auto;
   float: right;
 }
-
 .row{
   display: flex;
   justify-content: center;
@@ -40,7 +83,6 @@ header {
    border-radius: 35px;
    background-color: #4c9014;
    color: black;
-
 }
 #header{
   display: flex;
@@ -48,64 +90,20 @@ header {
   margin-right: 33.333%;
   padding-top: 33.5rem;
   justify-content: center;
-
 }
 .title{
   font-size:7rem;
 }
-
 #header h1 {
   color: black;
 }
 #header img{
   color: black;
 }
-#box1{
-  height: 100vh;
-  width: 100%;
-  background-color: #e8e9ea;
-  background-size: cover;
-  display: table;
-  background-attachment: fixed;
-}
-
-#box2{
-  height: 100vh;
-  width: 100%;
-  background-image: url(./img/blueconcert.jpg);
-  background-size: cover;
-  display: table;
-  background-attachment: fixed;
-  color: white
-}
-
-#box3{
-  height: 100vh;
-  width: 100%;
-  background-image: url(./img/redconcert.jpg);
-  background-size: cover;
-  display: table;
-  background-attachment: fixed;
-  color: white
-}
-
-#box4{
-  height: 100vh;
-  width: 100%;
-  background-image: url(./img/greenconcert.jpg);
-  background-size: cover;
-  display: table;
-  background-attachment: fixed;
-  color: white
-}
-
-#box5{
-  height: 100vh;
-  width: 100%;
-  background-image: url(./img/yellowconcert.jpg);
-  background-size: cover;
-  display: table;
-  background-attachment: fixed;
+.local {
+  display: flex;
+  justify-content: center;
+  align-content: center;
   color: white
 }
 
@@ -122,41 +120,122 @@ header {
   border-radius: 35px;
   color: black;
 }
-
 .shows {
   color: black;
 }
 .submit{
   border-radius: 35px;
   background-color: #4c9014;
-  color: white
+  color: white;
+  margin-left: 25px
 }
 .location {
   border-radius: 35px;
   background-color: #4c9014;
   color: white
 }
-.venues{
+.venues {
+  height: auto;
+  width: 200px;
   display: flex;
   margin: auto;
-  top: 100px;
+  padding-top: 100px;
   justify-content: center;
   border-radius: 35px;
   color: white
 }
-.events{
+.events {
   height: auto;
-  width: 300px;
   border-radius: 35px;
   color: black;
   background-color: #e8e9ea
 }
 
+.eventsearch {
+  height: 30px;
+  width: 400px;
+  margin-top: 100px;
+  position: relative;
+}
+
 .bandpop {
-  height: 100px;
-  width: 200px;
-  background-color: black;
-  position: absolute;
+  height: 300px;
+  width: 600px;
+  background-color: #e8e9ea;
+  color: black;
+  position: relative;
+  border-radius: 25px;
+  border: 1px solid black;
   top: 100px;
   left: 300px;
+}
+
+.venuepop {
+  height: 300px;
+  width: 600px;
+  background-color: #e8e9ea;
+  color: black;
+  position: relative;
+  border-radius: 25px;
+  border: 1px solid black;
+  top: 100px;
+  left: 300px;
+}
+
+#box1{
+  height: 100vh;
+  width: 100%;
+  background-color: #e8e9ea;
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+}
+#box2{
+  height: 100vh;
+  width: 100%;
+  background-image: url(./img/blueconcert.jpg);
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+  color: white
+}
+
+#box3{
+  height: 100vh;
+  width: 100%;
+  background-image: url(./img/greenconcert.jpg);
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+  color: white
+}
+
+#box4{
+  height: 100vh;
+  width: 100%;
+  background-image: url(./img/redconcert.jpg);
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+  color: white
+}
+
+#box5{
+  height: 100vh;
+  width: 100%;
+  background-image: url(./img/yellowconcert.jpg);
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+  color: white
+}
+
+
+.matches {
+  height: 25px;
+  width: 300px;
+  margin: 15px auto;
+  color: black;
+  background-color: #4c9014;
+  border: 1px solid black;
 }
