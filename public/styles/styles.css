@@ -23,8 +23,7 @@ ul {
   list-style-type: none;
   margin: 0;
   padding-left: 10px;
-  /* max-width: 150px; */
-
+/*   max-width: 150px;  */
 }
 li {
   padding-top: 1rem;
@@ -68,11 +67,18 @@ button {
   padding-right: 10px;
   font-size: 22px;
 }
-.navbar{
+/* .navbar{
+  display: none;
+  position: fixed
+  opacity: .9;
+  background-color: #606061;
+} */
+.navbar-inverse{
   opacity: .6;
   background-color: #474747;
   /* flex-direction: ; */
 }
+
 #myNavbar{
   position: fixed;
   display: none;
@@ -80,6 +86,7 @@ button {
   padding-top: 28.75rem;
   max-width: 150px;
   z-index:9999;
+
 }
 .text-overflow {
   overflow: hidden;
