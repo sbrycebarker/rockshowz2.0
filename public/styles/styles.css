@@ -2,7 +2,7 @@
 
 }
 body {
-  position: relative; 
+  position: relative;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -21,17 +21,17 @@ html, body, h1, h2, img, header, footer, a {
 }
 ul {
   list-style-type: none;
-  margin: 0; 
+  margin: 0;
   padding-left: 10px;
   /* max-width: 150px; */
-  
+
 }
 li {
   padding-top: 1rem;
 }
 li a {
-    display: block; 
-    color: #4c9014; 
+    display: block;
+    color: #4c9014;
     /* float: left;   */
 
 }
@@ -68,9 +68,9 @@ button {
   padding-right: 10px;
   font-size: 22px;
 }
-.navbar{  
+.navbar{
   opacity: .6;
-  background-color: #474747;  
+  background-color: #474747;
   /* flex-direction: ; */
 }
 #myNavbar{
@@ -125,6 +125,7 @@ button {
   color: white
 }
 
+
 .artist-title{
   display: flex;
   padding-top: 60px;
@@ -166,6 +167,14 @@ button {
   /* margin-left: 80rem; */
 }
 .location {
+
+}
+.venue-search{
+  /* margin-left: 80rem; */
+}
+.venues {
+  height: auto;
+  width: 200px;
   display: flex;
   justify-content: center;
   border-radius: 35px;
@@ -278,4 +287,3 @@ button {
   background-color: #4c9014;
   border: 1px solid black;
 } */
-
