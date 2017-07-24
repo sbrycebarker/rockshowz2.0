@@ -16,20 +16,21 @@ html {
 html, body, h1, h2, img, header, footer, a {
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
+  color: white;
 
 }
 ul {
   list-style-type: none;
   margin: 0;
   padding-left: 10px;
-  max-width: 150px;
-
+/*   max-width: 150px;  */
 }
 li {
   padding-top: 1rem;
 }
 li a {
     display: block;
+    color: #4c9014;
     /* float: left;   */
 
 }
@@ -38,6 +39,11 @@ header {
   width: 100%;
   display: flex;
   flex-direction: row;
+}
+hr {
+  margin-top: 12px;
+  margin-bottom: 3px;
+  /* color: black; */
 }
 
 button {
@@ -53,14 +59,33 @@ button {
 }
 
 /* main.html page css */
-.navbar{
+
+.icon{
+  padding-right: 10px;
+}
+.tag{
+  padding-right: 10px;
+  font-size: 22px;
+}
+/* .navbar{
   display: none;
-  position: fixed;
+  position: fixed
   opacity: .9;
   background-color: #606061;
+} */
+.navbar-inverse{
+  opacity: .6;
+  background-color: #474747;
   /* flex-direction: ; */
 }
-.navbar-inverse{
+
+#myNavbar{
+  position: fixed;
+  display: none;
+  height: 100vh;
+  padding-top: 28.75rem;
+  max-width: 150px;
+  z-index:9999;
 
 }
 .text-overflow {
@@ -107,11 +132,24 @@ button {
   color: white
 }
 
+
 .artist-title{
   display: flex;
+  padding-top: 60px;
   justify-content: center;
   align-content: center;
   color: white
+}
+.venues{
+  display: flex;
+  margin: auto;
+  padding-top: 60px;
+  justify-content: center;
+  border-radius: 35px;
+  color: white
+}
+.info{
+  /* margin-left: 500px; */
 }
 .container h1{
   color: black;
@@ -129,26 +167,29 @@ button {
   color: white;
   margin-left: 25px
 }
-.location {
-  border-radius: 35px;
-  background-color: #4c9014;
-  color: white
+.artist-search{
+  margin-left: 618px;
 }
+
+.venue-search{
+  /* margin-left: 80rem; */
+}
+
 .venues {
   height: auto;
   width: 200px;
   display: flex;
-  margin: auto;
-  padding-top: 100px;
   justify-content: center;
   border-radius: 35px;
-  color: white
+  background-color: #4c9014;
+  /* margin-left: 680px; */
+  color: white;
 }
 .events {
-  height: auto;
+  /* height: auto;
   border-radius: 35px;
   color: black;
-  background-color: #e8e9ea
+  background-color: #e8e9ea */
 }
 
 .eventsearch {
@@ -230,12 +271,22 @@ button {
   color: white
 }
 
+#box6{
+  height: 100vh;
+  width: 100%;
+  background-image: url(./img/rob-bye-141863.jpg);
+  /* background-color: #697987; */
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+}
 
-.matches {
+
+/* .matches {
   height: 25px;
   width: 300px;
   margin: 15px auto;
   color: black;
   background-color: #4c9014;
   border: 1px solid black;
-}
+} */

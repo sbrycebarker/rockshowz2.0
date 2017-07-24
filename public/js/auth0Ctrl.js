@@ -2,12 +2,12 @@ angular.module('myApp')
 .controller('auth0Ctrl', function($scope, auth0Service, $state) {
 
 
-  function getUser() {
-    userService.getUser().then(function(user) {
-      if (user) $scope.user = user.username;
-      else   $scope.user = 'NOT LOGGED IN';
-    })
-  }
+  // function getUser() {
+  //   userService.getUser().then(function(user) {
+  //     if (user) $scope.user = user.username;
+  //     else   $scope.user = 'NOT LOGGED IN';
+  //   })
+  // }
 
 <<<<<<< HEAD
   getUser();

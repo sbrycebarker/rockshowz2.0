@@ -125,7 +125,7 @@ const express = require('express'),
     // 1234a password
     // app.get('/artists/incubus/events', bands.read)
 
-    
+
 
 // <<====================LOGIN ENDS================================>>
 
