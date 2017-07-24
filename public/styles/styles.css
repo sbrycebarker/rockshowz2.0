@@ -162,16 +162,10 @@ button {
 .artist-search{
   margin-left: 618px;
 }
-<<<<<<< HEAD
 .venue-search{
   /* margin-left: 80rem; */
 }
 .location {
-=======
-.venues {
-  height: auto;
-  width: 200px;
->>>>>>> master
   display: flex;
   justify-content: center;
   border-radius: 35px;
