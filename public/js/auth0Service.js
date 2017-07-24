@@ -1,5 +1,4 @@
-angular.module('myApp')
-.service('auth0Service', function($http) {
+angular.module('myApp').service('auth0Service', function($http) {
   // this.loginLocal = function(credentials) {
   //   return $http({
   //     method: "POST",
@@ -20,11 +19,10 @@ angular.module('myApp')
       url: '/auth/me'
     })
     .then(function(res) {
-      console.log("getUser", res )
       return res.data;
     })
     .catch(function(err) {
-      console.log(err);
+      console.log("Log In")
     })
   }
 
