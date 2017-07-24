@@ -79,15 +79,15 @@ button {
   /* flex-direction: ; */
 }
 
-#myNavbar{
+#myNavbar {
   position: fixed;
   display: none;
   height: 100vh;
   padding-top: 28.75rem;
   max-width: 150px;
   z-index:9999;
-
 }
+
 .text-overflow {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -158,6 +158,10 @@ button {
   align-content: center;
   color: white
 }
+
+.artistinput {
+  
+}
 .venues {
   display: flex;
   margin: auto;
@@ -172,8 +176,8 @@ button {
 .container h1{
   color: black;
 }
-.band{
-  border-radius: 35px;
+.bandsearch{
+  border-radius: 15px;
   color: black;
 }
 .shows {
@@ -185,8 +189,8 @@ button {
   color: black;
   margin-left: 25px
 }
-.artist-search{
-  margin-left: 618px;
+.local-search{
+  margin: auto;
 }
 
 .venue-search{

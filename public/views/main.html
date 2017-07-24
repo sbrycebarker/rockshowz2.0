@@ -51,14 +51,14 @@
           <button class="location" ng-click="getLocal()">Local</button>
         </div>
       </div>
-    <div class="localcon">
-        <div class="local" ng-repeat="show in local">
-          <ul><h3>{{show.Artists[0].Name}}</h3></ul>
-          <ul>{{show.Venue.Name}}</ul>
-          <ul>{{show.Date}}</ul>
-          <ul><h3>{{show.Venue.City}}, {{show.Venue.State}}</h3></ul>
-        </div>
-    </div>
+  <div class="localcon">
+      <div class="local" ng-repeat="show in local">
+        <ul><h3>{{show.Artists[0].Name}}</h3></ul>
+        <ul>{{show.Venue.Name}}</ul>
+        <ul>{{show.Date}}</ul>
+        <ul><h3>{{show.Venue.City}}, {{show.Venue.State}}</h3></ul>
+      </div>
+  </div>
   </div>
 
 
@@ -67,7 +67,7 @@
     <h1 class="artist-title title" >Artists</h1>
     <div class="container">
       <div class="row">
-        <input class="band"  type="text" name="text" ng-model="text" placeholder="Artist">
+        <input class="artistinput"  type="text" name="text" ng-model="text" placeholder="Artist">
         <button class="submit" ng-click="getBandData( { text:text} ); artistmatches = !artistmatches; getBandEvents( { text:text } ) ">Find</button>
       </div>
     </div>
