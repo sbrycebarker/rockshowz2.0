@@ -160,7 +160,7 @@ button {
 }
 
 .artistinput {
-  
+
 }
 .venues {
   display: flex;
@@ -205,12 +205,6 @@ button {
   border-radius: 35px;
   /* margin-left: 680px; */
   color: white;
-}
-.events {
-  /* height: auto;
-  border-radius: 35px;
-  color: black;
-  background-color: #e8e9ea */
 }
 
 .eventsearch {

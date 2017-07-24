@@ -67,8 +67,10 @@
     <h1 class="artist-title title" >Artists</h1>
     <div class="container">
       <div class="row">
+        <div class="artistsearch">
         <input class="artistinput"  type="text" name="text" ng-model="text" placeholder="Artist">
         <button class="submit" ng-click="getBandData( { text:text} ); artistmatches = !artistmatches; getBandEvents( { text:text } ) ">Find</button>
+        </div>
       </div>
     </div>
     <div class="container">
