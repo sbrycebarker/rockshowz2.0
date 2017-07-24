@@ -87,8 +87,10 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
     }
     function getUser() {
       auth0Service.getUser().then(function(user) {
-        if (user) $scope.user = user;
-        else   $scope.user = 'LOG IN!';
+        if (user) { $scope.user = user;
+        } else {
+          $scope.user = 'LOG IN!';
+        }
       })
     }
 
