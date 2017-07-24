@@ -16,6 +16,7 @@ html {
 html, body, h1, h2, img, header, footer, a {
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
+  color: white;
 
 }
 ul {
@@ -55,11 +56,9 @@ hr {
   padding-right: 10px;
   font-size: 22px;
 }
-.navbar{
-  
+.navbar{  
   opacity: .6;
-  background-color: #474747;
-  
+  background-color: #474747;  
   /* flex-direction: ; */
 }
 #myNavbar{
