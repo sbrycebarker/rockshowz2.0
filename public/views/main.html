@@ -49,16 +49,15 @@
       <div class="container">
         <div class="row">
           <button class="location" ng-click="getLocal()">Local</button>
-          <h2 class="info">Band</h2>
         </div>
       </div>
-
-    <img class="bandimg" src="{{bandData.image_url}}">
-    <div ng-repeat="show in local">
-      <h1>{{show.Artists[0].Name}}</h1>
-      <p><h2>{{show.Venue.City}}, {{show.Venue.State}}</h2></p>
-      <h3>{{show.Venue.Name}}</h3>
-      <p>{{show.Date}}</p>
+    <div class="localcon">
+        <div class="local" ng-repeat="show in local">
+          <ul><h3>{{show.Artists[0].Name}}</h3></ul>
+          <ul>{{show.Venue.Name}}</ul>
+          <ul>{{show.Date}}</ul>
+          <ul><h3>{{show.Venue.City}}, {{show.Venue.State}}</h3></ul>
+        </div>
     </div>
   </div>
 
