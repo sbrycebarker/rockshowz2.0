@@ -1,6 +1,5 @@
 module.exports = {
   read: function(req, res, next) {
-    console.log("server", req.user.user_id)
     var db = req.app.get('db')
     db.getFavoritebands(req.user.user_id).then(faves => {
         res.status(200).json(faves)

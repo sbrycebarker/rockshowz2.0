@@ -88,18 +88,18 @@ $scope.getfaveBands = function(user) {
     }
   })
 }
-$scope.getfaveBands($scope.user)
 
-// $scope.getfaveVenues = function(user) {
-//   faveService.getfaveVenues(user).then(function(faves){
-//     if (faves) { $scope.favevenues = faves;
-//     } else {
-//       $scope.favevenues = 'LOG IN!';
-//     }
-//   })
-// }
-// $scope.getfaveVenues()
-//
+  user = $scope.user
+$scope.getfaveVenues = function(user) {
+  faveService.getfaveVenues(user).then(function(faves){
+    if (faves) { $scope.favevenues = faves;
+    } else {
+      $scope.favevenues = 'LOG IN!';
+    }
+  })
+}
+
+
 // $scope.addFaveBands = function(user) {
 //   faveService.addFaveBands(user).then(function(faves){
 //     $scope.faveBands = faves

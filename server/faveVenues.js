@@ -1,7 +1,8 @@
 module.exports = {
   read: function(req, res, next) {
     var db = req.app.get('db')
-    db.getFaveVenues(req.params.userId).then(faves => {
+    db.getFaveVenues(req.user.userId).then(faves => {
+      console.log("then", faves)
         res.status(200).json(faves)
     })
   },

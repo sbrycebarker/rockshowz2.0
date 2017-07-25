@@ -94,7 +94,6 @@ const express = require('express'),
 
       app.get('/auth/me', function(req, res) {
         if (!req.user) return res.sendStatus(404);
-        console.log("me", req.user)
         res.status(200).send(req.user);
       })
 
