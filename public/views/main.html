@@ -71,7 +71,7 @@
       <div class="row">
         <div class="artistsearch">
         <input class="artistinput"  type="text" name="text" ng-model="text" placeholder="Artist">
-        <button class="submit" ng-click="getBandData( { text:text} ); artistmatches = !artistmatches; getBandEvents( { text:text } ) ">Find</button>
+        <button class="submit" ng-click="getBandData( { text:text} ); artistmatches = !artistmatches;">Find</button>
         </div>
       </div>
     </div>
@@ -101,14 +101,26 @@
       <div class="row">
         <div class="venue-search">
           <input class="events"  type="text" name="Venues" ng-model="text" placeholder="Venues">
-          <button class="submit" ng-click="getBandData( { text:text} ); getBandEvents( { text:text } )">Find</button>
+          <button class="submit" ng-click="getVenueId( { text:text} ); venuematches = !venuematches">Find</button>
         </div>
+      </div>
+    </div>
+    <venuepop ng-show="venuematches"></venuepop>
+    <div class="events">
+      <div ng-repeat="venEvent in venueEvent">
+        <p><h2>{{venEvent.Artists[0].Name}}</h2></p>
+        <p><h2>{{venEvent.Date}}</h2></p>
+
       </div>
     </div>
   </div>
 
   <div id="box5">
-      <h1 class="artist-title title">Profiles</h1>
+      <h1 class="artist-title title">Profile</h1>
+      <div class="profileCon">
+        <h1>PLEASE LOG IN</h1>
+        <a href="/auth"><button class="button-primary">Login with Auth0</button></a>
+      </div>
   </div>
 
 

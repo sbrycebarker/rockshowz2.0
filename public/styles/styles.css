@@ -68,11 +68,13 @@ button {
   font-size: 22px;
 }
  .navbar{
-  display: none; 
-  position: fixed; 
-  opacity: .9;
+
+  display: none;
+  position: fixed;
+  opacity: .8;
   background-color: #606061;
-} 
+}
+
 .navbar-inverse{
   opacity: .6;
   background-color: #474747;
@@ -162,7 +164,7 @@ button {
 }
 
 .artistinput {
-
+  color: black;
 }
 .venues {
   display: flex;
@@ -195,7 +197,7 @@ button {
   margin: auto;
 }
 .venue-search{
-  /* margin-left: 80rem; */
+  color: black
 }
 .location {
 
@@ -211,7 +213,7 @@ button {
   justify-content: center;
   border-radius: 35px;
   background-color: #4c9014;
-   margin-left: 680px; 
+  margin-left: 680px; 
   color: white;
 } */
 .events {
@@ -238,6 +240,10 @@ button {
   border: 1px solid black;
   top: 100px;
   left: 300px;
+}
+
+.bandpop h1 {
+  color: black;
 }
 
 .venuepop {
@@ -298,6 +304,16 @@ button {
   display: table;
   background-attachment: fixed;
   color: white
+}
+
+.profileCon {
+  height: 75vh;
+  width: 75vw;
+  background-color: black;
+  opacity: .9;
+  margin: auto;
+  position: relative;
+  border-radius: 15px;
 }
 
 #box6{
