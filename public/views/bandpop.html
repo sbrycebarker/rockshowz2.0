@@ -1,7 +1,7 @@
 <div class="bandpop">
   <h1>MATCHES</h1>
   <div class="matches" ng-repeat="match in bandData">
-    <ul ng-click="getBandEvents({{match.name}})">{{match.name}}</ul>
+    <ul ng-click="getBandEvents({ text: match.name} )">{{match.name}}</ul>
     <ul>{{match.upcoming_event_count}}</ul>
   </div>
 </div>
