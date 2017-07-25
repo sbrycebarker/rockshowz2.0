@@ -78,7 +78,8 @@ button {
   background-color: #474747;
   /* flex-direction: ; */
 }
-#myNavbar{
+
+#myNavbar {
   position: fixed;
   display: none;
   height: 100vh;
@@ -86,6 +87,7 @@ button {
   max-width: 150px;
   z-index:9999;
 }
+
 .text-overflow {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -123,12 +125,32 @@ button {
 #header img{
   color: black;
 }
-.local {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  color: white
+
+.location {
+  background-color: #4c9014;
+  color: black;
+  border-radius: 35px;
 }
+
+.local {
+  height: auto;
+  width: 500px;
+  margin: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  color: black;
+  background-color: #e8e9ea;
+  opacity: .9;
+}
+
+.localcon {
+  width: 80vw;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .artist-title{
   display: flex;
   padding-top: 60px;
@@ -136,7 +158,11 @@ button {
   align-content: center;
   color: white
 }
- .venues{
+
+.artistinput {
+
+}
+.venues {
   display: flex;
   margin: auto;
   padding-top: 60px;
@@ -150,8 +176,8 @@ button {
 .container h1{
   color: black;
 }
-.band{
-  border-radius: 35px;
+.bandsearch{
+  border-radius: 15px;
   color: black;
 }
 .shows {
@@ -160,11 +186,11 @@ button {
 .submit{
   border-radius: 35px;
   background-color: #4c9014;
-  color: white;
+  color: black;
   margin-left: 25px
 }
-.artist-search{
-  margin-left: 618px;
+.local-search{
+  margin: auto;
 }
 .venue-search{
   /* margin-left: 80rem; */
@@ -282,12 +308,18 @@ button {
   background-attachment: fixed;
 }
 
-
-/* .matches {
+ .matches {
   height: 25px;
   width: 300px;
   margin: 15px auto;
   color: black;
   background-color: #4c9014;
   border: 1px solid black;
-} */
+  transition-property: background-color, color;
+}
+
+.matches:hover {
+  background-color: black;
+  color: white;
+  transition-duration: 1s;
+}

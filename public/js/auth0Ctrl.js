@@ -13,6 +13,7 @@ angular.module('myApp')
   // getUser();
 
 
+
   // $scope.loginLocal = function(username, password) {
   //   console.log('Logging in with', username, password);
   //   userService.loginLocal({
