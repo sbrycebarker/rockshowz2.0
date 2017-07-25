@@ -19,14 +19,14 @@ angular.module('myApp').service('service', function($http) {
     console.log('venuename', venue)
     return $http({
       method: 'GET',
-      url: 'http://api.jambase.com/venues?name=' + venue.name + '&page=0&api_key=m852p45q4hjqk85q6ety49zq',
+      url: 'http://api.jambase.com/venues?name=' + venue.text + '&page=0&api_key=53tkjbp2d36gw7bqguzvga9d',
     })
   }
   this.getVenueData = function(data) {
     console.log('venid', data)
     return $http({
       method: 'GET',
-      url: 'http://api.jambase.com/events?artistId=' + data + '&page=0&api_key=m852p45q4hjqk85q6ety49zq',
+      url: 'http://api.jambase.com/events?venueId=' + data + '&page=0&api_key=53tkjbp2d36gw7bqguzvga9d',
     })
   }
   this.getCoOrd = function() {
