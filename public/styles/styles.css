@@ -68,14 +68,16 @@ button {
   font-size: 22px;
 }
  .navbar{
-  display: none;
-  position: fixed;
+  display: none; 
+  position: fixed; 
   opacity: .9;
   background-color: #606061;
 } 
 .navbar-inverse{
   opacity: .6;
   background-color: #474747;
+  max-width: 150px;
+  border-radius: 35px;
   /* flex-direction: ; */
 }
 
