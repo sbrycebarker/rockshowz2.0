@@ -11,8 +11,8 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
   $scope.getBandData = function(data) {
     console.log("getband",data)
     service.getBandData(data).then(function(band){
-      console.log('band', band)
-      $scope.bandData = band.data
+      console.log('bandData', band.data)
+      $scope.bandData = band
       // console.log("Band data", band.data)
     })
   }
