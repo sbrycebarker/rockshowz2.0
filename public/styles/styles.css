@@ -174,15 +174,15 @@ button {
   color: white
 }
 .about {
-  margin-top: 75px;
-  padding-top: 15px;
+  margin-top: 55px;
+  padding-top: 10px;
 }
 .about span {
   color: #b10909;
 }
 .creator{
   margin-top: 25px;
-  padding-top: 15px;
+  padding-top: 10px;
 }
 .creator span{
   color: #b10909;
@@ -199,6 +199,11 @@ button {
   border-radius: 35px;
   color: white
 } 
+.fa {
+  color: #4c9014;
+  opacity: .7;
+
+}
 .info{
   /* margin-left: 500px; */
 }
