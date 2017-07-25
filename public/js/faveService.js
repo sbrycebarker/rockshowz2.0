@@ -2,7 +2,7 @@ angular.module('myApp').service('faveService', function($http) {
 
 
   this.getfaveBands = function(user) {
-    console.log("user", user)
+    // console.log("faveservice", user.user_id)
     return $http({
       method: 'GET',
       url: '/favorites/bands/' + user
