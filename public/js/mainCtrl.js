@@ -79,18 +79,24 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
 // <<=============================FAVORITE CALLS===================================>>
 
 $scope.getfaveBands = function(user) {
-  faveService.getfaveBands($scope.user).then(function(faves){
-    $scope.faveBands = faves
+  faveService.getfaveBands(user).then(function(faves){
+    if (faves) { $scope.favebands = faves;
+    } else {
+      $scope.favebands = 'LOG IN!';
+    }
   })
 }
-$scope.getfaveBands();
+$scope.getfaveBands()
 
 $scope.getfaveVenues = function(user) {
   faveService.getfaveVenues(user).then(function(faves){
-    $scope.faveVenues = faves
+    if (faves) { $scope.favevenues = faves;
+    } else {
+      $scope.favevenues = 'LOG IN!';
+    }
   })
 }
-$scope.getfaveVenues();
+$scope.getfaveVenues()
 
 $scope.addFaveBands = function(user) {
   faveService.addFaveBands(user).then(function(faves){

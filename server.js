@@ -54,7 +54,7 @@ const express = require('express'),
                 })
               } else {
                 console.log("found User", user[0].username)
-                user = user[0].username
+                user = user[0]
                 return done(null , user);
               }
             })
