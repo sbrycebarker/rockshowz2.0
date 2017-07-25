@@ -1,0 +1,125 @@
+
+
+   <div id="myNavbar" class="navbar">
+    <ul>
+      <div class="icon">
+        <li><a href="#box1"><img src="./styles/img/metal_music_filled1600.png" width="45" height="45"></a></li>
+      </div>
+      <div class="tag">
+        <li><a href="#box2">Local</a></li><hr>
+        <li><a href="#box3">Artist</a></li><hr>
+        <li><a href="#box4">Venues</a></li><hr>
+        <li><a href="#box5">Profiles</a></li><hr>
+        <li><a href="#box6">About</a></li>
+      </div>
+    </ul>
+  </div>
+
+  <div id="box1" name='box1'>
+    <div id="header">
+      <img src="./styles/img/metal_music_filled1600.png" width="100" height="100" alt="rockhandz">
+      <h1 class="title">ROCKSHOWZ</h1>
+    </div>
+    <div class="row">
+      <a href="/auth"><button class="button-primary">Login with Auth0</button></a>
+    </div>
+    <div class="containerOne">
+      <div id="login">
+      </div>
+      <div id="loggedin">
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <h1>Hello! {{user}}</h1>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="box2" name='box2'>
+
+    <h1 class="artist-title title">Local Shows</h1>
+      <div class="container">
+        <div class="row">
+          <button class="location" ng-click="getLocal()">Local</button>
+          <h2 class="info">Band</h2>
+        </div>
+      </div>
+
+    <img class="bandimg" src="{{bandData.image_url}}">
+    <div ng-repeat="show in local">
+      <h1>{{show.Artists[0].Name}}</h1>
+      <p><h2>{{show.Venue.City}}, {{show.Venue.State}}</h2></p>
+      <h3>{{show.Venue.Name}}</h3>
+      <p>{{show.Date}}</p>
+    </div>
+  </div>
+
+
+
+  <div id="box3" name='box3'>
+    <h1 class="artist-title title" >Artists</h1>
+    <div class="container">
+      <div class="row">
+        <input class="band"  type="text" name="text" ng-model="text" placeholder="Artist">
+        <button class="submit" ng-click="getBandData( { text:text} ); artistmatches = !artistmatches; getBandEvents( { text:text } ) ">Find</button>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="info">
+          <h2>Band</h2>
+          <img class="bandimg" src="{{bandData.image_url}}">
+          <h2>{{bandData.name}}</h2>
+          <h3>{{bandData.upcoming_event_count}} Shows</h3>
+        </div>
+      </div>
+    </div>
+    <bandpop ng-show="artistmatches"></bandpop>
+    <div class="events">
+      <div ng-repeat="event in bandEventData">
+        <p><h2>{{event.venue.city}}, {{event.venue.region}}</h2></p>
+        <h3>{{event.venue.name}}</h3>
+        <p>{{event.datetime}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="box4" name='box4'>
+    <h1 class="venues title" >Venues</h1>
+    <div class="container">
+      <div class="row">
+        <div class="venue-search">
+          <input class="events"  type="text" name="Venues" ng-model="text" placeholder="Venues">
+          <button class="submit" ng-click="getBandData( { text:text} ); getBandEvents( { text:text } )">Find</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="box5">
+      <h1 class="artist-title title">Profiles</h1>
+  </div>
+
+
+   <div id="box6">
+      <h1 class="artist-title title">About</h1>
+      <div class="container">
+        <div class="row">
+          <div>
+            <h2>About the Project</h2>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div>
+            <h2>About the Creators</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- >>>>>>> fba4466f2e39626d7d968ad1b309c2401c75b585 -->
