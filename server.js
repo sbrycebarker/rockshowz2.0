@@ -34,7 +34,6 @@ const express = require('express'),
 // <<=================SERVER SETUP ENDS========================>>
 
 // <<========================LOGIN=================================>>
-
         passport.use(new Auth0Strategy({
            domain:       config.auth0.domain,
            clientID:     config.auth0.clientID,
@@ -92,30 +91,14 @@ const express = require('express'),
         passport.authenticate('auth0', {connection: 'google-oauth2'}), function (req, res) {
         res.redirect("/");
       });
-      // app.get('/auth/callback', function(req, res, next) {
-      //   console.log("callback");
-      //    next();
-      //  },
-      // //  passport.authenticate('auth0', { successRedirect: '/' }),
-      // //   function(req, res) {
-      // //     console.log('redirecting')
-      // //   }
-      // passport.authenticate('auth0', { failureRedirect: '/' }),
-      //     function(req, res) {
-      //       console.log('redirecting')
-      //       if (!req.user) {
-      //         console.log("err")
-      //         throw new Error('user null');
-      //       }
-      //       console.log("redirect2")
-      //       res.redirect("/");
-      // });
 
       app.get('/auth/me', function(req, res) {
         if (!req.user) return res.sendStatus(404);
         console.log("me", req.user)
         res.status(200).send(req.user);
       })
+
+
 
       app.get('/auth/logout', function(req, res) {
         req.logout();
@@ -132,11 +115,12 @@ const express = require('express'),
 // <<====================FAVORITES===============================>>
       let favebands = require('./server/favebands')
       let favevenues = require('./server/favevenues')
+      let users = require('./server/users')
 
-
+    app.get('/all/users', users.index)
     app.get('/favorites/bands/:userId', favebands.read)
     app.get('/favorites/venues/:userId', favevenues.read)
-    app.post('/favorites/bands/', favebands.create)
+    app.post('/favorites/bands', favebands.create)
     app.post('/favorites/venues', favevenues.create)
     app.delete('/favorites/:userId/:bandId', favebands.delete)
     app.delete('/favorites/:userId/:venueId', favevenues.delete)

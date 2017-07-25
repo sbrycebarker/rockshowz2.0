@@ -1,5 +1,6 @@
-angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0Service) {
+angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0Service, faveService) {
 
+// <<====================================API CALLS============================>>
   $scope.getBandEvents = function(events) {
     service.getBandEvents(events).then(function(result){
       $scope.bandEventData = result.data
@@ -67,13 +68,57 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
     }
     function getUser() {
       auth0Service.getUser().then(function(user) {
+        console.log("user", user)
         if (user) { $scope.user = user;
         } else {
           $scope.user = 'LOG IN!';
         }
       })
     }
+// <<====================================API CALLS=================================>>
+// <<=============================FAVORITE CALLS===================================>>
 
+$scope.getfaveBands = function(user) {
+  faveService.getfaveBands($scope.user).then(function(faves){
+    $scope.faveBands = faves
+  })
+}
+$scope.getfaveBands();
+
+$scope.getfaveVenues = function(user) {
+  faveService.getfaveVenues(user).then(function(faves){
+    $scope.faveVenues = faves
+  })
+}
+$scope.getfaveVenues();
+
+$scope.addFaveBands = function(user) {
+  faveService.addFaveBands(user).then(function(faves){
+    $scope.faveBands = faves
+  })
+}
+
+$scope.addFaveVenues = function(user) {
+  faveService.addFaveVenues(user).then(function(faves){
+      $scope.faveVenues = faves
+  })
+}
+
+$scope.removeFaveBand = function(user) {
+  faveService.removeFaveBand(user).then(function(faves){
+    $scope.faveBands = faves
+  })
+}
+
+$scope.removeFaveVenue = function(user) {
+  faveService.removeFaveVenue(user).then(function(faves){
+    $scope.faveVenues = faves
+  })
+}
+
+
+
+// <<====================================POPUPS====================================>>
     getUser();
 
     $scope.artistmatches = false
@@ -81,3 +126,5 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
     $scope.pageSize = 5;
     $scope.currentPage = 1;
 })
+
+// <<=========================================POPUPS================================>>
