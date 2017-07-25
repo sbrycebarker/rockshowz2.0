@@ -6,6 +6,7 @@ body {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 html {
@@ -27,7 +28,7 @@ ul {
 }
 li {
   padding-top: 1rem;
-}
+} 
 li a {
     display: block;
     color: #4c9014;
@@ -64,18 +65,28 @@ button {
   padding-right: 10px;
 }
 .tag{
+  /* padding-top: 1rem;  */
   padding-right: 10px;
   font-size: 22px;
 }
  .navbar{
-
   display: none;
   position: fixed;
   opacity: .8;
   background-color: #606061;
 }
-
+.row-inverse{
+  display: flex;
+  margin-top: 325px;
+  justify-content: center;
+  align-content: center;
+}
 .navbar-inverse{
+  padding-top: 10px;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-bottom: 20px;
+  font-size: 15px;
   opacity: .6;
   background-color: #474747;
   max-width: 150px;
@@ -162,8 +173,22 @@ button {
   align-content: center;
   color: white
 }
-
+.about {
+  margin-top: 75px;
+  padding-top: 15px;
+}
+.about span {
+  color: #b10909;
+}
+.creator{
+  margin-top: 25px;
+  padding-top: 15px;
+}
+.creator span{
+  color: #b10909;
+}
 .artistinput {
+  border-radius: 35px;
   color: black;
 }
 .venues {
@@ -197,12 +222,13 @@ button {
   margin: auto;
 }
 .venue-search{
+  border-radius: 35px;
   color: black
 }
 .location {
 
 }
-.venue-search{
+.venues-search{
    border-radius: 35px;
   /* margin-left: 80rem; */
 }
@@ -217,10 +243,10 @@ button {
   color: white;
 } */
 .events {
-  /* height: auto;
+   height: auto;
   border-radius: 35px;
   color: black;
-  background-color: #e8e9ea */
+  background-color: #e8e9ea 
 }
 
 .eventsearch {
@@ -333,7 +359,7 @@ button {
   color: black;
   background-color: #4c9014;
   border: 1px solid black;
-  transition-property: background-color, color;
+  transition-property: ;background-color: color;
 }
 
 .matches:hover {
