@@ -68,14 +68,18 @@ button {
   font-size: 22px;
 }
  .navbar{
+
   display: none;
   position: fixed;
   opacity: .8;
   background-color: #606061;
 }
+
 .navbar-inverse{
   opacity: .6;
   background-color: #474747;
+  max-width: 150px;
+  border-radius: 35px;
   /* flex-direction: ; */
 }
 
@@ -169,7 +173,7 @@ button {
   justify-content: center;
   border-radius: 35px;
   color: white
-}
+} 
 .info{
   /* margin-left: 500px; */
 }
@@ -192,18 +196,31 @@ button {
 .local-search{
   margin: auto;
 }
-
 .venue-search{
   color: black
 }
+.location {
 
-.venues {
+}
+.venue-search{
+   border-radius: 35px;
+  /* margin-left: 80rem; */
+}
+/* .venues {
   height: auto;
   width: 200px;
   display: flex;
   justify-content: center;
   border-radius: 35px;
+  background-color: #4c9014;
+  margin-left: 680px; 
   color: white;
+} */
+.events {
+  /* height: auto;
+  border-radius: 35px;
+  color: black;
+  background-color: #e8e9ea */
 }
 
 .eventsearch {

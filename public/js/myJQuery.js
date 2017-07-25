@@ -5,9 +5,9 @@ $(document).ready(function(){
  $('body').scrollspy({target: ".navbar", offset: 50});   
     $(window).scroll(function(){                          
             if ($(this).scrollTop() > 200) {
-                $('#myNavbar').fadeIn(1000);
+                $('#myNavbar').fadeIn(500);
             } else {
-                $('#myNavbar').fadeOut(1000);
+                $('#myNavbar').fadeOut(500);
             }
         });
   // Add smooth scrolling on all links inside the navbar
