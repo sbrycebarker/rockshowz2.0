@@ -1,8 +1,7 @@
 $(document).ready(function(){
   // Add scrollspy to <body>
 
-
- $('body').scrollspy({target: ".navbar", offset: 50});   
+//   $('body').scrollspy({target: ".navbar", offset: 50});   
     $(window).scroll(function(){                          
             if ($(this).scrollTop() > 200) {
                 $('#myNavbar').fadeIn(500);
@@ -26,13 +25,11 @@ $(document).ready(function(){
       $('html, body').animate({
         scrollTop: $(hash).offset().top
 
-
       }, 1000, function(){
    
-
         // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash;
       });
-    } 
+    }  // End if
   });
 });
