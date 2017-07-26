@@ -200,6 +200,7 @@ button {
   color: white
 } 
 .fa {
+  padding-left: 20px;
   color: #4c9014;
   opacity: .7;
 
