@@ -4,10 +4,7 @@ angular.module('myApp', ['ui.router','ui.bootstrap']).config(function($stateProv
           .state('home', {
             url: '/',
             templateUrl: "./views/main.html",
-            controller: 'mainCtrl',  
-          })
-          .state('user', {
-            url: '/user/:id' //+ $stateParams.userId
+            controller: 'mainCtrl',
           })
 }).filter('startFrom', function() {
             return function(data, start) {

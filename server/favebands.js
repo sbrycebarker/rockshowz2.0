@@ -1,29 +1,21 @@
 module.exports = {
   read: function(req, res, next) {
-    db.favoritebands().then(faves => {
-      if (err) {
-        res.status(500).json(err)
-      } else {
+    console.log("server", req.user.user_id)
+    var db = req.app.get('db')
+    db.getFavoritebands(req.user.user_id).then(faves => {
         res.status(200).json(faves)
-      }
     })
   },
   create: function(req, res, next) {
-    db.addToFaveBands().then(added => {
-      if (err) {
-        res.status(500).json(err)
-      } else {
+    var db = req.app.get('db')
+    db.addToFaveBands( req.params.userId , req.params.band_id).then(added => {
         res.status(200).json(added)
-      }
     })
   },
   delete: function(req, res, next) {
-    db.removeByBandId().then(deleted =>{
-      if (err){
-        res.status(500).json(err)
-      } else {
+    var db = req.app.get('db')
+    db.removeFaveBandById(req.params.userId , req.params.band_id).then(deleted =>{
         res.status(200).json(deleted)
-      }
     })
   }
 }

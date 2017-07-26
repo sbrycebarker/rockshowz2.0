@@ -31,7 +31,7 @@
     </div>
     <div class="container">
       <div class="row">
-        <h1>Hello! {{user}}</h1>
+        <h1>Hello! {{user.username}}</h1>
       </div>
     </div>
     <div id="start" class="container">
@@ -118,8 +118,18 @@
   <div id="box5">
       <h1 class="artist-title title">Profile</h1>
       <div class="profileCon">
-        <h1>PLEASE LOG IN</h1>
-        <a href="/auth"><button class="button-primary">Login with Auth0</button></a>
+        <h1>{{user.username}}</h1>
+        <a href="/auth"><button class="button-primary" ng-click="getfaveBands(); getFaveVenues()">Login with Auth0</button></a>
+        <div class="faveCon">
+          <div id="favebands" class="favelist">
+            Favorite Bands
+            {{favebands}}
+          </div>
+          <div id="favevenues" class="favelist">
+            Favorite Venues
+            {{favevenues}}
+          </div>
+        </div>
       </div>
   </div>
 
