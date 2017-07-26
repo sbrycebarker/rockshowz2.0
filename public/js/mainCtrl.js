@@ -100,11 +100,11 @@ $scope.getfaveVenues = function(user) {
 }
 
 
-// $scope.addFaveBands = function(user) {
-//   faveService.addFaveBands(user).then(function(faves){
-//     $scope.faveBands = faves
-//   })
-// }
+$scope.addFaveBands = function(user) {
+  faveService.addFaveBands(user).then(function(faves){
+    $scope.faveBands = faves
+  })
+}
 //
 // $scope.addFaveVenues = function(user) {
 //   faveService.addFaveVenues(user).then(function(faves){
