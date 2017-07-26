@@ -35,6 +35,9 @@ li a {
     /* float: left;   */
 
 }
+a:hover{
+  color: white;
+}
 header {
   height: 75px;
   width: 100%;
