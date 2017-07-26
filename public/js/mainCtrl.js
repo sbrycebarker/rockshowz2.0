@@ -88,7 +88,7 @@ $scope.getfaveBands = function(user) {
     }
   })
 }
-$scope.getfaveBands($scope.user)
+// $scope.getfaveBands($scope.user)
 
 // $scope.getfaveVenues = function(user) {
 //   faveService.getfaveVenues(user).then(function(faves){
