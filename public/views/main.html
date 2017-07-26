@@ -54,7 +54,7 @@
         </div>
       </div>
     <div class="localcon">
-      <div class="local" ng-repeat="show in local | limitTo: 24">
+      <div class="local" ng-repeat="show in local">
         <ul><h3>{{show.Artists[0].Name}}</h3><button id="addArtist" class="addbttn" ng-click="addFaveBands( {artist: show.Artists[0].Name, user: user.user_id} )">Add</button></ul>
         <ul><h4>{{show.Venue.Name}}</h4><button id="addVenue" class="addbttn" ng-click="addFaveBands( {artist: show.Artists[0].Name, user: user.user_id} )">Add</button></ul>
         <ul>{{show.Date}}</ul>
@@ -105,7 +105,7 @@
         </div>
       </div>
     </div>
-    <venuepop ng-show="venuematches"></venuepop>
+    <venuepop ng-show="venuematches" ng-click="venuematches = !venuematches"></venuepop>
     <div class="events">
       <div ng-repeat="venEvent in venueEvent">
         <p><h2>{{venEvent.Artists[0].Name}}</h2></p>
