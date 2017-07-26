@@ -55,8 +55,8 @@
       </div>
     <div class="localcon">
       <div class="local" ng-repeat="show in local">
-        <ul><h3>{{show.Artists[0].Name}}</h3></ul>
-        <ul>{{show.Venue.Name}}</ul>
+        <ul><h3>{{show.Artists[0].Name}}</h3><button id="addArtist" class="addbttn" ng-click="addFaveBands( {artist: show.Artists[0].Name, user: user.user_id} )">Add</button></ul>
+        <ul><h4>{{show.Venue.Name}}</h4><button id="addVenue" class="addbttn" ng-click="addFaveBands( {artist: show.Artists[0].Name, user: user.user_id} )">Add</button></ul>
         <ul>{{show.Date}}</ul>
         <ul><h3>{{show.Venue.City}}, {{show.Venue.State}}</h3></ul>
       </div>
@@ -146,6 +146,7 @@
               <!-- <a href="https://github.com/Sergeandarden/groupproject"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a> -->
               
 
+
           </div>
         </div>
       </div>
@@ -154,32 +155,30 @@
           <div class="creator">
             <h2><span>About the </span>Creators</h2>
 
-            <h3><span> -</span>Serigo Barker<span> - </span>
-              <a href="https://www.linkedin.com/in/sergio-barker/"><i class="fa fa-linkedin-square fa-lg" aria-hidden="true"></i></a> 
-              <a href="https://github.com/sbrycebarker"><i class="fa fa-github-square fa-lg" aria-hidden="true"></i></a>
-            </h3>
+            <h3><span> - </span>Sergio Barker<span> - </span></h3>
             <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
 
-            <!-- <div>
-              <a href="https://www.linkedin.com/in/sergio-barker/"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a> 
+            <div>
+              <a href="https://www.linkedin.com/in/sergio-barker/"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
               <a href="https://github.com/sbrycebarker"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
-            </div> -->
+            </div>
+
 
             <h3><span> - </span>Arden Engebretsen<span> - </span><a href="https://www.linkedin.com/in/aaeng1023/"><i class="fa fa-linkedin-square fa-lg" aria-hidden="true"></i></a>
               <a href="https://github.com/Angus1023"><i class="fa fa-github-square fa-lg" aria-hidden="true"></i></a></h3>
             
             <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-            
-<!-- 
+
             <div>
               <a href="https://www.linkedin.com/in/aaeng1023/"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
               <a href="https://github.com/Angus1023"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
-            </div> -->
+            </div> 
             
+
           </div>
         </div>
       </div>
     </div>
 
 
-<!-- >>>>>>> fba4466f2e39626d7d968ad1b309c2401c75b585 -->
+
