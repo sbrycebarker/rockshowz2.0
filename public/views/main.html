@@ -51,14 +51,14 @@
           <button class="location" ng-click="getLocal()">Local</button>
         </div>
       </div>
-    <div class="localcon">
-        <div class="local" ng-repeat="show in local">
-          <ul><h3>{{show.Artists[0].Name}}</h3></ul>
-          <ul>{{show.Venue.Name}}</ul>
-          <ul>{{show.Date}}</ul>
-          <ul><h3>{{show.Venue.City}}, {{show.Venue.State}}</h3></ul>
-        </div>
-    </div>
+  <div class="localcon">
+      <div class="local" ng-repeat="show in local">
+        <ul><h3>{{show.Artists[0].Name}}</h3></ul>
+        <ul>{{show.Venue.Name}}</ul>
+        <ul>{{show.Date}}</ul>
+        <ul><h3>{{show.Venue.City}}, {{show.Venue.State}}</h3></ul>
+      </div>
+  </div>
   </div>
 
 
@@ -67,8 +67,15 @@
     <h1 class="artist-title title" >Artists</h1>
     <div class="container">
       <div class="row">
+<<<<<<< HEAD
         <input class="band"  type="text" name="text" ng-model="text" placeholder="Artist">
         <button class="submit" ng-click="getBandData( { text:text} ); artistmatches = !artistmatches;">Find</button>
+=======
+        <div class="artistsearch">
+        <input class="artistinput"  type="text" name="text" ng-model="text" placeholder="Artist">
+        <button class="submit" ng-click="getBandData( { text:text} ); artistmatches = !artistmatches;">Find</button>
+        </div>
+>>>>>>> 2fd8988ef0b6a59e6776f0437d14a93f85379db1
       </div>
     </div>
     <div class="container">
@@ -97,14 +104,30 @@
       <div class="row">
         <div class="venue-search">
           <input class="events"  type="text" name="Venues" ng-model="text" placeholder="Venues">
+<<<<<<< HEAD
           <button class="submit" ng-click="venuematches = !venuematches">Find</button>
+=======
+          <button class="submit" ng-click="getVenueId( { text:text} ); venuematches = !venuematches">Find</button>
+>>>>>>> 2fd8988ef0b6a59e6776f0437d14a93f85379db1
         </div>
+      </div>
+    </div>
+    <venuepop ng-show="venuematches"></venuepop>
+    <div class="events">
+      <div ng-repeat="venEvent in venueEvent">
+        <p><h2>{{venEvent.Artists[0].Name}}</h2></p>
+        <p><h2>{{venEvent.Date}}</h2></p>
+
       </div>
     </div>
   </div>
   <venuepop ng-show="venuematches"></venuepop>
   <div id="box5">
-      <h1 class="artist-title title">Profiles</h1>
+      <h1 class="artist-title title">Profile</h1>
+      <div class="profileCon">
+        <h1>PLEASE LOG IN</h1>
+        <a href="/auth"><button class="button-primary">Login with Auth0</button></a>
+      </div>
   </div>
 
 

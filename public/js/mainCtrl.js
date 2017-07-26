@@ -17,12 +17,15 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
     })
   }
   $scope.getVenueData = function(data){
+    console.log("sent", data)
     service.getVenueId(data).then(function(info) {
       let venueId = info.data.Venues[0].Id
       console.log('venueId',venueId)
       setTimeout( function() {
         service.getVenueData(venueId).then(function(venue){
-          console.log(venue) })
+          console.log("venueEvent", venue.data.Events)
+          $scope.venueEvent = venue.data.Events
+        })
         }, 2100)
   })
   }
@@ -49,7 +52,7 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
       var lng = $scope.lng
       service.getZip(lat, lng).then(function(result) {
         console.log("zip",result.data.results[0].address_components[7])
-        var loc = result.data.results[0].address_components[7].short_name
+        var loc = result.data.results[0].address_components[6].short_name
         $scope.location = loc
       })
     }

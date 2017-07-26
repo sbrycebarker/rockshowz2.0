@@ -67,27 +67,27 @@ button {
   padding-right: 10px;
   font-size: 22px;
 }
-/* .navbar{
+ .navbar{
   display: none;
-  position: fixed
-  opacity: .9;
+  position: fixed;
+  opacity: .8;
   background-color: #606061;
-} */
+}
 .navbar-inverse{
   opacity: .6;
   background-color: #474747;
   /* flex-direction: ; */
 }
 
-#myNavbar{
+#myNavbar {
   position: fixed;
   display: none;
   height: 100vh;
   padding-top: 28.75rem;
   max-width: 150px;
   z-index:9999;
-
 }
+
 .text-overflow {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -158,6 +158,10 @@ button {
   align-content: center;
   color: white
 }
+
+.artistinput {
+  color: black;
+}
 .venues {
   display: flex;
   margin: auto;
@@ -172,8 +176,8 @@ button {
 .container h1{
   color: black;
 }
-.band{
-  border-radius: 35px;
+.bandsearch{
+  border-radius: 15px;
   color: black;
 }
 .shows {
@@ -185,13 +189,18 @@ button {
   color: black;
   margin-left: 25px
 }
-.artist-search{
-  margin-left: 618px;
+.local-search{
+  margin: auto;
 }
 
+<<<<<<< HEAD
 .venue-search {
   color: black;
   /* margin-left: 80rem; */
+=======
+.venue-search{
+  color: black
+>>>>>>> 2fd8988ef0b6a59e6776f0437d14a93f85379db1
 }
 
 .venues {
@@ -200,14 +209,7 @@ button {
   display: flex;
   justify-content: center;
   border-radius: 35px;
-  /* margin-left: 680px; */
   color: white;
-}
-.events {
-  /* height: auto;
-  border-radius: 35px;
-  color: black;
-  background-color: #e8e9ea */
 }
 
 .eventsearch {
@@ -227,6 +229,10 @@ button {
   border: 1px solid black;
   top: 100px;
   left: 300px;
+}
+
+.bandpop h1 {
+  color: black;
 }
 
 .venuepop {
@@ -287,6 +293,16 @@ button {
   display: table;
   background-attachment: fixed;
   color: white
+}
+
+.profileCon {
+  height: 75vh;
+  width: 75vw;
+  background-color: black;
+  opacity: .9;
+  margin: auto;
+  position: relative;
+  border-radius: 15px;
 }
 
 #box6{

@@ -1,7 +1,11 @@
 <div class="venuepop">
   <h1>MATCHES</h1>
   <div class="matches" ng-repeat="venue in venues | startFrom: (currentPage - 1) * pageSize  | limitTo: pageSize">
+<<<<<<< HEAD
     <ul ng-click="getVenueData( { text: venue.name} ); getVenueEvents( { text:text } )">
+=======
+    <ul ng-click="getVenueData( { text: venue.Name} );">
+>>>>>>> 2fd8988ef0b6a59e6776f0437d14a93f85379db1
       <ul>{{venue.Name}} {{venue.City}}, {{venue.StateCode}}</ul>
     </ul>
   </div>
