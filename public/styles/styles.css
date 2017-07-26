@@ -163,7 +163,6 @@ button {
 .localcon {
   width: 80vw;
   margin: auto;
-  border: 1px solid white;
   display: flex;
   flex-wrap: wrap;
 }
