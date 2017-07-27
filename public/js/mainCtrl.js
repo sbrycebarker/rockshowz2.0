@@ -53,8 +53,8 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
       var lat = $scope.lat
       var lng = $scope.lng
       service.getZip(lat, lng).then(function(result) {
-        console.log("zip",result.data.results[0].address_components[5])
-        var loc = result.data.results[0].address_components[5].short_name
+        console.log("zip",result.data.results[0].address_components[7])
+        var loc = result.data.results[0].address_components[7].short_name
         $scope.location = loc
       })
     }
@@ -67,10 +67,11 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
         $scope.local = local.data.Events
       })
     }
-    function getUser() {
+
+    $scope.getUser = function() {
       auth0Service.getUser().then(function(user) {
         console.log("user", user)
-        if (user) { $scope.user = user;
+        if (user) { $scope.user = user.username;
         } else {
           $scope.user = 'LOG IN!';
         }
@@ -128,12 +129,14 @@ $scope.removeFaveVenue = function(user) {
 
 
 // <<====================================POPUPS====================================>>
-    getUser();
-
     $scope.artistmatches = false
     $scope.venuematches = false
     $scope.pageSize = 5;
     $scope.currentPage = 1;
-})
 
-// <<=========================================POPUPS================================>>
+
+    $scope.getUser();
+    $scope.getLocal();
+
+// <<=========================================INVOKES================================>>
+})

@@ -372,7 +372,15 @@ button {
   opacity: .9;
   margin: auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
   border-radius: 15px;
+}
+
+.profileCon h1 {
+  margin: 25px auto;
+  position: relative;
+  border: 1px solid white;
 }
 
 #box6{
