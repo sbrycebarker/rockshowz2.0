@@ -34,8 +34,9 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
     // only call when necessary
     $scope.getVenueId = function(venuename){
       service.getVenueId(venuename).then(function(venuedata){
-        console.log(venuedata.data.Venues)
+        console.log("pizza",venuedata.data.Venues)
         $scope.venues = venuedata.data.Venues
+        console.log("name", $scope.venues[0].Name)
       })
     }
 
@@ -52,8 +53,8 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
       var lat = $scope.lat
       var lng = $scope.lng
       service.getZip(lat, lng).then(function(result) {
-        console.log("zip",result.data.results[0].address_components[7])
-        var loc = result.data.results[0].address_components[7].short_name
+        console.log("zip",result.data.results[0].address_components[5])
+        var loc = result.data.results[0].address_components[5].short_name
         $scope.location = loc
       })
     }
@@ -105,7 +106,7 @@ $scope.addFaveBands = function(user) {
     $scope.faveBands = faves
   })
 }
-//
+// //
 $scope.addFaveVenues = function(user) {
   faveService.addFaveVenues(user).then(function(faves){
       $scope.faveVenues = faves
