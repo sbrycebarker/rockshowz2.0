@@ -1,7 +1,8 @@
-<!-- <div class="bandpop">
+<div class="bandpop">
   <h1>MATCHES</h1>
-  <div class="matches" ng-repeat="match in bandData | startFrom: (currentPage - 1) * pageSize  | limitTo: pageSize" >
-    <ul ng-click="getBandEvents({ text: match.name }); artistmatches = !artistmatches">{{match.name}}</ul>
-    <ul>{{match.upcoming_event_count}}</ul>
+  <div class="matches">
+    <div ng-click="getBandEvents({ text: bandData.data.name })">
+      {{bandData.data.name}}
+    </div>
   </div>
-</div> -->
+</div>

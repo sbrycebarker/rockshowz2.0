@@ -246,19 +246,8 @@ button {
 }
 .venues-search{
    border-radius: 35px;
-  /* margin-left: 80rem; */
 }
-/* .venues {
-  height: auto;
-  width: 200px;
-  display: flex;
-  justify-content: center;
-  border-radius: 35px;
-  background-color: #4c9014;
-  margin-left: 680px;
-  color: white;
-} */
-.events {
+.eventsinput {
    height: auto;
   border-radius: 35px;
   color: black;
@@ -346,7 +335,7 @@ button {
   color: black;
 }
 
-.venueEvent {
+.events {
   height: 125px;
   width: 600px;
   margin: 10px auto;
