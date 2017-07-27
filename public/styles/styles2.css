@@ -1,0 +1,410 @@
+*{
+
+}
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+html, body, h1, h2, img, header, footer, a {
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+  color: white;
+
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 10px;
+/*   max-width: 150px;  */
+}
+li {
+  padding-top: 1rem;
+}
+li a {
+    display: block;
+    color: #4c9014;
+    /* float: left;   */
+
+}
+a:hover{
+  color: white;
+}
+header {
+  height: 75px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+hr {
+  margin-top: 12px;
+  margin-bottom: 3px;
+  /* color: black; */
+}
+
+button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.addbttn {
+  height: 25px;
+  width: 25px;
+  background-color: black;
+  padding: 0;
+  font-size: 8px;
+  margin: auto;
+  cursor: pointer;
+}
+/* main.html page css */
+
+.icon{
+  padding-right: 10px;
+}
+.tag{
+  /* padding-top: 1rem;  */
+  padding-right: 10px;
+  font-size: 22px;
+}
+ .navbar{
+  display: none;
+  position: fixed;
+  opacity: .8;
+  background-color: #606061;
+}
+.row-inverse{
+  display: flex;
+  margin-top: 325px;
+  justify-content: center;
+  align-content: center;
+}
+.navbar-inverse{
+  padding-top: 10px;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-bottom: 20px;
+  font-size: 15px;
+  opacity: .6;
+  background-color: #474747;
+  max-width: 150px;
+  border-radius: 35px;
+  /* flex-direction: ; */
+}
+
+#myNavbar {
+  position: fixed;
+  display: none;
+  height: 100vh;
+  padding-top: 28.75rem;
+  max-width: 150px;
+  z-index:9999;
+}
+
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 200px;
+}
+.bandimg {
+  height: auto;
+  width: auto;
+  float: right;
+}
+.row{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.button-primary{
+   border-radius: 35px;
+   background-color: #4c9014;
+   color: black;
+}
+#header{
+  display: flex;
+  margin-left: 33.33%;
+  margin-right: 33.333%;
+  padding-top: 33.5rem;
+  justify-content: center;
+}
+.title{
+  font-size:7rem;
+}
+#header h1 {
+  color: black;
+}
+#header img{
+  color: black;
+}
+
+.location {
+  background-color: #4c9014;
+  color: black;
+  border-radius: 35px;
+}
+
+.local {
+  height: 125px;
+  width: 600px;
+  margin: 10px auto;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  color: black;
+  background-color: #e8e9ea;
+  opacity: .9;
+  justify-content: center;
+}
+
+.localcon {
+  width: 80vw;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.artist-title{
+  display: flex;
+  padding-top: 60px;
+  justify-content: center;
+  align-content: center;
+  color: white
+}
+.about {
+  margin-top: 55px;
+  padding-top: 10px;
+}
+.about span {
+  color: #b10909;
+}
+.creator{
+  margin-top: 25px;
+  padding-top: 10px;
+}
+.creator span{
+  color: #b10909;
+}
+.artistinput {
+  border-radius: 35px;
+  color: black;
+}
+.venues {
+  display: flex;
+  margin: auto;
+  padding-top: 60px;
+  justify-content: center;
+  border-radius: 35px;
+  color: white
+}
+.fa {
+  padding-left: 20px;
+  color: #4c9014;
+  opacity: .7;
+
+}
+.info{
+  /* margin-left: 500px; */
+}
+.container h1{
+  color: black;
+}
+.bandsearch{
+  border-radius: 15px;
+  color: black;
+}
+.shows {
+  color: black;
+}
+.submit{
+  border-radius: 35px;
+  background-color: #4c9014;
+  color: black;
+  margin-left: 25px
+}
+.local-search{
+  margin: auto;
+}
+.venue-search{
+  border-radius: 35px;
+  color: black
+}
+.location {
+
+}
+.venues-search{
+   border-radius: 35px;
+}
+.eventsinput {
+   height: auto;
+  border-radius: 35px;
+  color: black;
+  background-color: #e8e9ea
+}
+
+.eventsearch {
+  height: 30px;
+  width: 400px;
+  margin-top: 100px;
+  position: relative;
+}
+
+.bandpop {
+  height: 300px;
+  width: 600px;
+  background-color: #e8e9ea;
+  color: black;
+  position: relative;
+  border-radius: 25px;
+  border: 1px solid black;
+  top: 100px;
+  left: 300px;
+}
+
+.bandpop h1 {
+  color: black;
+}
+
+.venuepop {
+  height: 300px;
+  width: 600px;
+  background-color: #e8e9ea;
+  color: black;
+  position: relative;
+  border-radius: 25px;
+  border: 1px solid black;
+  top: 100px;
+  left: 300px;
+}
+
+#box1{
+  height: 100vh;
+  width: 100%;
+  background-color: #e8e9ea;
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+}
+#box2{
+  height: 100vh;
+  width: 100%;
+  background-image: url(./img/blueconcert.jpg);
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+  color: white
+}
+
+#box3{
+  height: 100vh;
+  width: 100%;
+  background-image: url(./img/greenconcert.jpg);
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+  color: white
+}
+
+#box4{
+  height: 100vh;
+  width: 100%;
+  background-image: url(./img/redconcert.jpg);
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+  color: white
+}
+
+.venuecon {
+  width: 80vw;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  color: black;
+}
+
+.events {
+  height: 125px;
+  width: 600px;
+  margin: 10px auto;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  color: black;
+  background-color: #e8e9ea;
+  opacity: .9;
+  justify-content: center;
+}
+
+.venueEvent h2 {
+  color: black;
+}
+
+#box5{
+  height: 100vh;
+  width: 100%;
+  background-image: url(./img/yellowconcert.jpg);
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+  color: white
+}
+
+.profileCon {
+  height: 75vh;
+  width: 75vw;
+  background-color: black;
+  opacity: .9;
+  margin: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+}
+
+.profileCon h1 {
+  margin: 25px auto;
+  position: relative;
+  border: 1px solid white;
+}
+
+#box6{
+  height: 100vh;
+  width: 100%;
+  background-image: url(./img/rob-bye-141863.jpg);
+  /* background-color: #697987; */
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+}
+
+ .matches {
+  height: 25px;
+  width: 300px;
+  margin: 15px auto;
+  color: black;
+  background-color: #4c9014;
+  border: 1px solid black;
+  transition-property: ;background-color: color;
+}
+
+.matches:hover {
+  background-color: black;
+  color: white;
+  transition-duration: 1s;
+}
