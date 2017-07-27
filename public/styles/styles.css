@@ -80,7 +80,7 @@ button {
 }
 .row-inverse{
   display: flex;
-  margin-top: 325px;
+  margin-top: 25.625rem;
   justify-content: center;
   align-content: center;
 }
