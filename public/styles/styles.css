@@ -114,6 +114,9 @@ button {
   max-width: 150px;
   z-index:9999;
 }
+#myArtist{
+  display: none;
+}
 
 .text-overflow {
   overflow: hidden;

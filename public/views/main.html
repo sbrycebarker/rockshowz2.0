@@ -46,13 +46,15 @@
 
 
   <div id="box2" name='box2'>
-
-    <h1 class="artist-title title">Local Shows</h1>
+    <div id="myLocal">
+      <h1 class="artist-title title">Local Shows</h1>
       <div class="container">
         <div class="row">
           <button class="location" ng-click="getLocal()">Local</button>
         </div>
       </div>
+    </div>
+    
     <div class="localcon">
       <div class="local" ng-repeat="show in local | limitTo: '20'">
         <ul><h3>{{show.Artists[0].Name}}</h3><button id="addArtist" class="addbttn" ng-click="addFaveBands( {artist: show.Artists[0].Name, user: user.user_id} )">Add</button></ul>
@@ -66,24 +68,26 @@
 
 
   <div id="box3" name='box3'>
-    <h1 class="artist-title title" >Artists</h1>
-    <div class="container">
-      <div class="row">
-        <div class="artistsearch">
-        <input class="artistinput"  type="text" name="Artists" ng-model="text" placeholder="Artist">
-        <button class="submit" ng-click="getBandData( { text:text} ); artistmatches = !artistmatches;">Find</button>
+    <div id="myArtist">
+      <h1 class="artist-title title" >Artists</h1>
+      <div class="container">
+        <div class="row">
+          <div class="artistsearch">
+          <input class="artistinput"  type="text" name="Artists" ng-model="text" placeholder="Artist">
+          <button class="submit" ng-click="getBandData( { text:text} ); artistmatches = !artistmatches;">Find</button>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="info">
-          <h2>Band</h2>
-          <h2>{{bandData.data.name}}</h2>
-          <h3>{{bandData.data.upcoming_event_count}} Shows</h3>
+      <div class="container">
+        <div class="row">
+          <div class="info">
+            <h2>Band</h2>
+            <h2>{{bandData.data.name}}</h2>
+            <h3>{{bandData.data.upcoming_event_count}} Shows</h3>
+          </div>
         </div>
       </div>
-    </div>
+    </div>    
     <bandpop ng-show="artistmatches" ng-click="artistmatches = !artistmatches"></bandpop>
     <div class="venuecon">
       <div id="bandEvents" class="events" ng-repeat="event in bandEventData | limitTo: '20'">
@@ -95,15 +99,18 @@
   </div>
 
   <div id="box4" name='box4'>
-    <h1 class="venues title" >Venues</h1>
-    <div class="container">
-      <div class="row">
-        <div class="venues-search">
-          <input class="eventsinput"  type="text" name="Venues" ng-model="text" placeholder="Venues">
-          <button class="submit" ng-click="getVenueId( { text:text} ); venuematches = !venuematches">Find</button>
+    <div id="myVenue">
+      <h1 class="venues title" >Venues</h1>
+      <div class="container">
+        <div class="row">
+          <div class="venues-search">
+            <input class="eventsinput"  type="text" name="Venues" ng-model="text" placeholder="Venues">
+            <button class="submit" ng-click="getVenueId( { text:text} ); venuematches = !venuematches">Find</button>
+          </div>
         </div>
       </div>
     </div>
+    
     <venuepop ng-show="venuematches" ng-click="venuematches = !venuematches"></venuepop>
     <div class="venuecon">
       <div id="venueEvent" class="events" ng-repeat="venEvent in venueEvent | limitTo: '20'">
