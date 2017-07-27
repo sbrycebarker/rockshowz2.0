@@ -67,11 +67,12 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
         $scope.local = local.data.Events
       })
     }
-
     $scope.getUser = function() {
       auth0Service.getUser().then(function(user) {
         console.log("user", user)
-        if (user) { $scope.user = user.username;
+        if (user) {
+          $scope.user = user.username;
+          $scope.userinfo = user
         } else {
           $scope.user = 'LOG IN!';
         }
@@ -90,20 +91,21 @@ $scope.getfaveBands = function(user) {
     }
   })
 }
-// $scope.getfaveBands($scope.user)
+$scope.getfaveBands()
 
 $scope.getfaveVenues = function(user) {
   faveService.getfaveVenues(user).then(function(faves){
-    if (faves) { $scope.favevenues = faves;
+    if (faves) { $scope.favevenues = faves.data;
+      console.log(faves.data)
     } else {
       $scope.favevenues = 'LOG IN!';
     }
   })
 }
-// $scope.getfaveVenues()
+$scope.getfaveVenues()
 //
-$scope.addFaveBands = function(user) {
-  faveService.addFaveBands(user).then(function(faves){
+$scope.addFaveBands = function(favetoadd) {
+  faveService.addFaveBands(favetoadd).then(function(faves){
     $scope.faveBands = faves
   })
 }
@@ -129,14 +131,18 @@ $scope.removeFaveVenue = function(user) {
 
 
 // <<====================================POPUPS====================================>>
+
     $scope.artistmatches = false
     $scope.venuematches = false
     $scope.pageSize = 5;
     $scope.currentPage = 1;
 
+// <<=========================================POPUPS================================>>
+// <<===========================================INVOKES==================================>>
+$scope.getUser();
 
-    $scope.getUser();
-    $scope.getLocal();
+// setTimeout( function(){
+//   $scope.getLocal()
+// }, 3000)
 
-// <<=========================================INVOKES================================>>
 })

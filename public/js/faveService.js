@@ -9,14 +9,14 @@ angular.module('myApp').service('faveService', function($http) {
     })
   }
   this.getfaveVenues = function (user) {
-    console.log("user", user)
+    console.log("addband", user)
     return $http({
       method: 'GET',
       url: '/favorites/venues/' + user
     })
   }
   this.addFaveBands = function(user) {
-    console.log("user", user)
+    console.log("addvenue", user)
     return $http({
       method: 'POST',
       url: '/favorites/bands'
@@ -29,8 +29,8 @@ angular.module('myApp').service('faveService', function($http) {
       url: '/favorites/venues'
     })
   }
-  this.removeFaveBand = function (user) {
-    console.log("user", user)
+  this.removeFaveBand = function (favetoadd) {
+    console.log("user", favetoadd)
     return $http({
       method: 'DELETE',
       url: '/favorites/:userId/:bandId'
