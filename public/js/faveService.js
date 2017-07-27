@@ -15,22 +15,23 @@ angular.module('myApp').service('faveService', function($http) {
       url: '/favorites/venues/' + user
     })
   }
-  this.addFaveBands = function(user) {
-    console.log("addvenue", user)
+  this.addFaveBands = function(band) {
+    console.log("addband", band)
     return $http({
       method: 'POST',
-      url: '/favorites/bands'
+      url: '/favorites/bands',
+      data: band
     })
   }
   this.addFaveVenues = function (user) {
-    console.log("user", user)
+    console.log("addVen", user)
     return $http({
       method: 'POST',
       url: '/favorites/venues'
     })
   }
-  this.removeFaveBand = function (favetoadd) {
-    console.log("user", favetoadd)
+  this.removeFaveBand = function (user) {
+    console.log("user", user)
     return $http({
       method: 'DELETE',
       url: '/favorites/:userId/:bandId'

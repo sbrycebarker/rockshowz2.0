@@ -108,7 +108,7 @@
     <div class="venuecon">
       <div id="venueEvent" class="events" ng-repeat="venEvent in venueEvent">
         <p><h2>{{venEvent.Artists[0].Name}}</h2></p>
-        <button id="addartist" class="addbttn" ng-click="addFaveBands( { name: venEvent.Artists[0].Name , user: userinfo.user_id} )">Add</button>
+        <button id="addartist" class="addbttn" ng-click="addFaveBands( { name: venEvent.Artists[0].Name , user: userid} )">Add</button>
         <p><h2>{{venEvent.Date}}</h2></p>
 
       </div>

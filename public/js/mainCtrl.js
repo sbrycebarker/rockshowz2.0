@@ -72,7 +72,8 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
         console.log("user", user)
         if (user) {
           $scope.user = user.username;
-          $scope.userinfo = user
+          $scope.userid = user.user_id
+          console.log("userinfo", $scope.userid)
         } else {
           $scope.user = 'LOG IN!';
         }
@@ -82,7 +83,7 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
 // <<=============================FAVORITE CALLS===================================>>
 
 $scope.getfaveBands = function(user) {
-  user = $scope.user
+  user = $scope.userid
   console.log("fave of", user)
   faveService.getfaveBands(user).then(function(faves){
     if (faves) { $scope.favebands = faves.data;
@@ -94,6 +95,7 @@ $scope.getfaveBands = function(user) {
 $scope.getfaveBands()
 
 $scope.getfaveVenues = function(user) {
+  user = $scope.userid
   faveService.getfaveVenues(user).then(function(faves){
     if (faves) { $scope.favevenues = faves.data;
       console.log(faves.data)
@@ -104,8 +106,8 @@ $scope.getfaveVenues = function(user) {
 }
 $scope.getfaveVenues()
 //
-$scope.addFaveBands = function(favetoadd) {
-  faveService.addFaveBands(favetoadd).then(function(faves){
+$scope.addFaveBands = function(band) {
+  faveService.addFaveBands(band).then(function(faves){
     $scope.faveBands = faves
   })
 }
