@@ -21,7 +21,7 @@
       <h1 class="title">ROCKSHOWZ</h1>
     </div>
     <div class="row">
-      <a href="/auth"><button class="button-primary">{{user}}</button></a>
+      <a href="/auth"><button class="button-primary">Login with Auth0</button></a>
     </div>
     <div class="containerOne">
       <div id="login">
@@ -31,7 +31,7 @@
     </div>
     <div class="container">
       <div class="row">
-        <!-- <h1>Hello! {{user}}</h1> -->
+        <h1>Hello! {{user.username}}</h1>
       </div>
     </div>
     <div id="start" class="container">
@@ -47,9 +47,8 @@
 
   <div id="box2" name='box2'>
 
-
+    <h1 class="artist-title title">Local Shows</h1>
       <div class="container">
-            <h1 class="artist-title title">Local Shows for {{location}}</h1>
         <div class="row">
           <button class="location" ng-click="getLocal()">Local</button>
         </div>
@@ -119,15 +118,16 @@
   <div id="box5">
       <h1 class="artist-title title">Profile</h1>
       <div class="profileCon">
-        <h1><a href="/auth"><button class="button-primary" ng-click="getfaveBands(); getFaveVenues()">{{user}}</button></a></h1>
+        <h1>{{user.username}}</h1>
+        <a href="/auth"><button class="button-primary" ng-click="getfaveBands(); getFaveVenues()">Login with Auth0</button></a>
         <div class="faveCon">
           <div id="favebands" class="favelist">
-            <h1>Favorite Bands</h1>
-            <h1>{{favebands}}</h1>
+            Favorite Bands
+            {{favebands}}
           </div>
           <div id="favevenues" class="favelist">
-            <h1>Favorite Venues</h1>
-            <h1>{{favevenues}}</h1>
+            Favorite Venues
+            {{favevenues}}
           </div>
         </div>
       </div>
@@ -144,7 +144,7 @@
             <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
               The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
               <!-- <a href="https://github.com/Sergeandarden/groupproject"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a> -->
-
+              
 
 
           </div>
@@ -166,16 +166,19 @@
 
             <h3><span> - </span>Arden Engebretsen<span> - </span><a href="https://www.linkedin.com/in/aaeng1023/"><i class="fa fa-linkedin-square fa-lg" aria-hidden="true"></i></a>
               <a href="https://github.com/Angus1023"><i class="fa fa-github-square fa-lg" aria-hidden="true"></i></a></h3>
-
+            
             <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
 
             <div>
               <a href="https://www.linkedin.com/in/aaeng1023/"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
               <a href="https://github.com/Angus1023"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
-            </div>
-
+            </div> 
+            
 
           </div>
         </div>
       </div>
     </div>
+
+
+
