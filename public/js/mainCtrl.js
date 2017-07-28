@@ -53,8 +53,8 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
       var lat = $scope.lat
       var lng = $scope.lng
       service.getZip(lat, lng).then(function(result) {
-        console.log("zip",result.data.results[0].address_components[5])
-        var loc = result.data.results[0].address_components[5].short_name
+        console.log("zip",result.data.results[0].address_components[7])
+        var loc = result.data.results[0].address_components[7].short_name
         $scope.location = loc
       })
     }
@@ -67,10 +67,13 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
         $scope.local = local.data.Events
       })
     }
-    function getUser() {
+    $scope.getUser = function() {
       auth0Service.getUser().then(function(user) {
         console.log("user", user)
-        if (user) { $scope.user = user;
+        if (user) {
+          $scope.user = user.username;
+          $scope.userid = user.user_id
+          console.log("userinfo", $scope.userid)
         } else {
           $scope.user = 'LOG IN!';
         }
@@ -80,60 +83,75 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
 // <<=============================FAVORITE CALLS===================================>>
 
 $scope.getfaveBands = function(user) {
-  user = $scope.user
-  console.log("fave of", user)
+  user = $scope.userid
   faveService.getfaveBands(user).then(function(faves){
-    if (faves) { $scope.favebands = faves.data;
+    if (faves) {
+      $scope.favebands = faves.data;
     } else {
       $scope.favebands = 'LOG IN!';
     }
   })
 }
-// $scope.getfaveBands($scope.user)
+$scope.getfaveBands()
 
 $scope.getfaveVenues = function(user) {
+  user = $scope.userid
   faveService.getfaveVenues(user).then(function(faves){
-    if (faves) { $scope.favevenues = faves;
+    if (faves) {
+      $scope.favevenues = faves.data;
     } else {
       $scope.favevenues = 'LOG IN!';
     }
   })
 }
-// $scope.getfaveVenues()
+$scope.getfaveVenues()
 //
-$scope.addFaveBands = function(user) {
-  faveService.addFaveBands(user).then(function(faves){
-    $scope.faveBands = faves
-  })
+$scope.addFaveBands = function(band) {
+  console.log("dsfdsfsd", band)
+  faveService.addFaveBands(band)
+    $scope.favebands.push(band)
+    console.log($scope.favebands)
 }
 // //
-$scope.addFaveVenues = function(user) {
-  faveService.addFaveVenues(user).then(function(faves){
-      $scope.faveVenues = faves
-  })
+$scope.addFaveVenues = function(venue) {
+  faveService.addFaveVenues(venue)
+      $scope.favevenues.push(venue)
+      console.log($scope.favevenues)
 }
 
-$scope.removeFaveBand = function(user) {
-  faveService.removeFaveBand(user).then(function(faves){
-    $scope.faveBands = faves
-  })
+$scope.removeFaveBand = function(band, i) {
+  var removedItem = $scope.favebands.splice(i, 1)
+  faveService.removeFaveBand(band).then(function(){
+    // $scope.faveBands = faves
+  }, function(err) {
+      $scope.favebands.splice(i, 0, removedItem[0]);
+    })
 }
 
-$scope.removeFaveVenue = function(user) {
-  faveService.removeFaveVenue(user).then(function(faves){
-    $scope.faveVenues = faves
-  })
+$scope.removeFaveVenue = function(venue, i) {
+  var removedItem = $scope.favevenues.splice(i, 1)
+  faveService.removeFaveVenue(venue).then(function(){
+    // $scope.faveVenues = faves
+  }, function(err) {
+      $scope.favevenues.splice(i, 0, removedItem[0]);
+    })
 }
 
 
 
 // <<====================================POPUPS====================================>>
-    getUser();
 
     $scope.artistmatches = false
     $scope.venuematches = false
     $scope.pageSize = 5;
     $scope.currentPage = 1;
-})
 
 // <<=========================================POPUPS================================>>
+// <<===========================================INVOKES==================================>>
+$scope.getUser();
+
+// setTimeout( function(){
+//   $scope.getLocal()
+// }, 3000)
+
+})
