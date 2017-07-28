@@ -22,6 +22,7 @@
     </div>
     <div class="row">
       <a href="/auth"><button class="button-primary">{{user}}</button></a>
+      <a href="/auth/logout"><button class="button-primary">Logout</button></a>
     </div>
     <div class="containerOne">
       <div id="login">
@@ -78,9 +79,8 @@
     <div class="container">
       <div class="row">
         <div class="info">
-          <h2>Band</h2>
           <h2>{{bandData.data.name}}</h2>
-          <h3>{{bandData.data.upcoming_event_count}} Shows</h3>
+          <h3>{{bandData.data.upcoming_event_count}}</h3>
         </div>
       </div>
     </div>
@@ -126,8 +126,10 @@
           <h1>Favorite Bands</h1>
           <div class="favebands">
           <div class="favelist" ng-repeat="faveB in favebands">
-            <h1>{{faveB.band_name}}</h1>
+
+            <h1><a href="#box3">{{faveB.band_name}}</a></h1>
             <h1><div class="DFB" ng-click="removeFaveBand({ band_name: faveB.band_name, user: userid }, $index)"></div></h1>
+            <p>DELETE FAVORITE?</>
           </div>
           </div>
           <hr>
