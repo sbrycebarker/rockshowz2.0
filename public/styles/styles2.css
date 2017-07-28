@@ -89,7 +89,7 @@ button {
 }
 .row-inverse{
   display: flex;
-  margin-top: 25.625rem;
+  margin-top: 325px;
   justify-content: center;
   align-content: center;
 }
@@ -113,9 +113,6 @@ button {
   padding-top: 28.75rem;
   max-width: 150px;
   z-index:9999;
-}
-#myArtist{
-  display: none;
 }
 
 .text-overflow {
@@ -225,7 +222,7 @@ button {
   /* margin-left: 500px; */
 }
 .container h1{
-  color: white;
+  color: black;
 }
 .bandsearch{
   border-radius: 15px;
@@ -375,7 +372,15 @@ button {
   opacity: .9;
   margin: auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
   border-radius: 15px;
+}
+
+.profileCon h1 {
+  margin: 25px auto;
+  position: relative;
+  border: 1px solid white;
 }
 
 #box6{

@@ -67,10 +67,14 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
         $scope.local = local.data.Events
       })
     }
-    function getUser() {
+
+    $scope.getUser = function() {
       auth0Service.getUser().then(function(user) {
         console.log("user", user)
-        if (user) { $scope.user = user;
+        if (user) {
+          $scope.user = user.username;
+          $scope.userid = user.user_id
+          console.log("userinfo", $scope.userid)
         } else {
           $scope.user = 'LOG IN!';
         }
@@ -80,7 +84,7 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
 // <<=============================FAVORITE CALLS===================================>>
 
 $scope.getfaveBands = function(user) {
-  user = $scope.user
+  user = $scope.userid
   console.log("fave of", user)
   faveService.getfaveBands(user).then(function(faves){
     if (faves) { $scope.favebands = faves.data;
@@ -89,20 +93,22 @@ $scope.getfaveBands = function(user) {
     }
   })
 }
-// $scope.getfaveBands($scope.user)
+$scope.getfaveBands()
 
 $scope.getfaveVenues = function(user) {
+  user = $scope.userid
   faveService.getfaveVenues(user).then(function(faves){
-    if (faves) { $scope.favevenues = faves;
+    if (faves) { $scope.favevenues = faves.data;
+      console.log(faves.data)
     } else {
       $scope.favevenues = 'LOG IN!';
     }
   })
 }
-// $scope.getfaveVenues()
+$scope.getfaveVenues()
 //
-$scope.addFaveBands = function(user) {
-  faveService.addFaveBands(user).then(function(faves){
+$scope.addFaveBands = function(band) {
+  faveService.addFaveBands(band).then(function(faves){
     $scope.faveBands = faves
   })
 }
@@ -128,12 +134,23 @@ $scope.removeFaveVenue = function(user) {
 
 
 // <<====================================POPUPS====================================>>
-    getUser();
+
 
     $scope.artistmatches = false
     $scope.venuematches = false
     $scope.pageSize = 5;
     $scope.currentPage = 1;
+
+
+
+// <<=========================================POPUPS================================>>
+// <<===========================================INVOKES==================================>>
+$scope.getUser();
+
+// setTimeout( function(){
+//   $scope.getLocal()
+// }, 3000)
+
 })
 
 // <<=========================================POPUPS================================>>
