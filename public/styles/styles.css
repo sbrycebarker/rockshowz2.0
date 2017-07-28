@@ -113,7 +113,7 @@ button {
 }
 .row-inverse{
   display: flex;
-  margin-top: 325px;
+  margin-top: 25.625rem;
   justify-content: center;
   align-content: center;
 }
@@ -137,6 +137,9 @@ button {
   padding-top: 28.75rem;
   max-width: 150px;
   z-index:9999;
+}
+#myArtist{
+  display: none;
 }
 
 .text-overflow {
