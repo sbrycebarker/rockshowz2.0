@@ -9,21 +9,22 @@ angular.module('myApp').service('faveService', function($http) {
     })
   }
   this.getfaveVenues = function (user) {
-    console.log("user", user)
+    console.log("addband", user)
     return $http({
       method: 'GET',
       url: '/favorites/venues/' + user
     })
   }
-  this.addFaveBands = function(user) {
-    console.log("user", user)
+  this.addFaveBands = function(band) {
+    console.log("addband", band)
     return $http({
       method: 'POST',
-      url: '/favorites/bands'
+      url: '/favorites/bands',
+      data: band
     })
   }
   this.addFaveVenues = function (user) {
-    console.log("user", user)
+    console.log("addVen", user)
     return $http({
       method: 'POST',
       url: '/favorites/venues'
