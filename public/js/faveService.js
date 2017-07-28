@@ -35,14 +35,14 @@ angular.module('myApp').service('faveService', function($http) {
     console.log("user", band)
     return $http({
       method: 'DELETE',
-      url: '/favorites/' + band.user + '/' + band.name ,
+      url: '/favorites/bands/' + band.user + '/' + band.band_name ,
     })
   }
   this.removeFaveVenue = function (venue) {
     console.log("user", venue)
     return $http({
       method: 'DELETE',
-      url: '/favorites/' + venue.user + '/' + venue.name
+      url: '/favorites/venues/' + venue.user + '/' + venue.venue_name
     })
   }
 

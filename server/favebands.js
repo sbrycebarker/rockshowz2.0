@@ -8,7 +8,7 @@ module.exports = {
   create: function(req, res, next) {
     console.log("band to add", req.body )
     var db = req.app.get('db')
-    db.addToFaveBands([ req.body.user , req.body.name ]).then(added => {
+    db.addToFaveBands([ req.body.user , req.body.band_name ]).then(added => {
         res.status(200).json(added)
     })
   },
