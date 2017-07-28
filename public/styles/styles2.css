@@ -89,7 +89,7 @@ button {
 }
 .row-inverse{
   display: flex;
-  margin-top: 25.625rem;
+  margin-top: 325px;
   justify-content: center;
   align-content: center;
 }
@@ -113,9 +113,6 @@ button {
   padding-top: 28.75rem;
   max-width: 150px;
   z-index:9999;
-}
-#myArtist{
-  display: none;
 }
 
 .text-overflow {
@@ -225,7 +222,7 @@ button {
   /* margin-left: 500px; */
 }
 .container h1{
-  color: white;
+  color: black;
 }
 .bandsearch{
   border-radius: 15px;
