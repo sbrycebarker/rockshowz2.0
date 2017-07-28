@@ -21,7 +21,7 @@
       <h1 class="title">ROCKSHOWZ</h1>
     </div>
     <div class="row">
-      <a href="/auth"><button class="button-primary">Login with Auth0</button></a>
+      <a href="/auth"><button class="button-primary">{{user}}</button></a>
     </div>
     <div class="containerOne">
       <div id="login">
@@ -31,7 +31,7 @@
     </div>
     <div class="container">
       <div class="row">
-        <h1>Hello! {{user.username}}</h1>
+        <!-- <h1>Hello! {{user}}</h1> -->
       </div>
     </div>
     <div id="start" class="container">
@@ -48,7 +48,9 @@
   <div id="box2" name='box2'>
     <div id="myLocal">
       <h1 class="artist-title title">Local Shows</h1>
+
       <div class="container">
+            <h1 class="artist-title title">Local Shows for {{location}}</h1>
         <div class="row">
           <button class="location" ng-click="getLocal()">Local</button>
         </div>
@@ -115,7 +117,7 @@
     <div class="venuecon">
       <div id="venueEvent" class="events" ng-repeat="venEvent in venueEvent | limitTo: '20'">
         <p><h2>{{venEvent.Artists[0].Name}}</h2></p>
-        <button id="addArtist" class="addbttn" ng-click="addFaveBands( { venEvent.Artists[0].Name , user: user.user_id} )">Add</button>
+        <button id="addartist" class="addbttn" ng-click="addFaveBands( { name: venEvent.Artists[0].Name , user: userid} )">Add</button>
         <p><h2>{{venEvent.Date}}</h2></p>
 
       </div>
@@ -125,16 +127,15 @@
   <div id="box5">
       <h1 class="artist-title title">Profile</h1>
       <div class="profileCon">
-        <h1>{{user.username}}</h1>
-        <a href="/auth"><button class="button-primary" ng-click="getfaveBands(); getFaveVenues()">Login with Auth0</button></a>
+        <h1><a href="/auth"><button class="button-primary" ng-click="getfaveBands(); getFaveVenues()">{{user}}</button></a></h1>
         <div class="faveCon">
-          <div id="favebands" class="favelist">
-            Favorite Bands
-            {{favebands}}
+          <h1>Favorite Bands</h1>
+          <div id="favebands" class="favelist" ng-repeat="faveB in favebands">
+            <h1>{{faveB.band_name}}</h1>
           </div>
-          <div id="favevenues" class="favelist">
-            Favorite Venues
-            {{favevenues}}
+            <h1>Favorite Venues</h1>
+          <div id="favevenues" class="favelist" ng-repeat="faveV in favevenues">
+            <h1>{{faveV.venue_name}}</h1>
           </div>
         </div>
       </div>
