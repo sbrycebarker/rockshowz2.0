@@ -112,20 +112,21 @@ $scope.addFaveBands = function(band) {
   })
 }
 // //
-$scope.addFaveVenues = function(user) {
-  faveService.addFaveVenues(user).then(function(faves){
+$scope.addFaveVenues = function(venue) {
+  console.log('addven', venue)
+  faveService.addFaveVenues(venue).then(function(faves){
       $scope.faveVenues = faves
   })
 }
 
-$scope.removeFaveBand = function(user) {
-  faveService.removeFaveBand(user).then(function(faves){
+$scope.removeFaveBand = function(band) {
+  faveService.removeFaveBand(band).then(function(faves){
     $scope.faveBands = faves
   })
 }
 
-$scope.removeFaveVenue = function(user) {
-  faveService.removeFaveVenue(user).then(function(faves){
+$scope.removeFaveVenue = function(venue) {
+  faveService.removeFaveVenue(venue).then(function(faves){
     $scope.faveVenues = faves
   })
 }

@@ -13,8 +13,9 @@ module.exports = {
     })
   },
   delete: function(req, res, next) {
+    console.log("delteB", req.params)
     var db = req.app.get('db')
-    db.removeFaveBandById(req.params.userId , req.params.band_id).then(deleted =>{
+    db.removeFaveBandById([req.params.userid , req.params.band_name]).then(deleted =>{
         res.status(200).json(deleted)
     })
   }

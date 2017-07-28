@@ -88,8 +88,13 @@
     <div class="venuecon">
       <div id="bandEvents" class="events" ng-repeat="event in bandEventData">
         <p><h2>{{event.venue.city}}, {{event.venue.region}}</h2></p>
-        <h3>{{event.venue.name}}</h3>
-        <p>{{event.datetime}}</p>
+        <p><h2> {{event.venue.name}}</h2></p>
+        <p><h2> {{event.datetime}}</h2></p>
+        <p><h2><a href="{{event.offers[0].url}}" ><i class="fa fa-ticket" aria-hidden="true"></i></a></h2></p>
+        <div id="addvenue" class="addbttn" ng-click="addFaveVenues( { name: event.venue.name , user: userid } )"><span>
+          Add to<br>
+          favorites
+        </span></div>
       </div>
     </div>
   </div>
@@ -108,9 +113,12 @@
     <div class="venuecon">
       <div id="venueEvent" class="events" ng-repeat="venEvent in venueEvent">
         <p><h2>{{venEvent.Artists[0].Name}}</h2></p>
-        <button id="addartist" class="addbttn" ng-click="addFaveBands( { name: venEvent.Artists[0].Name , user: userid} )">Add</button>
         <p><h2>{{venEvent.Date}}</h2></p>
-
+        <p><h2><a href="{{venEvent.TicketUrl}}" ><i class="fa fa-ticket" aria-hidden="true"></i></a></h2></p>
+        <button id="addartist" class="addbttn" ng-click="addFaveBands( { name: venEvent.Artists[0].Name , user: userid} )">
+          Add to<br>
+          favorites
+        </button>
       </div>
     </div>
   </div>
@@ -120,10 +128,13 @@
       <div class="profileCon">
         <h1><a href="/auth"><button class="button-primary" ng-click="getfaveBands(); getFaveVenues()">{{user}}</button></a></h1>
         <div class="faveCon">
+          <hr>
           <h1>Favorite Bands</h1>
           <div id="favebands" class="favelist" ng-repeat="faveB in favebands">
             <h1>{{faveB.band_name}}</h1>
+            <div class="DFB" ng-click="removeFaveBand({ name: faveB.band_name, user: userid })"></div>
           </div>
+          <hr>
             <h1>Favorite Venues</h1>
           <div id="favevenues" class="favelist" ng-repeat="faveV in favevenues">
             <h1>{{faveV.venue_name}}</h1>

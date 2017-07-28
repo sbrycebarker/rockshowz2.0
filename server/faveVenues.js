@@ -7,8 +7,9 @@ module.exports = {
     })
   },
   create: function(req, res, next) {
+    console.log("venue to add", req.body )
     var db = req.app.get('db')
-    db.addToFaveVenues(req.params.userId, req.params.venue_id).then(added => {
+    db.addToFaveVenues([req.body.user, req.body.name]).then(added => {
         res.status(200).json(added)
     })
   },
