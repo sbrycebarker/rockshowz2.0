@@ -7,14 +7,16 @@ module.exports = {
     })
   },
   create: function(req, res, next) {
+    console.log("venue to add", req.body )
     var db = req.app.get('db')
-    db.addToFaveVenues(req.params.userId, req.params.venue_id).then(added => {
+    db.addToFaveVenues([req.body.user, req.body.venue_name]).then(added => {
         res.status(200).json(added)
     })
   },
   delete: function(req, res, next) {
+    console.log('DeleteV', req.params)
     var db = req.app.get('db')
-    db.removeFaveVenueById(req.params.userId, req.params.band_id).then(deleted =>{
+    db.removeFaveVenueById([req.params.userid, req.params.venue_name]).then(deleted =>{
         res.status(200).json(deleted)
     })
   }

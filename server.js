@@ -122,8 +122,8 @@ const express = require('express'),
     app.get('/favorites/venues/:userId', favevenues.read)
     app.post('/favorites/bands', favebands.create)
     app.post('/favorites/venues', favevenues.create)
-    app.delete('/favorites/:userId/:bandId', favebands.delete)
-    app.delete('/favorites/:userId/:venueId', favevenues.delete)
+    app.delete('/favorites/bands/:userid/:band_name', favebands.delete)
+    app.delete('/favorites/venues/:userid/:venue_name', favevenues.delete)
 
 // <<==================END OF FAVORITES==========================>>
 
