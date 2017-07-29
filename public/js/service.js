@@ -36,6 +36,8 @@ angular.module('myApp').service('service', function($http) {
       method: 'GET',
 
       url: 'http://api.jambase.com/events?venueId=' + data + '&page=0&api_key=53tkjbp2d36gw7bqguzvga9d',
+
+
     })
   }
   this.getCoOrd = function() {

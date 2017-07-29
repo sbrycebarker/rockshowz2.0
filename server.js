@@ -43,14 +43,12 @@ const express = require('express'),
           function(accessToken, refreshToken, extraParams, profile, done) {
             db.getUserByAuthId([profile.id]).then(function(user) {
               console.log('gettinguser', user)
-
               if (!user[0]) {
                  //if there isn't one, we'll create one!
                 console.log('CREATING USER');
                 db.createUserByAuth([profile.displayName, profile.id]).then(function(user2) {
-                  console.log('USER CREATED', user2[0].username);
-                  return done("user2", user2[0].username);
-
+                  console.log('USER CREATED', user2);
+                  return done("user2", user2);
                 })
               } else {
                 console.log("found User", user[0].username)
