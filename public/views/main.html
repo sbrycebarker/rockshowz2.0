@@ -52,12 +52,13 @@
       <div class="container">
             <h1 class="artist-title title">Local Shows for {{location}}</h1>
         <div class="row">
-          <button class="location" ng-click="getLocal()">Local</button>
+          <button class="location" ng-click="getLocal()">Local{{userid}}</button>
         </div>
       </div>
     </div>
 
     <div class="localcon">
+      {{userid}}
       <div class="local" ng-repeat="show in local | limitTo: '20'">
         <ul><h3>{{show.Artists[0].Name}}</h3><button id="addArtist" class="addbttn" ng-click="addFaveBands( { band_name: show.Artists[0].Name, user: userid} )"></button></ul>
         <ul><h4>{{show.Venue.Name}}</h4><button id="addVenue" class="addbttn" ng-click="addFaveVenues( { venue_name: show.Venue.Name, user: userid} )"></button></ul>
@@ -67,7 +68,8 @@
     </div>
   </div>
 
-<div id="box3">
+
+  <div id="box3">
       <div id="myArtist">
     <h1 class="artist-title title" >Artists</h1>
     <div class="container">
@@ -107,7 +109,6 @@
 </div>
 <div id="box4">
       <div id="myVenue">
-
     <h1 class="venues title" >Venues</h1>
     <div class="container">
       <div class="row">

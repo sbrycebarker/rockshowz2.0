@@ -19,7 +19,11 @@ angular.module('myApp').service('service', function($http) {
     console.log('venuename', venue)
     return $http({
       method: 'GET',
+<<<<<<< HEAD
       url: 'http://api.jambase.com/venues?name=' + venue.text + '&page=0&api_key=62zdhmggqdhbbnsca78bvd6y',
+=======
+      url: 'http://api.jambase.com/venues?name=' + venue.text + '&page=0&api_key=53tkjbp2d36gw7bqguzvga9d',
+>>>>>>> 8974b2caa75f635c64cae8de0a39c3747e80e28b
     })
   }
 // <<==========================================API KEYS==================================================>>
@@ -34,7 +38,11 @@ angular.module('myApp').service('service', function($http) {
     console.log('venid', data)
     return $http({
       method: 'GET',
+<<<<<<< HEAD
       url: 'http://api.jambase.com/events?venueId=' + data + '&page=0&api_key=62zdhmggqdhbbnsca78bvd6y',
+=======
+      url: 'http://api.jambase.com/events?venueId=' + data + '&page=0&api_key=53tkjbp2d36gw7bqguzvga9d',
+>>>>>>> 8974b2caa75f635c64cae8de0a39c3747e80e28b
     })
   }
   this.getCoOrd = function() {
@@ -56,7 +64,11 @@ angular.module('myApp').service('service', function($http) {
     console.log(zip)
     return $http({
       method: 'GET',
+<<<<<<< HEAD
       url: 'http://api.jambase.com/events?zipCode=' + zip + '&page=0&api_key=62zdhmggqdhbbnsca78bvd6y'
+=======
+      url: 'http://api.jambase.com/events?zipCode=' + zip + '&page=0&api_key=53tkjbp2d36gw7bqguzvga9d'
+>>>>>>> 8974b2caa75f635c64cae8de0a39c3747e80e28b
     })
   }
 })
