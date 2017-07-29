@@ -6,5 +6,5 @@ module.exports = {
         res.status(200).json(users)
     })
   }
-
+// nextval('users_id_seq'::regclass)
 }
