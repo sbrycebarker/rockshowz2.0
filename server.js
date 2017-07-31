@@ -115,7 +115,7 @@ const express = require('express'),
       let favevenues = require('./server/favevenues')
       let users = require('./server/users')
 
-    app.get('/all/users', users.index)
+    // app.get('/all/users', users.index)
     app.get('/favorites/bands/:userId', favebands.read)
     app.get('/favorites/venues/:userId', favevenues.read)
     app.post('/favorites/bands', favebands.create)

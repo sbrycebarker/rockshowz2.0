@@ -76,6 +76,8 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
           $scope.user = user.username;
           $scope.userid = user.user_id
           console.log("userinfo", $scope.userid)
+          $scope.getfaveBands();
+          $scope.getfaveVenues()
         } else {
           $scope.user = 'LOG IN!';
         }
@@ -94,7 +96,7 @@ $scope.getfaveBands = function(user) {
     }
   })
 }
-$scope.getfaveBands()
+// $scope.getfaveBands()
 
 $scope.getfaveVenues = function(user) {
   user = $scope.userid
@@ -106,7 +108,7 @@ $scope.getfaveVenues = function(user) {
     }
   })
 }
-$scope.getfaveVenues()
+// $scope.getfaveVenues()
 //
 $scope.addFaveBands = function(band) {
   console.log("dsfdsfsd", band)
