@@ -12,7 +12,7 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
   $scope.getBandData = function( band_name ) {
     console.log("getband", band_name)
     service.getBandData(band_name).then(function(band){
-      console.log('bandData', band.data)
+      console.log('returnData', band.data)
       $scope.bandData = band
       // console.log("Band data", band.data)
     })
