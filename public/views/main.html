@@ -75,8 +75,8 @@
     <div class="container">
       <div class="row">
         <div class="artistsearch">
-        <input class="artistinput"  type="text" name="Artists" ng-model="text" placeholder="Artist">
-        <button class="submit" ng-click="getBandData( { band_name: text} ); artistmatches = !artistmatches;">Find</button>
+        <input class="artistinput"  type="text" name="Artists" ng-model="artist" placeholder="Artist">
+        <button class="submit" ng-click="getBandData( { band_name: artist} ); artistmatches = !artistmatches;">Find</button>
         <button class="submit" ng-click="addFaveBands( { band_name: text, user: userid} );">ADD TO FAVORITES!</button>
 
         </div>
@@ -114,7 +114,7 @@
       <div class="row">
         <div class="venues-search">
           <input class="eventsinput"  type="text" name="Venues" ng-model="text" placeholder="Venues">
-          <button class="submit" ng-click="getVenueId( { text:text} ); venuematches = !venuematches">Find</button>
+          <button class="submit" ng-click="getVenueId( { text: text} ); venuematches = !venuematches">Find</button>
           <button class="submit" ng-click="addFaveVenues( { venue_name: text, user: userid} );">ADD TO FAVORITES!</button>
         </div>
       </div>

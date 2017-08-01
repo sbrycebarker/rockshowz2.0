@@ -9,9 +9,10 @@ angular.module('myApp').service('service', function($http) {
     })
   }
   this.getBandData = function(data) {
+    console.log('banddata', data )
     return $http({
       method: 'GET',
-      url: 'https://rest.bandsintown.com/artists/' + data.text + '?app_id=rockshowz',
+      url: 'https://rest.bandsintown.com/artists/' + data.band_name + '?app_id=rockshowz',
       controller: 'mainCtrl'
     })
   },
