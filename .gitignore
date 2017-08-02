@@ -5,3 +5,13 @@ dist
 ui-bootstrap-tpls-2.5.0.js
 
 rockshow1234
+
+.firebaserc
+
+database.rules.json
+
+functions/
+
+y/
+
+firebase.json

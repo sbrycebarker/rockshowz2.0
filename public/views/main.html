@@ -118,6 +118,8 @@
           <button class="submit" ng-click="addFaveVenues( { venue_name: text, user: userid} );">ADD TO FAVORITES!</button>
         </div>
       </div>
+      <h1>{{vendata.Name}}</h1>
+      <h1>{{vendata.Address}} {{vendata.City}}, {{vendata.State}}</h1>
     </div>
 
     <venuepop ng-show="venuematches" ng-click="venuematches = !venuematches"></venuepop>

@@ -20,11 +20,12 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
   $scope.getVenueData = function(venue){
     console.log("sent", venue)
     service.getVenueId(venue).then(function(venid) {
+      $scope.vendata = venid.data.Venues[0]
       let venueId = venid.data.Venues[0].Id
       console.log('venueId',venueId)
       setTimeout( function() {
         service.getVenueData(venueId).then(function(venue){
-          console.log("venueEvent", venue.data.Events)
+          console.log("venueEvent", venue.data)
           $scope.venueEvent = venue.data.Events
         })
         }, 2100)
