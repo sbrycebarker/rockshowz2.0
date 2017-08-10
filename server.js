@@ -43,14 +43,12 @@ const express = require('express'),
           function(accessToken, refreshToken, extraParams, profile, done) {
             db.getUserByAuthId([profile.id]).then(function(user) {
               console.log('gettinguser', user)
-
               if (!user[0]) {
                  //if there isn't one, we'll create one!
                 console.log('CREATING USER');
                 db.createUserByAuth([profile.displayName, profile.id]).then(function(user2) {
-                  console.log('USER CREATED', user2[0].username);
-                  return done("user2", user2[0].username);
-
+                  console.log('USER CREATED', user2);
+                  return done("user2", user2);
                 })
               } else {
                 console.log("found User", user[0].username)
@@ -117,7 +115,7 @@ const express = require('express'),
       let favevenues = require('./server/favevenues')
       let users = require('./server/users')
 
-    app.get('/all/users', users.index)
+    // app.get('/all/users', users.index)
     app.get('/favorites/bands/:userId', favebands.read)
     app.get('/favorites/venues/:userId', favevenues.read)
     app.post('/favorites/bands', favebands.create)

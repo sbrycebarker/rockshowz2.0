@@ -9,22 +9,23 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
     })
   }
 
-  $scope.getBandData = function(data) {
-    console.log("getband",data)
-    service.getBandData(data).then(function(band){
-      console.log('bandData', band.data)
+  $scope.getBandData = function( band_name ) {
+    console.log("getband", band_name)
+    service.getBandData(band_name).then(function(band){
+      console.log('returnData', band.data)
       $scope.bandData = band
       // console.log("Band data", band.data)
     })
   }
-  $scope.getVenueData = function(data){
-    console.log("sent", data)
-    service.getVenueId(data).then(function(info) {
-      let venueId = info.data.Venues[0].id
+  $scope.getVenueData = function(venue){
+    console.log("sent", venue)
+    service.getVenueId(venue).then(function(venid) {
+      $scope.vendata = venid.data.Venues[0]
+      let venueId = venid.data.Venues[0].Id
       console.log('venueId',venueId)
       setTimeout( function() {
         service.getVenueData(venueId).then(function(venue){
-          console.log("venueEvent", venue.data.Events)
+          console.log("venueEvent", venue.data)
           $scope.venueEvent = venue.data.Events
         })
         }, 2100)
@@ -32,8 +33,9 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
   }
     // $scope.getVenueData('uccu center')
     // only call when necessary
-    $scope.getVenueId = function(venuename){
-      service.getVenueId(venuename).then(function(venuedata){
+    $scope.getVenueId = function(venue){
+      console.log("pizza", venue)
+      service.getVenueId(venue).then(function(venuedata){
         console.log("pizza",venuedata.data.Venues)
         $scope.venues = venuedata.data.Venues
         console.log("name", $scope.venues[0].Name)
@@ -67,6 +69,8 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
         $scope.local = local.data.Events
       })
     }
+    // $scope.getLocal()
+
     $scope.getUser = function() {
       auth0Service.getUser().then(function(user) {
         console.log("user", user)
@@ -74,6 +78,8 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
           $scope.user = user.username;
           $scope.userid = user.user_id
           console.log("userinfo", $scope.userid)
+          $scope.getfaveBands();
+          $scope.getfaveVenues()
         } else {
           $scope.user = 'LOG IN!';
         }
@@ -92,7 +98,7 @@ $scope.getfaveBands = function(user) {
     }
   })
 }
-$scope.getfaveBands()
+// $scope.getfaveBands()
 
 $scope.getfaveVenues = function(user) {
   user = $scope.userid
@@ -104,7 +110,7 @@ $scope.getfaveVenues = function(user) {
     }
   })
 }
-$scope.getfaveVenues()
+// $scope.getfaveVenues()
 //
 $scope.addFaveBands = function(band) {
   console.log("dsfdsfsd", band)
