@@ -10,32 +10,32 @@ $(document).ready(function(){
                 $('#myNavbar').fadeOut(500);
             }
         });
-  $('body').scrollspy({target: ".navbar", offset: 50});   
-    $(window).scroll(function(){                          
+  $('body').scrollspy({target: ".navbar", offset: 50});
+    $(window).scroll(function(){
             if ($(this).scrollTop() > 500) {
                 $('#myLocal').fadeIn(1000);
             } else {
                 $('#myLocal').fadeOut(1000);
             }
         });
-  $('body').scrollspy({target: ".navbar", offset: 100});   
-    $(window).scroll(function(){                          
+  $('body').scrollspy({target: ".navbar", offset: 100});
+    $(window).scroll(function(){
             if ($(this).scrollTop() > 1200) {
                 $('#myArtist').fadeIn(1200);
             } else {
                 $('#myArtist').fadeOut(1200);
             }
         });
-  $('body').scrollspy({target: ".navbar", offset: 100});   
-    $(window).scroll(function(){                          
+  $('body').scrollspy({target: ".navbar", offset: 100});
+    $(window).scroll(function(){
             if ($(this).scrollTop() > 2100) {
                 $('#myVenue').fadeIn(2000);
             } else {
                 $('#myVenue').fadeOut(2000);
             }
         });
-  
-  
+
+
   // Add smooth scrolling on all links inside the navbar
   $("#myNavbar a").on('click', function(event) {
     // Make sure this.hash has a value before overriding default behavior
@@ -85,7 +85,7 @@ $(document).ready(function(){
       });
     }
   });
-  $("#faveven a").on('click', function(event) {
+  $("#favevenue a").on('click', function(event) {
     // Make sure this.hash has a value before overriding default behavior
    console.log("getting fave!");
     if (this.hash !== "") {
