@@ -7,8 +7,8 @@
       </div>
       <div class="tag">
         <li><a href="#box2">Local</a></li><hr>
-        <li><a href="#box3">Artist</a></li><hr>
-        <li><a href="#box4">Venues</a></li><hr>
+        <li><a href="#myArtist">Artist</a></li><hr>
+        <li><a href="#myVenue">Venues</a></li><hr>
         <li><a href="#box5">Profiles</a></li><hr>
         <li><a href="#box6">About</a></li>
       </div>
@@ -21,7 +21,10 @@
       <h1 class="title">ROCKSHOWZ</h1>
     </div>
     <div class="row">
-      <a href="/auth"><button class="button-primary">Login with Auth0</button></a>
+
+      <a href="/auth"><button class="button-primary">{{user}}</button></a>
+      <a href="/auth/logout"><button class="button-primary">Logout</button></a>
+      
     </div>
     <div class="containerOne">
       <div id="login">
@@ -38,7 +41,7 @@
       <div class="row-inverse">
         <h1></h1>
         <ul class="navbar-inverse">
-          <li><a href="#box2">START</a></li>
+          <li><a href="#box2">SEARCH</a></li>
         </ul>
       </div>
     </div>
@@ -48,8 +51,8 @@
   <div id="box2" name='box2'>
 
     <div id="myLocal">
-      <h1 class="artist-title title">Local Shows</h1>
 
+      <!-- <h1 class="artist-title title">Local Shows</h1> -->
       <div class="container">
         <div class="row">
           <button class="location" ng-click="getLocal()">Local</button>
@@ -58,9 +61,10 @@
     </div>
 
     <div class="localcon">
+      {{userid}}
       <div class="local" ng-repeat="show in local | limitTo: '20'">
-        <ul><h3>{{show.Artists[0].Name}}</h3><button id="addArtist" class="addbttn" ng-click="addFaveBands( {artist: show.Artists[0].Name, user: user.user_id} )">Add</button></ul>
-        <ul><h4>{{show.Venue.Name}}</h4><button id="addVenue" class="addbttn" ng-click="addFaveBands( {artist: show.Artists[0].Name, user: user.user_id} )">Add</button></ul>
+        <ul><h3>{{show.Artists[0].Name}}</h3><button id="addArtist" class="addbttn" ng-click="addFaveBands( { band_name: show.Artists[0].Name, user: userid} )"></button></ul>
+        <ul><h4>{{show.Venue.Name}}</h4><button id="addVenue" class="addbttn" ng-click="addFaveVenues( { venue_name: show.Venue.Name, user: userid} )"></button></ul>
         <ul>{{show.Date}}</ul>
         <ul><h3>{{show.Venue.City}}, {{show.Venue.State}}</h3></ul>
       </div>
@@ -68,16 +72,16 @@
   </div>
 
 
+  <div id="box3">
+      <div id="myArtist">
+    <h1 class="artist-title title" >Artists</h1>
+    <div class="container">
+      <div class="row">
+        <div class="artistsearch">
+        <input class="artistinput"  type="text" name="Artists" ng-model="artist" placeholder="Artist">
+        <button class="submit" ng-click="getBandData( { band_name: artist} ); artistmatches = !artistmatches;">Find</button>
+        <button class="submit" ng-click="addFaveBands( { band_name: text, user: userid} );">ADD TO FAVORITES!</button>
 
-  <div id="box3" name='box3'>
-    <div id="myArtist">
-      <h1 class="artist-title title" >Artists</h1>
-      <div class="container">
-        <div class="row">
-          <div class="artistsearch">
-          <input class="artistinput"  type="text" name="Artists" ng-model="text" placeholder="Artist">
-          <button class="submit" ng-click="getBandData( { text:text} ); artistmatches = !artistmatches;">Find</button>
-          </div>
         </div>
       </div>
       <div class="container">
@@ -93,52 +97,81 @@
     <bandpop ng-show="artistmatches" ng-click="artistmatches = !artistmatches"></bandpop>
     <div class="venuecon">
       <div id="bandEvents" class="events" ng-repeat="event in bandEventData | limitTo: '20'">
-        <p><h2>{{event.venue.city}}, {{event.venue.region}}</h2></p>
-        <h3>{{event.venue.name}}</h3>
-        <p>{{event.datetime}}</p>
+        <p><h2>{{event.venue.city}} {{event.venue.region}}</h2></p>
+        <p><h2> {{event.venue.name}}</h2></p>
+        <p><h2> {{event.datetime}}</h2></p>
+        <p><h2><a href="{{event.offers[0].url}}" ><i class="fa fa-ticket" aria-hidden="true"></i></a></h2></p>
+        <div class="addcon">
+        <div id="addvenue" class="addbttn" ng-click="addFaveVenues( { venue_name: event.venue.name , user: userid } )">
+        </div>
+        <h3 class="addbubble">ADD TO FAVORITES?</h3>
+      </div>
       </div>
     </div>
   </div>
-
-  <div id="box4" name='box4'>
-    <div id="myVenue">
-      <h1 class="venues title" >Venues</h1>
-      <div class="container">
-        <div class="row">
-          <div class="venues-search">
-            <input class="eventsinput"  type="text" name="Venues" ng-model="text" placeholder="Venues">
-            <button class="submit" ng-click="getVenueId( { text:text} ); venuematches = !venuematches">Find</button>
-          </div>
+</div>
+<div id="box4">
+      <div id="myVenue">
+    <h1 class="venues title" >Venues</h1>
+    <div class="container">
+      <div class="row">
+        <div class="venues-search">
+          <input class="eventsinput"  type="text" name="Venues" ng-model="text" placeholder="Venues">
+          <button class="submit" ng-click="getVenueId( { text: text} ); venuematches = !venuematches">Find</button>
+          <button class="submit" ng-click="addFaveVenues( { venue_name: text, user: userid} );">ADD TO FAVORITES!</button>
         </div>
       </div>
+      <h1>{{vendata.Name}}</h1>
+      <h1>{{vendata.Address}} {{vendata.City}} {{vendata.State}}</h1>
     </div>
 
     <venuepop ng-show="venuematches" ng-click="venuematches = !venuematches"></venuepop>
     <div class="venuecon">
       <div id="venueEvent" class="events" ng-repeat="venEvent in venueEvent | limitTo: '20'">
         <p><h2>{{venEvent.Artists[0].Name}}</h2></p>
-        <button id="addartist" class="addbttn" ng-click="addFaveBands( { name: venEvent.Artists[0].Name , user: userid} )">Add</button>
         <p><h2>{{venEvent.Date}}</h2></p>
-
+        <p><h2><a href="{{venEvent.TicketUrl}}" ><i class="fa fa-ticket" aria-hidden="true"></i></a></h2></p>
+        <div class="addcon">
+        <button id="addartist" class="addbttn" ng-click="addFaveBands( { band_name: venEvent.Artists[0].Name , user: userid} )"></button>
+        <h3 class="addbubble">ADD TO FAVORITES?</h3>
+      </div>
       </div>
     </div>
   </div>
-
+</div>
   <div id="box5">
       <h1 class="artist-title title">Profile</h1>
       <div class="profileCon">
         <h1>{{user.username}}</h1>
         <a href="/auth"><button class="button-primary" ng-click="getfaveBands(); getFaveVenues()">Login with Auth0</button></a>
         <div class="faveCon">
+<<<<<<< HEAD
 
+=======
+          <hr>
+>>>>>>> f9d591d2b14514b682da5c159cccc3358c7b59c0
           <h1>Favorite Bands</h1>
-          <div id="favebands" class="favelist" ng-repeat="faveB in favebands">
-            <h1>{{faveB.band_name}}</h1>
+          <div class="favebands">
+          <div class="favelist" ng-repeat="faveB in favebands">
+            <h1 ng-click="getBandEvents({ text: faveB.band_name })">
+              <a href="#box3">{{faveB.band_name}}</a></h1>
+            <h1><div class="DFB" ng-click="removeFaveBand({ band_name: faveB.band_name, user: userid }, $index)"></div></h1>
           </div>
+          </div>
+          <hr>
             <h1>Favorite Venues</h1>
+<<<<<<< HEAD
           <div id="favevenues" class="favelist" ng-repeat="faveV in favevenues">
             <h1>{{faveV.venue_name}}</h1>
 
+=======
+            <div class="favevenues">
+          <div id="favevenue" class="favelist" ng-repeat="faveV in favevenues">
+            <h1 ng-click="getVenueData( { text: faveV.venue_name} )">
+              <a href="#box4">{{faveV.venue_name}}</a></h1>
+            <h1><div class="DFV" ng-click="removeFaveVenue({ venue_name: faveV.venue_name, user: userid }, $index)"></div></h1>
+          </div>
+>>>>>>> f9d591d2b14514b682da5c159cccc3358c7b59c0
           </div>
         </div>
       </div>

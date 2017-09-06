@@ -9,7 +9,8 @@ const express = require('express'),
     Auth0Strategy = require('passport-auth0'),
     config = require('./config.js'),
     cors = require('cors');
-    connectionString = "postgres://postgres:1234a@localhost/rockshow";
+    connectionString = "postgres://postgres:1234a@localhost/rockshow"
+    elephantconnection = "postgres://vlzurcyw:Qhol7vKSqVR12FCJZ5GhPJCnWVkLx_Xc@tantor.db.elephantsql.com:5432/vlzurcyw";
     // 1234a password
     const app = express();
 
@@ -28,9 +29,35 @@ const express = require('express'),
 
     app.use(express.static('./public'))
 
-    massive(connectionString).then((db) => {
+    massive(elephantconnection).then((db) => {
         app.set('db', db);
-
+        // db.users_create_seed().then(
+        //   function() {
+        //     console.log("user table created")
+        //   }
+        // )
+        // .catch(
+        //   function(err){
+        //     console.log("user table err", err)
+        //   })
+        // db.favebands_create_seed().then(
+        //   function() {
+        //     console.log("band table created")
+        //   }
+        // )
+        // .catch(
+        //   function(err){
+        //     console.log("band table err", err)
+        //   })
+        // db.favevenues_create_seed().then(
+        //   function() {
+        //     console.log("venue table created")
+        //   }
+        // )
+        // .catch(
+        //   function(err){
+        //     console.log("venue table err", err)
+        //   })
 // <<=================SERVER SETUP ENDS========================>>
 
 // <<========================LOGIN=================================>>
@@ -43,14 +70,12 @@ const express = require('express'),
           function(accessToken, refreshToken, extraParams, profile, done) {
             db.getUserByAuthId([profile.id]).then(function(user) {
               console.log('gettinguser', user)
-
               if (!user[0]) {
                  //if there isn't one, we'll create one!
                 console.log('CREATING USER');
                 db.createUserByAuth([profile.displayName, profile.id]).then(function(user2) {
-                  console.log('USER CREATED', user2[0].username);
-                  return done("user2", user2[0].username);
-
+                  console.log('USER CREATED', user2);
+                  return done("user2", user2);
                 })
               } else {
                 console.log("found User", user[0].username)
@@ -117,13 +142,13 @@ const express = require('express'),
       let favevenues = require('./server/favevenues')
       let users = require('./server/users')
 
-    app.get('/all/users', users.index)
+    // app.get('/all/users', users.index)
     app.get('/favorites/bands/:userId', favebands.read)
     app.get('/favorites/venues/:userId', favevenues.read)
     app.post('/favorites/bands', favebands.create)
     app.post('/favorites/venues', favevenues.create)
-    app.delete('/favorites/:userId/:bandId', favebands.delete)
-    app.delete('/favorites/:userId/:venueId', favevenues.delete)
+    app.delete('/favorites/bands/:userid/:band_name', favebands.delete)
+    app.delete('/favorites/venues/:userid/:venue_name', favevenues.delete)
 
 // <<==================END OF FAVORITES==========================>>
 

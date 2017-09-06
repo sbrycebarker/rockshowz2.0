@@ -9,22 +9,23 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
     })
   }
 
-  $scope.getBandData = function(data) {
-    console.log("getband",data)
-    service.getBandData(data).then(function(band){
-      console.log('bandData', band.data)
+  $scope.getBandData = function( band_name ) {
+    console.log("getband", band_name)
+    service.getBandData(band_name).then(function(band){
+      console.log('returnData', band.data)
       $scope.bandData = band
       // console.log("Band data", band.data)
     })
   }
-  $scope.getVenueData = function(data){
-    console.log("sent", data)
-    service.getVenueId(data).then(function(info) {
-      let venueId = info.data.Venues[0].Id
+  $scope.getVenueData = function(venue){
+    console.log("sent", venue)
+    service.getVenueId(venue).then(function(venid) {
+      $scope.vendata = venid.data.Venues[0]
+      let venueId = venid.data.Venues[0].Id
       console.log('venueId',venueId)
       setTimeout( function() {
         service.getVenueData(venueId).then(function(venue){
-          console.log("venueEvent", venue.data.Events)
+          console.log("venueEvent", venue.data)
           $scope.venueEvent = venue.data.Events
         })
         }, 2100)
@@ -32,11 +33,16 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
   }
     // $scope.getVenueData('uccu center')
     // only call when necessary
-    $scope.getVenueId = function(venuename){
-      service.getVenueId(venuename).then(function(venuedata){
+    $scope.getVenueId = function(venue){
+      console.log("pizza", venue)
+      service.getVenueId(venue).then(function(venuedata){
         console.log("pizza",venuedata.data.Venues)
-        $scope.venues = venuedata.data.Venues
-        console.log("name", $scope.venues[0].Name)
+        if (venuedata) {
+          var place = venuedata.data.Venues
+          $scope.venues = place;
+        } else {
+          $scope.venues = "Search for a venue";
+        }
       })
     }
 
@@ -68,6 +74,8 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
       })
     }
 
+    // $scope.getLocal()
+
     $scope.getUser = function() {
       auth0Service.getUser().then(function(user) {
         console.log("user", user)
@@ -75,6 +83,8 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
           $scope.user = user.username;
           $scope.userid = user.user_id
           console.log("userinfo", $scope.userid)
+          $scope.getfaveBands();
+          $scope.getfaveVenues()
         } else {
           $scope.user = 'LOG IN!';
         }
@@ -85,50 +95,57 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
 
 $scope.getfaveBands = function(user) {
   user = $scope.userid
-  console.log("fave of", user)
   faveService.getfaveBands(user).then(function(faves){
-    if (faves) { $scope.favebands = faves.data;
+    if (faves) {
+      $scope.favebands = faves.data;
     } else {
       $scope.favebands = 'LOG IN!';
     }
   })
 }
-$scope.getfaveBands()
+// $scope.getfaveBands()
 
 $scope.getfaveVenues = function(user) {
   user = $scope.userid
   faveService.getfaveVenues(user).then(function(faves){
-    if (faves) { $scope.favevenues = faves.data;
-      console.log(faves.data)
+    if (faves) {
+      $scope.favevenues = faves.data;
     } else {
       $scope.favevenues = 'LOG IN!';
     }
   })
 }
-$scope.getfaveVenues()
+// $scope.getfaveVenues()
 //
 $scope.addFaveBands = function(band) {
-  faveService.addFaveBands(band).then(function(faves){
-    $scope.faveBands = faves
-  })
+  console.log("dsfdsfsd", band)
+  faveService.addFaveBands(band)
+    $scope.favebands.push(band)
+    console.log($scope.favebands)
 }
 // //
-$scope.addFaveVenues = function(user) {
-  faveService.addFaveVenues(user).then(function(faves){
-      $scope.faveVenues = faves
-  })
+$scope.addFaveVenues = function(venue) {
+  faveService.addFaveVenues(venue)
+      $scope.favevenues.push(venue)
+      console.log($scope.favevenues)
 }
 
-$scope.removeFaveBand = function(user) {
-  faveService.removeFaveBand(user).then(function(faves){
-    $scope.faveBands = faves
-  })
+$scope.removeFaveBand = function(band, i) {
+  var removedItem = $scope.favebands.splice(i, 1)
+  faveService.removeFaveBand(band).then(function(){
+    // $scope.faveBands = faves
+  }, function(err) {
+      $scope.favebands.splice(i, 0, removedItem[0]);
+    })
 }
 
-$scope.removeFaveVenue = function(user) {
-  faveService.removeFaveVenue(user).then(function(faves){
-    $scope.faveVenues = faves
-  })
+$scope.removeFaveVenue = function(venue, i) {
+  var removedItem = $scope.favevenues.splice(i, 1)
+  faveService.removeFaveVenue(venue).then(function(){
+    // $scope.faveVenues = faves
+  }, function(err) {
+      $scope.favevenues.splice(i, 0, removedItem[0]);
+    })
 }
 
 

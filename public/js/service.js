@@ -9,9 +9,10 @@ angular.module('myApp').service('service', function($http) {
     })
   }
   this.getBandData = function(data) {
+    console.log('banddata', data )
     return $http({
       method: 'GET',
-      url: 'https://rest.bandsintown.com/artists/' + data.text + '?app_id=rockshowz',
+      url: 'https://rest.bandsintown.com/artists/' + data.band_name + '?app_id=rockshowz',
       controller: 'mainCtrl'
     })
   },
@@ -19,7 +20,7 @@ angular.module('myApp').service('service', function($http) {
     console.log('venuename', venue)
     return $http({
       method: 'GET',
-      url: 'http://api.jambase.com/venues?name=' + venue.text + '&page=0&api_key=vb42ffurnn2v35supzuechdy',
+      url: 'http://api.jambase.com/venues?name=' + venue.text + '&page=0&api_key=53tkjbp2d36gw7bqguzvga9d',
     })
   }
 // <<==========================================API KEYS==================================================>>
@@ -34,7 +35,10 @@ angular.module('myApp').service('service', function($http) {
     console.log('venid', data)
     return $http({
       method: 'GET',
-      url: 'http://api.jambase.com/events?venueId=' + data + '&page=0&api_key=vb42ffurnn2v35supzuechdy',
+
+      url: 'http://api.jambase.com/events?venueId=' + data + '&page=0&api_key=53tkjbp2d36gw7bqguzvga9d',
+
+
     })
   }
   this.getCoOrd = function() {
@@ -56,7 +60,7 @@ angular.module('myApp').service('service', function($http) {
     console.log(zip)
     return $http({
       method: 'GET',
-      url: 'http://api.jambase.com/events?zipCode=' + zip + '&page=0&api_key=vb42ffurnn2v35supzuechdy'
+      url: 'http://api.jambase.com/events?zipCode=' + zip + '&page=0&api_key=53tkjbp2d36gw7bqguzvga9d'
     })
   }
 })
