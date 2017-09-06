@@ -37,8 +37,12 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
       console.log("pizza", venue)
       service.getVenueId(venue).then(function(venuedata){
         console.log("pizza",venuedata.data.Venues)
-        $scope.venues = venuedata.data.Venues
-        console.log("name", $scope.venues[0].Name)
+        if (venuedata) {
+          var place = venuedata.data.Venues
+          $scope.venues = place;
+        } else {
+          $scope.venues = "Search for a venue";
+        }
       })
     }
 
