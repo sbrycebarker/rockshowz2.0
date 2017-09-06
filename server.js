@@ -9,7 +9,8 @@ const express = require('express'),
     Auth0Strategy = require('passport-auth0'),
     config = require('./config.js'),
     cors = require('cors');
-    connectionString = "postgres://postgres:1234a@localhost/rockshow";
+    connectionString = "postgres://postgres:1234a@localhost/rockshow"
+    elephantconnection = "postgres://vlzurcyw:Qhol7vKSqVR12FCJZ5GhPJCnWVkLx_Xc@tantor.db.elephantsql.com:5432/vlzurcyw";
     // 1234a password
     const app = express();
 
@@ -28,9 +29,35 @@ const express = require('express'),
 
     app.use(express.static('./public'))
 
-    massive(connectionString).then((db) => {
+    massive(elephantconnection).then((db) => {
         app.set('db', db);
-
+        // db.users_create_seed().then(
+        //   function() {
+        //     console.log("user table created")
+        //   }
+        // )
+        // .catch(
+        //   function(err){
+        //     console.log("user table err", err)
+        //   })
+        // db.favebands_create_seed().then(
+        //   function() {
+        //     console.log("band table created")
+        //   }
+        // )
+        // .catch(
+        //   function(err){
+        //     console.log("band table err", err)
+        //   })
+        // db.favevenues_create_seed().then(
+        //   function() {
+        //     console.log("venue table created")
+        //   }
+        // )
+        // .catch(
+        //   function(err){
+        //     console.log("venue table err", err)
+        //   })
 // <<=================SERVER SETUP ENDS========================>>
 
 // <<========================LOGIN=================================>>
