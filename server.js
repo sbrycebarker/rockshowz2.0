@@ -5,8 +5,8 @@ const express = require('express'),
     http = require("http"),
     request = require('request'),
     query = require('querystring'),
-    passport = require('passport'),
     Auth0Strategy = require('passport-auth0'),
+    passport = require('passport'),
     config = require('./config.js'),
     cors = require('cors');
     connectionString = "postgres://postgres:1234a@localhost/rockshow"
@@ -29,7 +29,7 @@ const express = require('express'),
 
     app.use(express.static('./public'))
 
-    massive(connectionString).then((db) => {
+    massive(elephantconnection).then((db) => {
         app.set('db', db);
         // db.users_create_seed().then(
         //   function() {
@@ -69,17 +69,17 @@ const express = require('express'),
           },
           function(accessToken, refreshToken, extraParams, profile, done) {
             db.getUserByAuthId([profile.id]).then(function(user) {
-              console.log('gettinguser', user)
+              console.log('gettinguser', profile.id)
               if (!user[0]) {
                  //if there isn't one, we'll create one!
-                console.log('CREATING USER');
+                console.log("creating user", profile)
                 db.createUserByAuth([profile.displayName, profile.id]).then(function(user2) {
                   console.log('USER CREATED', user2);
-                  return done("user2", user2);
+                  return done("user2 created", user2);
                 })
               } else {
-                console.log("found User", user[0].username)
-                user = user[0]
+                console.log("found User", user.username)
+                // user = user[0]
                 return done(null , user);
               }
             })
