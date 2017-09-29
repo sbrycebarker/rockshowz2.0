@@ -1,9 +1,9 @@
 module.exports = {
   secret: "pizzaisgood",// Your secret here
   auth0: {
-    domain: "subiboi.auth0.com",
-    clientID: "9RD31OEQ30Q2wf8VGlDCQQ4wkiqpfWpW",
-    clientSecret: "jYuuiIW_ZZIBTcXqb8eJcM181Nz2QaxGANrCi5f48jUxLOjly2D7WnEylLdz_fqY" ,
+    domain: "sbrycebarker.auth0.com",
+    clientID: "LgPfqUUPQ7wU3B5PHah2dJ4k4QnPCfye",
+    clientSecret: "bI3_Si_Au9uA21Qn8g2lRajJSjXL_dy3DMBcfKFTkIZtjvjU-tdspH5Gl6cgomIM" ,
   },
   spotifySecret: '62da8b16dd974be787e78adba063f41b'
 };

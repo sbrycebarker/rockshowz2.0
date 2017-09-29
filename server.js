@@ -29,7 +29,7 @@ const express = require('express'),
 
     app.use(express.static('./public'))
 
-    massive(elephantconnection).then((db) => {
+    massive(connectionString).then((db) => {
         app.set('db', db);
         // db.users_create_seed().then(
         //   function() {
