@@ -24,7 +24,7 @@
 
       <a href="/auth"><button class="button-primary">{{user}}</button></a>
       <a href="/auth/logout"><button class="button-primary">Logout</button></a>
-      
+
     </div>
     <div class="containerOne">
       <div id="login">
@@ -142,14 +142,12 @@
   <div id="box5">
       <h1 class="artist-title title">Profile</h1>
       <div class="profileCon">
-        <h1>{{user.username}}</h1>
+        <h1>{{user}}</h1>
         <a href="/auth"><button class="button-primary" ng-click="getfaveBands(); getFaveVenues()">Login with Auth0</button></a>
         <div class="faveCon">
-<<<<<<< HEAD
 
-=======
           <hr>
->>>>>>> f9d591d2b14514b682da5c159cccc3358c7b59c0
+
           <h1>Favorite Bands</h1>
           <div class="favebands">
           <div class="favelist" ng-repeat="faveB in favebands">
@@ -160,18 +158,17 @@
           </div>
           <hr>
             <h1>Favorite Venues</h1>
-<<<<<<< HEAD
+
           <div id="favevenues" class="favelist" ng-repeat="faveV in favevenues">
             <h1>{{faveV.venue_name}}</h1>
 
-=======
+
             <div class="favevenues">
           <div id="favevenue" class="favelist" ng-repeat="faveV in favevenues">
             <h1 ng-click="getVenueData( { text: faveV.venue_name} )">
               <a href="#box4">{{faveV.venue_name}}</a></h1>
             <h1><div class="DFV" ng-click="removeFaveVenue({ venue_name: faveV.venue_name, user: userid }, $index)"></div></h1>
           </div>
->>>>>>> f9d591d2b14514b682da5c159cccc3358c7b59c0
           </div>
         </div>
       </div>

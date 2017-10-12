@@ -59,8 +59,8 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
       var lat = $scope.lat
       var lng = $scope.lng
       service.getZip(lat, lng).then(function(result) {
-        console.log("zip",result.data.results[0].address_components[7])
-        var loc = result.data.results[0].address_components[7].short_name
+        console.log("zip",result.data.results[0].address_components[6])
+        var loc = result.data.results[0].address_components[6].short_name
         $scope.location = loc
       })
     }
@@ -80,9 +80,9 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
       auth0Service.getUser().then(function(user) {
         console.log("user", user)
         if (user) {
-          $scope.user = user.username;
+          $scope.user = user[0].username;
           $scope.userid = user.user_id
-          console.log("userinfo", $scope.userid)
+          console.log("userinfo", $scope.user)
           $scope.getfaveBands();
           $scope.getfaveVenues()
         } else {
