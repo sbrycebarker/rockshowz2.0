@@ -157,7 +157,13 @@ button {
   display: flex;
   justify-content: center;
   align-content: center;
+  /*flex-direction: column;*/
 }
+
+.localtitle {
+  text-align: center;
+}
+
 .button-primary{
    border-radius: 35px;
    background-color: #4c9014;
@@ -181,6 +187,7 @@ button {
 }
 
 .location {
+  top: 50px;
   background-color: #4c9014;
   color: black;
   border-radius: 35px;
@@ -305,7 +312,7 @@ button {
   color: black
 }
 .location {
-
+  /*top: 50px*/
 }
 .venues-search{
    border-radius: 35px;
