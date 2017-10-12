@@ -118,7 +118,7 @@
         <div class="venues-search">
           <input class="eventsinput"  type="text" name="Venues" ng-model="text" placeholder="Venues">
           <button class="submit" ng-click="getVenueId( { text: text} ); venuematches = !venuematches">Find</button>
-          <button class="submit" ng-click="addFaveVenues( { venue_name: text, user: userid} );">ADD TO FAVORITES!</button>
+          <button class="submit" ng-click="addFaveVenues( { venue_name: text, user: user} );">ADD TO FAVORITES!</button>
         </div>
       </div>
       <h1>{{vendata.Name}}</h1>
@@ -143,6 +143,7 @@
       <h1 class="artist-title title">Profile</h1>
       <div class="profileCon">
         <h1>{{user}}</h1>
+        <h1>{{userid}}</h1>
         <a href="/auth"><button class="button-primary" ng-click="getfaveBands(); getFaveVenues()">Login with Auth0</button></a>
         <div class="faveCon">
 
@@ -159,14 +160,11 @@
           <hr>
             <h1>Favorite Venues</h1>
 
-          <div id="favevenues" class="favelist" ng-repeat="faveV in favevenues">
-            <h1>{{faveV.venue_name}}</h1>
-
-
             <div class="favevenues">
           <div id="favevenue" class="favelist" ng-repeat="faveV in favevenues">
             <h1 ng-click="getVenueData( { text: faveV.venue_name} )">
-              <a href="#box4">{{faveV.venue_name}}</a></h1>
+              <a href="#box4">{{faveV.venue_name}}</a>
+            </h1>
             <h1><div class="DFV" ng-click="removeFaveVenue({ venue_name: faveV.venue_name, user: userid }, $index)"></div></h1>
           </div>
           </div>

@@ -1,2 +1,2 @@
-select * from public.favorite_bands
+SELECT * FROM public.favorite_bands
 where user_id = $1

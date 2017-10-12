@@ -61,7 +61,12 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
       service.getZip(lat, lng).then(function(result) {
         console.log("zip",result.data.results[0].address_components[6])
         var loc = result.data.results[0].address_components[6].short_name
+        if (loc) {
         $scope.location = loc
+      } else {
+        var loc = result.data.results[0].address_components[7].short_name
+        $scope.location = loc
+      }
       })
     }
 
@@ -81,7 +86,7 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
         console.log("user", user)
         if (user) {
           $scope.user = user[0].username;
-          $scope.userid = user.user_id
+          $scope.userid = user[0].user_id
           console.log("userinfo", $scope.user)
           $scope.getfaveBands();
           $scope.getfaveVenues()
@@ -109,6 +114,7 @@ $scope.getfaveVenues = function(user) {
   user = $scope.userid
   faveService.getfaveVenues(user).then(function(faves){
     if (faves) {
+      console.log("thisthing",faves)
       $scope.favevenues = faves.data;
     } else {
       $scope.favevenues = 'LOG IN!';
@@ -118,7 +124,7 @@ $scope.getfaveVenues = function(user) {
 // $scope.getfaveVenues()
 //
 $scope.addFaveBands = function(band) {
-  console.log("dsfdsfsd", band)
+  console.log("addfaveband", band)
   faveService.addFaveBands(band)
     $scope.favebands.push(band)
     console.log($scope.favebands)
