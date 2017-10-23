@@ -1,4 +1,5 @@
-@media (max-width: 750px) {
+@media (max-width: 1350px) {
+
 
 *{
 
@@ -48,6 +49,7 @@ header {
 hr {
   margin-top: 12px;
   margin-bottom: 3px;
+  /* color: black; */
 }
 
 button {
@@ -57,16 +59,16 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 12px;
+  font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
 }
 
 .addbttn {
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  width: 30px;
   background: url(./img/plus.png)center center;
-  background-size: 35px;
+  background-size: 30px;
   padding: 0;
   font-size: 8px;
   margin: auto;
@@ -118,13 +120,12 @@ button {
   justify-content: center;
   align-content: center;
 }
-
 .navbar-inverse{
   padding-top: 10px;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 35px;
+  padding-right: 35px;
   padding-bottom: 20px;
-  font-size: 12px;
+  font-size: 15px;
   opacity: .6;
   background-color: #474747;
   max-width: 150px;
@@ -135,8 +136,8 @@ button {
 #myNavbar {
   position: fixed;
   display: none;
-  height: 110vh;
-  padding-top: 25.75rem;
+  height: 100vh;
+  padding-top: 28.75rem;
   max-width: 150px;
   z-index:9999;
 }
@@ -155,11 +156,11 @@ button {
   width: auto;
   float: right;
 }
-
 .row{
   display: flex;
   justify-content: center;
   align-content: center;
+  /*flex-direction: column;*/
 }
 
 .localtitle {
@@ -172,22 +173,20 @@ button {
    color: black;
 }
 #header{
-  width: 100vw;
   display: flex;
-  padding-top: 25rem;
+  margin-left: 33.33%;
+  margin-right: 33.333%;
+  padding-top: 33.5rem;
   justify-content: center;
 }
 .title{
-  margin-top: 20px;
+  font-size:7rem;
 }
 #header h1 {
   color: black;
-  font-size: 3rem;
 }
 #header img{
   color: black;
-  height: 50px;
-  width: 50px;
 }
 
 .location {
@@ -198,7 +197,7 @@ button {
 }
 
 .local {
-  height: 125px;
+  height: 150px;
   width: 600px;
   margin: 10px auto;
   position: relative;
@@ -224,9 +223,19 @@ button {
   text-align: center;
 }
 
+.local h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.local h4 {
+  font-size: 16px;
+  /*font-weight: bold;*/
+}
+
 .artist-title{
   display: flex;
-  padding-top: 25px;
+  padding-top: 60px;
   justify-content: center;
   align-content: center;
   color: white
@@ -249,16 +258,6 @@ button {
   border-radius: 35px;
   color: black;
 }
-
-.artistlist h2 {
-  font-size: 16px
-}
-
-.artistsearch {
-  display: flex;
-  flex-direction: column;
-}
-
 .venues {
   display: flex;
   margin: auto;
@@ -267,7 +266,6 @@ button {
   border-radius: 35px;
   color: white
 }
-
 .fa {
   padding-left: 20px;
   color: #4c9014;
@@ -301,10 +299,6 @@ button {
 .addbubble:hover {
   display: visible;
 }
-.container {
-  font-size: 12px;
-  text-align: center;
-}
 .container h1{
   margin-top: 25px;
   color: black;
@@ -321,6 +315,7 @@ button {
   border-radius: 35px;
   background-color: #4c9014;
   color: black;
+  margin-left: 25px
 }
 .local-search{
   margin: auto;
@@ -334,8 +329,6 @@ button {
 }
 .venues-search{
    border-radius: 35px;
-   display: flex;
-   flex-direction: column;
 }
 .eventsinput {
    height: auto;
@@ -353,14 +346,14 @@ button {
 
 .bandpop {
   height: 300px;
-  width: 350px;
+  width: 600px;
   background-color: #e8e9ea;
   color: black;
   position: relative;
   border-radius: 25px;
   border: 1px solid black;
-  top: 75px;
-  margin: auto;
+  top: 100px;
+  left: 300px;
 }
 
 .bandpop h1 {
@@ -369,14 +362,14 @@ button {
 
 .venuepop {
   height: 300px;
-  width: 350px;
+  width: 600px;
   background-color: #e8e9ea;
   color: black;
   position: relative;
   border-radius: 25px;
   border: 1px solid black;
-  top: 75px;
-  margin: auto;
+  top: 100px;
+  left: 300px;
 }
 
 #box1{
@@ -500,7 +493,6 @@ button {
   margin: auto;
   color: black;
 }
-
 .profileCon {
   height: 75vh;
   width: 75vw;
@@ -531,13 +523,12 @@ button {
 
  .matches {
   height: 25px;
-  width: 200px;
+  width: 300px;
   margin: 15px auto;
   color: black;
   background-color: #4c9014;
   border: 1px solid black;
   transition-property: ;
-  text-align: center;
 }
 
 .matches:hover {

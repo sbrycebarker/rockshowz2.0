@@ -3,7 +3,11 @@
    <div id="myNavbar" class="navbar">
     <ul>
       <div class="icon">
-        <li><a href="#box1"><img src="./styles/img/metal_music_filled1600.png" width="45" height="45"></a></li>
+        <li>
+          <a href="#box1">
+            <img src="./styles/img/metal_music_filled1600.png" width="45" height="45">
+          </a>
+        </li>
       </div>
       <div class="tag">
         <li><a href="#box2">Local</a></li><hr>
@@ -55,7 +59,7 @@
       <!-- <h1 class="artist-title title">Local Shows</h1> -->
       <div class="container">
         <div class="localtitle">
-          <h2 class="title">Local Shows</h2>
+          <h2 class="title">Local Shows Near {{location}}</h2>
           <button class="location" ng-click="getLocal()">Search</button>
         </div>
       </div>
@@ -97,11 +101,11 @@
         </div>
       </div>
       <div class="container">
-        <div class="row">
+        <div class="artistlist">
           <div class="info">
             <h2>Band</h2>
             <h2>{{bandData.data.name}}</h2>
-            <h3>{{bandData.data.upcoming_event_count}} Shows</h3>
+            <h2>{{bandData.data.upcoming_event_count}} Shows</h3>
           </div>
         </div>
       </div>
@@ -138,7 +142,7 @@
     </div>
 
     <venuepop ng-show="venuematches" ng-click="venuematches = !venuematches"></venuepop>
-    <div class="venuecon">
+    <div class="container">
       <div id="venueEvent" class="events" ng-repeat="venEvent in venueEvent | limitTo: '20'">
         <p><h2>{{venEvent.Artists[0].Name}}</h2></p>
         <p><h2>{{venEvent.Date}}</h2></p>
