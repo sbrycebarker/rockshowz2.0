@@ -62,7 +62,6 @@
     </div>
 
     <div class="localcon">
-      {{userid}}
       <div class="local" ng-repeat="show in local | limitTo: '20'">
         <ul><h3>{{show.Artists[0].Name}}</h3><button id="addArtist" class="addbttn" ng-click="addFaveBands( { band_name: show.Artists[0].Name, user: userid} )"></button></ul>
         <ul><h4>{{show.Venue.Name}}</h4><button id="addVenue" class="addbttn" ng-click="addFaveVenues( { venue_name: show.Venue.Name, user: userid} )"></button></ul>
