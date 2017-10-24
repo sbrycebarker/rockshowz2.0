@@ -359,7 +359,7 @@ button {
   border-radius: 25px;
   border: 1px solid black;
   top: 100px;
-  left: 300px;
+  margin: auto;
 }
 
 .bandpop h1 {
@@ -375,7 +375,11 @@ button {
   border-radius: 25px;
   border: 1px solid black;
   top: 100px;
-  left: 300px;
+  margin: auto;
+}
+
+.pagenav {
+  margin: auto;
 }
 
 #box1{
@@ -452,7 +456,7 @@ button {
   color: black;
 }
 
-#box5{
+#profile {
   height: 100vh;
   width: 100%;
   background-image: url(./img/yellowconcert.jpg);

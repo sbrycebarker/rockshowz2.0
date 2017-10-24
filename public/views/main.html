@@ -13,7 +13,7 @@
         <li><a href="#box2">Local</a></li><hr>
         <li><a href="#myArtist">Artist</a></li><hr>
         <li><a href="#myVenue">Venues</a></li><hr>
-        <li><a href="#box5">Profile</a></li><hr>
+        <li><a href="#profile">Profile</a></li><hr>
         <li><a href="#box6">About</a></li>
       </div>
     </ul>
@@ -94,9 +94,9 @@
     <div class="container">
       <div class="row">
         <div class="artistsearch">
-        <input class="artistinput"  type="text" name="Artists" ng-model="artist" placeholder="Artist">
-        <button class="submit" ng-click="getBandData( { band_name: artist} ); artistmatches = !artistmatches;">Find</button>
-        <button class="submit" ng-click="addFaveBands( { band_name: text, user: userid} );">ADD TO FAVORITES!</button>
+        <input id="artistinput" class="artistinput enter"  type="text" name="Artists" ng-model="artist" placeholder="Artist">
+        <button id="getband" class="submit" ng-click="getBandData( { band_name: artist} ); artistmatches = !artistmatches;">Find</button>
+        <button class="submit" ng-click="addFaveBands( { band_name: submit, user: userid} );">ADD TO FAVORITES!</button>
         </div>
       </div>
       <div class="container">
@@ -131,14 +131,15 @@
     <div class="container">
       <div class="row">
         <div class="venues-search">
-          <input class="eventsinput"  type="text" name="Venues" ng-model="text" placeholder="Venues">
-          <button class="submit" ng-click="getVenueId( { text: text} ); venuematches = !venuematches">Find</button>
+          <input id="venueinput" class="eventsinput enter"  type="text" name="Venues" ng-model="text" placeholder="Venues">
+          <button id="getvenue" class="submit" ng-click="getVenueId( { text: text} ); venuematches = !venuematches">Find</button>
           <button class="submit" ng-click="addFaveVenues( { venue_name: text, user: user} );">ADD TO FAVORITES!</button>
         </div>
       </div>
       <h1>{{vendata.Name}}</h1>
       <h1>{{vendata.Address}} {{vendata.City}} {{vendata.State}}</h1>
     </div>
+    <venuepop ng-show="venuematches" ng-click="venuematches = !venuematches"></venuepop>
     <div class="venuecon">
       <div id="venueEvent" class="events" ng-repeat="venEvent in venueEvent | limitTo: '20'">
         <p><h2>{{venEvent.Artists[0].Name}}</h2></p>
@@ -152,7 +153,7 @@
     </div>
   </div>
 </div>
-  <div id="box5">
+  <div id="profile">
       <h1 class="artist-title title">Profile</h1>
       <div class="profileCon">
         <h1>{{user}}</h1>

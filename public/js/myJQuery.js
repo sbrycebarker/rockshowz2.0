@@ -1,7 +1,16 @@
 $(document).ready(function(){
+  $("#artistinput").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#getband").click();
+    }
+});
+
+$("#venueinput").keyup(function(event){
+  if(event.keyCode == 13){
+      $("#getvenue").click();
+  }
+});
   // Add scrollspy to <body>
-
-
  $('body').scrollspy({target: ".navbar", offset: 50});
     $(window).scroll(function(){
             if ($(this).scrollTop() > 200) {
