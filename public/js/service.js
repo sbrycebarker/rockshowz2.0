@@ -28,7 +28,7 @@ angular.module('myApp').service('service', function($http) {
 // 2 -------- 62zdhmggqdhbbnsca78bvd6y
 // 3 -------- 53tkjbp2d36gw7bqguzvga9d
 // 4 -------- VB42FFURNN2V35SUPZUECHDY
-// 5 --------
+// 5 SongKick api VZ7O9xRojK8PaJfo
 // <<============================================API KEYS================================================>>
 
   this.getVenueData = function(data) {

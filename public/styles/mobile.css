@@ -135,7 +135,7 @@ button {
 #myNavbar {
   position: fixed;
   display: none;
-  height: 110vh;
+  height: 100vh;
   padding-top: 25.75rem;
   max-width: 150px;
   z-index:9999;
@@ -177,9 +177,9 @@ button {
   padding-top: 25rem;
   justify-content: center;
 }
-.title{
+/*.title{
   margin-top: 20px;
-}
+}*/
 #header h1 {
   color: black;
   font-size: 3rem;

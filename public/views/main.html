@@ -97,7 +97,6 @@
         <input class="artistinput"  type="text" name="Artists" ng-model="artist" placeholder="Artist">
         <button class="submit" ng-click="getBandData( { band_name: artist} ); artistmatches = !artistmatches;">Find</button>
         <button class="submit" ng-click="addFaveBands( { band_name: text, user: userid} );">ADD TO FAVORITES!</button>
-
         </div>
       </div>
       <div class="container">
@@ -140,9 +139,7 @@
       <h1>{{vendata.Name}}</h1>
       <h1>{{vendata.Address}} {{vendata.City}} {{vendata.State}}</h1>
     </div>
-
-    <venuepop ng-show="venuematches" ng-click="venuematches = !venuematches"></venuepop>
-    <div class="container">
+    <div class="venuecon">
       <div id="venueEvent" class="events" ng-repeat="venEvent in venueEvent | limitTo: '20'">
         <p><h2>{{venEvent.Artists[0].Name}}</h2></p>
         <p><h2>{{venEvent.Date}}</h2></p>

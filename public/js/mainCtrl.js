@@ -50,6 +50,7 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
     service.getCoOrd().then(function(latlng) {
       $scope.lat = latlng.data.location.lat
       $scope.lng = latlng.data.location.lng
+      console.log("lat", $scope.lat, "lng", $scope.lng)
       $scope.getZip()
     })
   }
@@ -59,8 +60,8 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
       var lat = $scope.lat
       var lng = $scope.lng
       service.getZip(lat, lng).then(function(result) {
-        console.log("zip",result.data.results[0].address_components[5].short_name)
-        var loc = result.data.results[0].address_components[5].short_name
+        console.log("zip",result.data.results[0].address_components[7].short_name)
+        var loc = result.data.results[0].address_components[7].short_name
         $scope.location = loc
       })
     }
