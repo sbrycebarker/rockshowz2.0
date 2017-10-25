@@ -77,18 +77,18 @@ button {
 }
 
 .DFB {
-  height: 35px;
-  width: 35px;
+  height: 20px;
+  width: 20px;
   background: url(./img/x.png)center center;
-  background-size: 35px;
+  background-size: 20px;
 }
 
 .DFV {
-  height: 35px;
-  width: 35px;
+  height: 20px;
+  width: 20px;
   background-color: white;
   background: url(./img/x.png)center center;
-  background-size: 35px;
+  background-size: 20px;
 }
 
 .addbttn span {
@@ -232,14 +232,17 @@ button {
   color: white
 }
 .about {
-  margin-top: 55px;
+  /*margin-top: 55px;*/
+  margin: 25px 15px;
   padding-top: 10px;
+  text-overflow: ellipsis;
 }
 .about span {
   color: #b10909;
 }
 .creator{
   margin-top: 25px;
+  margin: 0 15px;
   padding-top: 10px;
 }
 .creator span{
@@ -453,7 +456,7 @@ button {
   color: black;
 }
 
-#box5{
+#profile{
   height: 100vh;
   width: 100%;
   background-image: url(./img/yellowconcert.jpg);
@@ -474,8 +477,8 @@ button {
 }
 
 .favelist {
-  height: 150px;
-  width: 150px;
+  height: 75px;
+  width: 75px;
   background-color: #e8e9ea;
   position: relative;
   display: flex;
@@ -490,32 +493,33 @@ button {
   color: inherit;
 }
 
-.favelist h1 {
-  height: 20px;
-  width: auto;
-  font-size: 18px;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  margin: auto;
-  color: black;
-}
-
 .profileCon {
-  height: 75vh;
-  width: 75vw;
+  /*height: 80vh;*/
+  width: 80vw;
   background-color: black;
   opacity: .9;
   margin: auto;
   position: relative;
   border-radius: 15px;
   text-align: center;
+  padding: 5px
 }
-
 
 .profileCon h1 {
   margin: 25px auto;
   position: relative;
+  font-size: 15px
+}
+
+.favelist h1 {
+  height: 15px;
+  width: auto;
+  font-size: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  color: black;
 }
 
 
