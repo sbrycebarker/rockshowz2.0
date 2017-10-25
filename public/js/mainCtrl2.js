@@ -55,7 +55,11 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
       service.getZip(lat, lng).then(function(result) {
         console.log("zip",result.data.results[0].address_components[7])
         var loc = result.data.results[0].address_components[7].short_name
-        $scope.location = loc
+        if (loc) { $scope.location = loc
+        } else {
+          loc = result.data.results[0].address_components[5].short_name
+          $scope.location = loc
+        }
       })
     }
 

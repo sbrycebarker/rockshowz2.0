@@ -135,7 +135,7 @@ button {
 #myNavbar {
   position: fixed;
   display: none;
-  height: 100vh;
+  height: 110vh;
   padding-top: 25.75rem;
   max-width: 150px;
   z-index:9999;
