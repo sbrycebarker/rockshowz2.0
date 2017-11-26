@@ -1,10 +1,11 @@
 $(document).ready(function(){
   $("#artistinput").keyup(function(event){
     if(event.keyCode == 13){
+      console.log("getting band")
         $("#getband").click();
     }
 });
-
+//
 $("#venueinput").keyup(function(event){
   if(event.keyCode == 13){
       $("#getvenue").click();
