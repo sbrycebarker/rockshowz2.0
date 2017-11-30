@@ -1,9 +1,6 @@
 @media (min-width: 1401px) {
 
 
-*{
-
-}
 body {
   position: relative;
   margin: 0;
@@ -466,6 +463,13 @@ button {
   color: white
 }
 
+.favecon {
+  height: auto;
+  width: auto;
+  margin: 5px;
+}
+
+
 .favebands {
   display: flex;
   flex-direction: row;
@@ -474,6 +478,7 @@ button {
 .favevenues {
   display: flex;
   flex-direction: row;
+  margin-bottom: 25px;
 }
 
 .favelist {
