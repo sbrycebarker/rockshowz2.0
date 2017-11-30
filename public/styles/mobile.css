@@ -532,7 +532,7 @@ button {
 #box6{
   height: 100vh;
   width: 100%;
-  background-image: url(./img/rob-bye-141863.jpg);
+  background-image: url('./img/rob-bye-141863.jpg');
   /* background-color: #697987; */
   background-size: cover;
   display: table;
