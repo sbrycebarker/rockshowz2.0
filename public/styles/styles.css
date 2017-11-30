@@ -299,7 +299,7 @@ button {
 }
 
 .container {
-    width: 100vw;
+    width: 75vw;
 }
 
 .container h1{
@@ -534,6 +534,7 @@ button {
   background-size: cover;
   display: table;
   background-attachment: fixed;
+  padding:
 }
 
  .matches {
