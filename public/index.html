@@ -1,42 +1,27 @@
-<!DOCTYPE HTML>
-<html ng-app="myApp">
+<!DOCTYPE html>
+<html lang="en" ng-app="rockShowz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Rockshowz</title>
+</head>
+  <link rel="stylesheet" href="./styles/reset.css">
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+        integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
+  <link rel="icon" href="./styles/assets/greenmetal.png" style="color: white">
+<body ng-controller="mainCtrl">
 
+  <ui-view><ui-view>
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RockShowz</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="./styles/laptop.css">
-    <link rel="stylesheet" href="./styles/styles.css">
-    <link rel="stylesheet" href="./styles/mobile.css">
-    <!-- <link rel="stylesheet" href="./styles/reset.css"> -->
-    <link rel="icon" href="./styles/img/greenmetal.png">
-  </head>
-  <body ng-controller="mainCtrl">
-
-
-    <ui-view></ui-view>
-
-
-
-
-    <script src="https://use.fontawesome.com/4713e0325b.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script type ="text/javascript" src="./ui-bootstrap-tpls-2.5.0.js"></script>
-    <script src="./js/app.js"></script>
-    <script src="./js/mainCtrl.js"></script>
-    <script src='./js/faveService.js'></script>
-    <script src='./js/favoritesCtrl.js'></script>
-    <script src="./js/service.js"></script>
-    <script src="./js/auth0Service.js"></script>
-    <script src="./js/directives.js"></script>
-    <script src="./js/myJQuery.js"></script>
-    <script src="./js/favequery.js"></script>
-  </body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js" charset="utf-8"></script>
+<script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="./js/app.js"></script>
+<script src="./js/mainCtrl.js" charset="utf-8"></script>
+<script src="./js/service.js" charset="utf-8"></script>
+<script src="./js/jQuery.js"></script>
+</body>
 </html>

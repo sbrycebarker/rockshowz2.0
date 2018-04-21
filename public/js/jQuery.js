@@ -1,9 +1,10 @@
 $(document).ready(function(){
-
+  $(document).scroll(function (event) {
+  });
   // Add smooth scrolling on all links inside the navbar
-  $("#favevenues a").on('click', function(event) {
+  $("a").on('click', function(event) {
     // Make sure this.hash has a value before overriding default behavior
-   console.log("getting fave!");
+   console.log("Everything is Awesome!");
     if (this.hash !== "") {
       // Prevent default anchor click behavior
       event.preventDefault();

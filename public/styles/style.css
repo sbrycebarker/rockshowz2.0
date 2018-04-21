@@ -1,0 +1,193 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  color: silver;
+  font-family: sans-serif;
+  position: relative;
+  z-index: 5;
+  display: flex; }
+
+main {
+  position: absolute;
+  width: 100px;
+  z-index: 0; }
+
+#header {
+  height: 500px;
+  width: 0;
+  position: fixed;
+  top: 25%;
+  z-index: 10;
+  display: flex;
+  margin: auto;
+  border: 1px solid silver;
+  border-left: none;
+  background-color: black;
+  border-radius: 0 15px 15px 0;
+  transition: width;
+  transition-duration: 1s;
+  overflow: hidden; }
+
+#header h1 {
+  position: relative; }
+
+#tab {
+  height: 50px;
+  width: 20px;
+  position: fixed;
+  display: flex;
+  margin-left: 50px;
+  top: 50%;
+  border: none;
+  background-color: black;
+  z-index: 5;
+  border: 1px solid silver;
+  color: silver; }
+
+#X-button {
+  background-color: black;
+  border: none;
+  color: silver;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 15px; }
+
+#myNavbar {
+  width: 100px;
+  list-style-type: none;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+#myNavbar li {
+  height: 50px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center; }
+
+#myNavbar li a {
+  text-decoration: none;
+  color: silver;
+  font-size: 20px; }
+
+#myNavbar li a:hover {
+  color: #135779; }
+
+section {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  background-attachment: fixed;
+  text-align: center;
+  position: relative;
+  z-index: 0; }
+
+.section-body {
+  height: 90%;
+  width: 80%;
+  border: 1px solid white;
+  margin: auto;
+  display: flex;
+  text-align: center; }
+  .section-body h2 {
+    margin: auto;
+    font-family: helvetica;
+    font-size: 30px;
+    letter-spacing: 5px; }
+
+#landing {
+  height: 100vh;
+  width: 100vw;
+  background: url("./assets/Black-Background.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  z-index: -5; }
+
+#title-con {
+  height: 100px;
+  width: 400px;
+  margin: auto;
+  text-align: center;
+  border: 1px solid silver;
+  display: flex;
+  position: relative; }
+
+#title-con h2 {
+  margin: auto;
+  font-family: helvetica;
+  font-size: 30px;
+  letter-spacing: 5px; }
+
+.down-tab {
+  height: 10%;
+  width: 100%;
+  border-top: 1px solid silver;
+  display: flex; }
+
+.down {
+  color: silver;
+  margin: auto;
+  font-size: 20px;
+  z-index: 15; }
+
+.down:hover {
+  color: #135779; }
+
+#login {
+  height: 100vh;
+  width: 100vw;
+  background: url("./assets/bluekeyboards.jpg");
+  background-size: cover;
+  position: relative;
+  display: flex;
+  background-attachment: fixed; }
+
+#login-con {
+  height: 200px;
+  width: 400px;
+  border: 1px solid white;
+  margin: auto;
+  display: flex;
+  text-align: center; }
+
+#login-con h2 {
+  margin: auto; }
+
+#local {
+  background-attachment: fixed;
+  background: url("./assets/gold.jpg");
+  background-size: cover;
+  display: flex;
+  text-align: center;
+  background-attachment: fixed; }
+
+#local h2 {
+  margin: auto; }
+
+#artist {
+  background: url("./assets/greenconcert.jpg");
+  display: flex;
+  background-attachment: fixed; }
+
+#venue {
+  background: url("./assets/redconcert.jpg");
+  display: flex;
+  background-attachment: fixed; }
+
+#profile {
+  background: url("./assets/yellowconcert.jpg");
+  display: flex;
+  background-attachment: fixed; }
+
+#about {
+  background: url("./assets/about.jpg");
+  background-size: cover;
+  display: flex;
+  background-attachment: fixed; }
+
+/*# sourceMappingURL=style.css.map */
