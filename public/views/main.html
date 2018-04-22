@@ -2,12 +2,12 @@
 
 <div id="myNavbar" class="navbar">
 <button ng-click="navOpen()" id="X-button" type="button" name="button">X</button>
-  <li class="nav-item"><a href="#login">Login</a></li>
   <li class="nav-item"><a href="#local">Local</a></li>
   <li class="nav-item"><a href="#artist">Artist</a></li>
   <li class="nav-item"><a href="#venue">Venue</a></li>
   <li class="nav-item"><a href="#profile">Profile</a></li>
   <li class="nav-item"><a href="#about">About</a></li>
+  <li class="nav-item"><a>Login</a></li>
 </div>
 </div>
 <button ng-click="navOpen()" id="tab" type="button" name="button">></button>
@@ -21,50 +21,91 @@
       <!-- <button ng-click="navOpen()" type="button" name="button"></button> -->
   </div>
   <div class="down-tab">
-    <a ng-click="down()" class="down"><i class="fas fa-angle-double-down"></i></a>
+    <a href="#local" class="down"><i class="fas fa-angle-double-down"></i></a>
   </div>
 </section>
-<section id="login" name='login'>
+<!-- <section id="login" name='login'>
 
   <div class="section-body">
-    <h2>Login</h2>
+    <div class="login-con">
+      <h1>Login</h1>
+      <h1>Logout</h1>
+    </div>
   </div>
 
-</section>
+</section> -->
 <section id="local" name='local'>
 
   <div class="section-body">
     <h2>Local</h2>
+    <div class="button-con">
+      <input type="text">
+      <button>Search</button>
+    </div>
+    <div class="result-con">
+      <div class="result">Result</div>
+    </div>
   </div>
 
 </section>
 <section id="artist" name='artist'>
 
   <div class="section-body">
-    <h2>Local</h2>
+    <h2>Artist</h2>
+    <div class="button-con">
+      <input type="text">
+      <button>Search</button>
+    </div>
+    <div class="result-con">
+      <div class="result">Result</div>
+    </div>
   </div>
 
 </section>
 <section id="venue" name='venue'>
 
   <div class="section-body">
-    <h2>Local</h2>
+    <h2>Venue</h2>
+    <div class="button-con">
+      <input type="text">
+      <button>Search</button>
+    </div>
+    <div class="result-con">
+      <div class="result">Result</div>
+    </div>
   </div>
 
 </section>
 <section id="profile" name='profile'>
 
   <div class="section-body">
-    <h2>Local</h2>
+    <h2>Profile</h2>
+    <div class="button-con">
+      <input type="text">
+      <button>Search</button>
+    </div>
+    <div class="result-con">
+      <div class="result">Result</div>
+    </div>
   </div>
 
 </section>
 <section id="about" name='about'>
 
   <div class="section-body">
-    <h2>Local</h2>
+    <h2>About</h2>
+    <div class="button-con">
+      <input type="text">
+      <button>Search</button>
+    </div>
+    <div class="result-con">
+      <div class="result">Result</div>
+    </div>
   </div>
 
 </section>
 
+<footer>
+  <h1>@ 2018 by Sergio Barker</h1>
+</footer>
 </main>

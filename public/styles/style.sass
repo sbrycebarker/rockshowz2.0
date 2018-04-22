@@ -14,18 +14,15 @@ main
   z-index: 0
 
 #header
-  height: 500px
-  width: 0
+  height: 5vh
+  width: 100%
   position: fixed
-  top: 25%
   z-index: 10
   display: flex
   margin: auto
-  border: 1px solid silver
-  border-left: none
+  border-bottom: 1px solid silver
   background-color: black
-  // opacity: .8
-  border-radius:  0 15px 15px 0
+  // border-radius:  0 15px 15px 0
   transition: width
   transition-duration: 1s
   overflow: hidden
@@ -37,7 +34,7 @@ main
   height: 50px
   width: 20px
   position: fixed
-  display: flex
+  display: none
   margin-left: 50px
   top: 50%
   border: none
@@ -47,6 +44,7 @@ main
   color: silver
 
 #X-button
+  display: none
   background-color: black
   border: none
   color: silver
@@ -56,17 +54,17 @@ main
   margin: 15px
 
 #myNavbar
-  width: 100px
+  width: 75%
   list-style-type: none
   margin: auto
   display: flex
-  flex-direction: column
+  flex-direction: row
   justify-content: center
 
 #myNavbar li
-  height: 50px
+  height: 25px
   width: 100%
-  margin: 0 auto
+  margin: auto
   text-align: center
 
 #myNavbar li a
@@ -78,7 +76,7 @@ main
   color: #135779
 
 section
-  height: 100vh
+  height: 90vh
   width: 100vw
   background-size: cover
   display: flex
@@ -88,18 +86,36 @@ section
   position: relative
   z-index: 0
 
+input
+  background-color: black
+  border: none
+  opacity: .4
+
+button
+  border: none
+  background-color: grey
+
 .section-body
   height: 90%
-  width: 80%
-  border: 1px solid white
+  width: 95%
+  background: rgba(0, 0, 0, 0.4)
   margin: auto
-  display: flex
   text-align: center
-  h2
-    margin: auto
-    font-family: helvetica
-    font-size: 30px
-    letter-spacing: 5px
+  flex-direction: column
+
+.section-body h2
+  height: 50px
+  width: 100%
+  border-bottom: 1px solid silver
+  font-family: helvetica
+  font-size: 30px
+  letter-spacing: 5px
+
+.button-con
+  height: 50px
+  width: 100%
+  border-bottom: 1px solid silver
+  text-align: left
 
 #landing
   height: 100vh
@@ -141,47 +157,63 @@ section
   color: #135779
 
 #login
-  height: 100vh
-  width: 100vw
   background: url('./assets/bluekeyboards.jpg')
   background-size: cover
   position: relative
   display: flex
   background-attachment: fixed
 
-#login-con
+.login-con
   height: 200px
   width: 400px
   border: 1px solid white
   margin: auto
   display: flex
   text-align: center
-#login-con h2
+
+.login-con h1
+  height: 20px
+  width: 50px
+  border: 1px solid white
   margin: auto
 
 #local
-  background-attachment: fixed
-  background: url('./assets/gold.jpg')
+  background: url('./assets/bluekeyboards.jpg')
   background-size: cover
   display: flex
-  text-align: center
   background-attachment: fixed
+
 #local h2
   margin: auto
+
 #artist
   background: url('./assets/greenconcert.jpg')
   display: flex
   background-attachment: fixed
+
 #venue
   background: url('./assets/redconcert.jpg')
   display: flex
   background-attachment: fixed
+
 #profile
   background: url('./assets/yellowconcert.jpg')
   display: flex
   background-attachment: fixed
+
 #about
-  background: url('./assets/about.jpg')
+  background: url('./assets/gold.jpg')
   background-size: cover
   display: flex
   background-attachment: fixed
+
+footer
+  height: 5vh
+  width: 100vw
+  border-bottom: 1px solid silver
+  font-size: 16px
+  font-weight: bold
+  background-color: black
+  text-align: center
+  transition: width
+  transition-duration: 1s
