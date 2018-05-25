@@ -10,6 +10,8 @@ const express = require('express'),
       cors = require('cors'),
       reload = require('reload'),
       config = require('./server/config.js');
+      connectionString = "postgres://postgres:1234a@localhost/rockshow";
+      elephantconnection = "postgres://vlzurcyw:Qhol7vKSqVR12FCJZ5GhPJCnWVkLx_Xc@tantor.db.elephantsql.com:5432/vlzurcyw";
 
       const app = express();
 
@@ -26,9 +28,8 @@ const express = require('express'),
     app.use(passport.session());
 
     app.use(express.static('./public'))
-
-// ======================================= Auth0 Login =======================================
-
+    massive(elephantconnection).then((db) => {
+    app.set('db', db);
     passport.use(new Auth0Strategy({
        domain:       config.auth0.domain,
        clientID:     config.auth0.clientID,
@@ -36,23 +37,27 @@ const express = require('express'),
        callbackURL:  '/callback'
       },
       function(accessToken, refreshToken, extraParams, profile, done) {
-        // db.getUserByAuthId([profile.id]).then(function(user) {
-        //   // console.log('gettinguser', profile)
-        //   if (!user[0]) {
-        //      //if there isn't one, we'll create one!
-        //     // console.log("creating user", profile)
-        //     db.createUserByAuth([profile.displayName, profile.id]).then(function(user2) {
-        //       // console.log('USER CREATED', user2);
-        //       return done(null, profile);
-        //     })
-        //   } else {
-        //     // console.log("found User", profile)
-        //     // user = user[0]
-        //     return done(null , user);
-        //   }
-        // })
+        db.getUserByAuthId([profile.id]).then(function(user) {
+          console.log('gettinguser', user)
+          if (!user[0]) {
+             //if there isn't one, we'll create one!
+            // console.log("creating user", profile)
+            db.createUserByAuth([profile.displayName, profile.id]).then(function(user2) {
+              // console.log('USER CREATED', user2);
+              return done(null, profile);
+            })
+          } else {
+            // console.log("found User", profile)
+            // user = user[0]
+            return done(null , user);
+          }
+        })
+        return done(null, profile);
       }
     ));
+    })
+
+// ======================================= Auth0 Login =======================================
     passport.serializeUser(function(userA, done) {
       console.log('serializing', userA);
       var userB = userA;
@@ -96,7 +101,21 @@ const express = require('express'),
 
 
 // =================================================== End of Auth0 Login ==================================
+// ================================================== ENDPOINTS =========================================
 
+let favebands = require('./server/bands')
+let favevenues = require('./server/venues')
+let users = require('./server/users')
+
+// app.get('/all/users', users.index)
+app.get('/favorites/bands/:userId', favebands.read)
+app.get('/favorites/venues/:userId', favevenues.read)
+app.post('/favorites/bands', favebands.create)
+app.post('/favorites/venues', favevenues.create)
+app.delete('/favorites/bands/:userid/:band_name', favebands.delete)
+app.delete('/favorites/venues/:userid/:venue_name', favevenues.delete)
+
+// ================================================== ENDPOINTS =========================================
 reload(app);
 
 let port = 8081

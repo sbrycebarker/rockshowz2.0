@@ -6,7 +6,6 @@ angular.module('rockShowz', ['ui.router']).config(function($stateProvider, $urlR
       url: '/',
       templateUrl: './views/main.html',
       controller: 'mainCtrl'
-      // controller: 'dataCtrl'
     })
 
 })
