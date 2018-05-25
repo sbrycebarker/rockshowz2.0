@@ -120,19 +120,20 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
 
 
       $scope.getUser = function() {
-        auth0Service.getUser().then(function(user) {
+        service.getUser().then(function(user) {
           console.log("user", user)
           if (user) {
-            $scope.user = user[0].username;
-            $scope.userid = user[0].user_id
+            $scope.user = user.displayName;
+            $scope.userid = user.user_id
             console.log("userinfo", $scope.user)
             $scope.getfaveBands();
             $scope.getfaveVenues()
           } else {
-            $scope.user = 'LOG IN!';
+            $scope.user = 'Log in!';
           }
         })
       }
+      $scope.getUser()
   // <<====================================API CALLS=================================>>
   // <<=============================FAVORITE CALLS===================================>>
 
