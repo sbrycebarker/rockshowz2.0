@@ -86,12 +86,16 @@ section {
 
 input {
   background-color: black;
+  margin: auto 10px;
   border: none;
   opacity: 0.4; }
 
 button {
   border: none;
   background-color: grey; }
+
+.search {
+  margin: auto 10px; }
 
 .section-body {
   height: 90%;
@@ -113,7 +117,9 @@ button {
   height: 50px;
   width: 100%;
   border-bottom: 1px solid silver;
-  text-align: left; }
+  text-align: left;
+  vertical-align: middle;
+  display: flex; }
 
 #landing {
   height: 100vh;
@@ -179,10 +185,31 @@ button {
   background: url("./assets/bluekeyboards.jpg");
   background-size: cover;
   display: flex;
+  flex-direction: column;
   background-attachment: fixed; }
 
 #local h2 {
   margin: auto; }
+
+.result {
+  flex: 24;
+  font-size: 21px;
+  display: flex;
+  border-bottom: 1px solid grey;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center; }
+
+.result ul {
+  flex: 4;
+  vertical-align: middle;
+  margin: auto;
+  text-align: center;
+  align-content: center; }
+
+.ul h1 {
+  margin: auto;
+  align-content: center; }
 
 #artist {
   background: url("./assets/greenconcert.jpg");

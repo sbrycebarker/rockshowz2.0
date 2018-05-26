@@ -15,7 +15,7 @@
 </div>
 <button ng-click="navOpen()" id="tab" type="button" name="button">></button>
 
-<main>
+<main ng-controller="mainCtrl">
 
 <section id="landing" name='landing'>
 
@@ -42,11 +42,15 @@
   <div class="section-body">
     <h2>Local</h2>
     <div class="button-con">
-      <input type="text">
-      <button>Search</button>
+      <button class="search" ng-click="getLocal()">Find Local Shows</button>
     </div>
     <div class="result-con">
-      <div class="result">Result</div>
+      <div class="result" ng-repeat="event in local">
+        <ul><h1>{{event.Artists[0].Name}}</h1></ul>
+        <ul><h1>{{event.Venue.Name}}</h1></ul>
+        <ul><h1>{{event.Date}}</h1></ul>
+        <ul><h4>add band</h4><h4>add venue</h4></ul>
+      </div>
     </div>
   </div>
 
@@ -57,10 +61,10 @@
     <h2>Artist</h2>
     <div class="button-con">
       <input type="text">
-      <button>Search</button>
+      <button class="search">Search</button>
     </div>
     <div class="result-con">
-      <div class="result">Result</div>
+      <!-- <div class="result">Result</div> -->
     </div>
   </div>
 
@@ -71,10 +75,10 @@
     <h2>Venue</h2>
     <div class="button-con">
       <input type="text">
-      <button>Search</button>
+      <button class="search">Search</button>
     </div>
     <div class="result-con">
-      <div class="result">Result</div>
+      <!-- <div class="result">Result</div> -->
     </div>
   </div>
 
@@ -85,10 +89,10 @@
     <h2>Profile</h2>
     <div class="button-con">
       <input type="text">
-      <button>Search</button>
+      <button class="search">Search</button>
     </div>
     <div class="result-con">
-      <div class="result">Result</div>
+      <!-- <div class="result">Result</div> -->
     </div>
   </div>
 
@@ -97,12 +101,12 @@
 
   <div class="section-body">
     <h2>About</h2>
-    <div class="button-con">
+    <!-- <div class="button-con">
       <input type="text">
       <button>Search</button>
-    </div>
+    </div> -->
     <div class="result-con">
-      <div class="result">Result</div>
+      <!-- <div class="result">Result</div> -->
     </div>
   </div>
 
