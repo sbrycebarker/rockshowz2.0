@@ -22,7 +22,7 @@ this.getVenueId = function(venue) {
   console.log('venuename', venue)
   return $http({
     method: 'GET',
-    url: 'http://api.jambase.com/venues?name=' + venue.text + '&page=0&api_key=m852p45q4hjqk85q6ety49zq',
+    url: 'http://api.jambase.com/venues?name=' + venue.name + '&page=0&api_key=m852p45q4hjqk85q6ety49zq',
   })
 }
 // <<==========================================API KEYS==================================================>>

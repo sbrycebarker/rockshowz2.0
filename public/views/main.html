@@ -69,7 +69,7 @@
         <ul><h1>{{event.datetime}}</h1></ul>
         <ul><h1>{{event.venue.city}}</h1></ul>
         <ul><h1>{{event.venue.region}}</h1></ul>
-        <ul><h4 style="boder: 1px solid black">add band</h4><h4>add venue</h4></ul>
+        <ul><h4>add band</h4><h4>add venue</h4></ul>
       </div>
     </div>
   <div id="simpleModal" class="modal">
@@ -98,17 +98,36 @@
   <div class="section-body">
     <h2>Venue</h2>
     <div class="button-con">
-      <input type="text">
-      <button class="search">Search</button>
+      <input id="venueinput" class="venueinput enter"  type="text" name="Venue" ng-model="venue" placeholder="Venue">
+      <button id="vModalBtn" class="button" ng-click="getBandData({name: venue})">Click Here</button>
     </div>
     <div class="result-con">
-      <div class="result" ng-repeat="event in venueEvent">
-        <ul><h1>{{event.Artists[0].Name}}</h1></ul>
-        <ul><h1>{{event.Venue.Name}}</h1></ul>
-        <ul><h1>{{event.Date}}</h1></ul>
-        <ul><h4 style="boder: 1px solid black">add band</h4><h4>add venue</h4></ul>
+      <div class="result" ng-repeat="event in bandEvents">
+        <ul><h1>{{event.venue.name}</h1></ul>
+        <ul><h1>{{event.datetime}}</h1></ul>
+        <ul><h1>{{event.venue.city}}</h1></ul>
+        <ul><h1>{{event.venue.region}}</h1></ul>
+        <ul><h4>add band</h4><h4>add venue</h4></ul>
       </div>
     </div>
+  <div id="venueModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+          <span class="closeBtn">&times;</span>
+          <h2>We found your venue</h2>
+      </div>
+      <div class="modal-body">
+        <p>Results</p>
+        <ul ng-click="getVenueId()" class="srBtn" placeholder="{venue}"></ul>
+        <ul><img src="{{bandData.image_url}}" alt="bandimage" style="height: 50px"></ul>
+        <ul>{{bandData.upcoming_event_count}}</ul>
+        <ul><a href="href="{{bandData.facebook_page_url}}"">Facebook</a></ul>
+      </div>
+      <div class="modal-footer">
+        <h3>Click for events</h3>
+      </div>
+    </div>
+  </div>
   </div>
 
 </section>
@@ -117,8 +136,10 @@
   <div class="section-body">
     <h2>Profile</h2>
     <div class="button-con">
-      <input type="text">
-      <button class="search">Search</button>
+      <ul class="nav-item">
+        <a class="login" href="/auth">{{user}}</a>
+        <a class="logout" href="/auth/logout">Logout</a>
+      </ul>
     </div>
     <div class="result-con">
       <!-- <div class="result">Result</div> -->

@@ -59,11 +59,12 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
       })
     }
     $scope.getVenueData = function(venue){
-      console.log("sent", venue)
+      // console.log("sent", venue)
+      $scope.venueName = venue.name
       service.getVenueId(venue).then(function(venid) {
         $scope.vendata = venid.data.Venues[0]
         let venueId = venid.data.Venues[0].Id
-        console.log('venueId',venueId)
+        // console.log('venueId',venueId)
         setTimeout( function() {
           service.getVenueData(venueId).then(function(venue){
             console.log("venueEvent", venue.data)
@@ -141,8 +142,10 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
 
   // Get modal element
   var modal = document.getElementById('simpleModal');
+  var vModal = document.getElementById('venueModal')
   // Get open modal button
   var modalBtn = document.getElementById('modalBtn');
+  var vModalBtn = document.getElementById('vModalBtn');
   // Get close button
   var closeBtn = document.getElementsByClassName('closeBtn')[0];
 
@@ -150,6 +153,7 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
 
   // Listen for open click
   modalBtn.addEventListener('click', openModal);
+  vModalBtn.addEventListener('click', openVModal);
   // Listen for close click
   closeBtn.addEventListener('click', closeModal);
   srBtn.addEventListener('click', closeModal);
@@ -162,15 +166,23 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
     modal.style.display = 'block';
   }
 
+  function openVModal(){
+    vModal.style.display = 'block';
+  }
+
   // Function to close modal
   function closeModal(){
     modal.style.display = 'none';
+  }
+  function closeVModal(){
+    vModal.style.display = 'none';
   }
 
   // Function to close modal if outside click
   function outsideClick(e){
     if(e.target == modal){
       modal.style.display = 'none';
+      vModal.style.display = 'none;'
     }
   }
 
