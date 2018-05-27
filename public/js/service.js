@@ -1,10 +1,10 @@
 angular.module('rockShowz').service('service', function($http) {
 
   this.getBandEvents = function(events) {
-  console.log("server", events.text)
+  console.log("server", events.artist)
   return $http({
     method: 'GET',
-    url: 'https://rest.bandsintown.com/artists/' + events.text +'/events?app_id=rockshowz',
+    url: 'https://rest.bandsintown.com/artists/' + events.artist +'/events?app_id=rockshowz',
     controller: 'mainCtrl'
   })
 }

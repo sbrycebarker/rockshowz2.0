@@ -49,7 +49,7 @@
         <ul><h1>{{event.Artists[0].Name}}</h1></ul>
         <ul><h1>{{event.Venue.Name}}</h1></ul>
         <ul><h1>{{event.Date}}</h1></ul>
-        <ul><h4>add band</h4><h4>add venue</h4></ul>
+        <ul><h4 style="boder: 1px solid black">add band</h4><h4>add venue</h4></ul>
       </div>
     </div>
   </div>
@@ -60,12 +60,36 @@
   <div class="section-body">
     <h2>Artist</h2>
     <div class="button-con">
-      <input type="text">
-      <button class="search">Search</button>
+      <input id="artistinput" class="artistinput enter"  type="text" name="Artists" ng-model="artist" placeholder="Artist">
+      <button id="modalBtn" class="button" ng-click="getBandData({band_name: artist})">Click Here</button>
     </div>
     <div class="result-con">
-      <!-- <div class="result">Result</div> -->
+      <div class="result" ng-repeat="event in bandEvents">
+        <ul><h1>{{event.venue.name}}</h1></ul>
+        <ul><h1>{{event.datetime}}</h1></ul>
+        <ul><h1>{{event.venue.city}}</h1></ul>
+        <ul><h1>{{event.venue.region}}</h1></ul>
+        <ul><h4 style="boder: 1px solid black">add band</h4><h4>add venue</h4></ul>
+      </div>
     </div>
+  <div id="simpleModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+          <span class="closeBtn">&times;</span>
+          <h2>We found your band</h2>
+      </div>
+      <div class="modal-body">
+        <p>Results</p>
+        <ul ng-click="getBandEvents({artist: bandData.name})" class="srBtn">{{bandData.name}}</ul>
+        <ul><img src="{{bandData.image_url}}" alt="bandimage" style="height: 50px"></ul>
+        <ul>{{bandData.upcoming_event_count}}</ul>
+        <ul><a href="href="{{bandData.facebook_page_url}}"">Facebook</a></ul>
+      </div>
+      <div class="modal-footer">
+        <h3>Modal Footer</h3>
+      </div>
+    </div>
+  </div>
   </div>
 
 </section>
@@ -78,7 +102,12 @@
       <button class="search">Search</button>
     </div>
     <div class="result-con">
-      <!-- <div class="result">Result</div> -->
+      <div class="result" ng-repeat="event in venueEvent">
+        <ul><h1>{{event.Artists[0].Name}}</h1></ul>
+        <ul><h1>{{event.Venue.Name}}</h1></ul>
+        <ul><h1>{{event.Date}}</h1></ul>
+        <ul><h4 style="boder: 1px solid black">add band</h4><h4>add venue</h4></ul>
+      </div>
     </div>
   </div>
 

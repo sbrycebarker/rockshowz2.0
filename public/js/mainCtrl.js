@@ -42,18 +42,19 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
     // =================================== DATA ======================================
 
     $scope.getBandEvents = function(events) {
+      console.log(events)
       service.getBandEvents(events).then(function(result){
-        $scope.bandEventData = result.data
+        $scope.bandEvents = result.data
         console.log("band events", result.data)
 
       })
     }
 
-    $scope.getBandData = function( band_name ) {
-      console.log("getband", band_name)
-      service.getBandData(band_name).then(function(band){
+    $scope.getBandData = function( bandName ) {
+      console.log("getband", bandName)
+      service.getBandData(bandName).then(function(band){
         console.log('returnData', band.data)
-        $scope.bandData = band
+        $scope.bandData = band.data
 
       })
     }
@@ -136,7 +137,44 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
         })
       }
       $scope.getUser()
-  // <<====================================API CALLS=================================>>
+  // <<==================================== MODALS =================================>>
+
+  // Get modal element
+  var modal = document.getElementById('simpleModal');
+  // Get open modal button
+  var modalBtn = document.getElementById('modalBtn');
+  // Get close button
+  var closeBtn = document.getElementsByClassName('closeBtn')[0];
+
+  var srBtn = document.getElementsByClassName('srBtn')[0];
+
+  // Listen for open click
+  modalBtn.addEventListener('click', openModal);
+  // Listen for close click
+  closeBtn.addEventListener('click', closeModal);
+  srBtn.addEventListener('click', closeModal);
+  // Listen for outside click
+  window.addEventListener('click', outsideClick);
+
+
+  // Function to open modal
+  function openModal(){
+    modal.style.display = 'block';
+  }
+
+  // Function to close modal
+  function closeModal(){
+    modal.style.display = 'none';
+  }
+
+  // Function to close modal if outside click
+  function outsideClick(e){
+    if(e.target == modal){
+      modal.style.display = 'none';
+    }
+  }
+
+
   // <<=============================FAVORITE CALLS===================================>>
 
   $scope.getfaveBands = function(user) {
