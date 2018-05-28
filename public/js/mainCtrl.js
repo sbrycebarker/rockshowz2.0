@@ -62,6 +62,7 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
       // console.log("sent", venue)
       $scope.venueName = venue.name
       service.getVenueId(venue).then(function(venid) {
+        console.log("ven info", venid)
         $scope.vendata = venid.data.Venues[0]
         let venueId = venid.data.Venues[0].Id
         // console.log('venueId',venueId)
@@ -101,8 +102,8 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
         var lat = $scope.lat
         var lng = $scope.lng
         service.getZip(lat, lng).then(function(result) {
-          console.log("zip", result.data.results[0].address_components[6])
-          let loc = result.data.results[0].address_components[6].short_name
+          console.log("zip", result.data.results[0].address_components[5])
+          let loc = result.data.results[0].address_components[5].short_name
           if (!loc) {
           console.log("zip",result.data.results[0].address_components[5].short_name)
           $scope.location = result.data.results[0].address_components[5].short_name

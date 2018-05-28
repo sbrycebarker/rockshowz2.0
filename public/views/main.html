@@ -83,7 +83,7 @@
         <ul ng-click="getBandEvents({artist: bandData.name})" class="srBtn">{{bandData.name}}</ul>
         <ul><img src="{{bandData.image_url}}" alt="bandimage" style="height: 50px"></ul>
         <ul>{{bandData.upcoming_event_count}}</ul>
-        <ul><a href="href="{{bandData.facebook_page_url}}"">Facebook</a></ul>
+        <ul><a href="{{bandData.facebook_page_url}}">Facebook</a></ul>
       </div>
       <div class="modal-footer">
         <h3>Modal Footer</h3>
@@ -99,7 +99,7 @@
     <h2>Venue</h2>
     <div class="button-con">
       <input id="venueinput" class="venueinput enter"  type="text" name="Venue" ng-model="venue" placeholder="Venue">
-      <button id="vModalBtn" class="button" ng-click="getBandData({name: venue})">Click Here</button>
+      <button id="vModalBtn" class="button" ng-click="getVenueId({name: venue})">Click Here</button>
     </div>
     <div class="result-con">
       <div class="result" ng-repeat="event in bandEvents">
@@ -118,10 +118,11 @@
       </div>
       <div class="modal-body">
         <p>Results</p>
-        <ul ng-click="getVenueId()" class="srBtn" placeholder="{venue}"></ul>
-        <ul><img src="{{bandData.image_url}}" alt="bandimage" style="height: 50px"></ul>
-        <ul>{{bandData.upcoming_event_count}}</ul>
-        <ul><a href="href="{{bandData.facebook_page_url}}"">Facebook</a></ul>
+        <div ng-repeat="venue in venues">
+          <ul>{{venue.Name}}</ul>
+          <ul>{{venue.City}}</ul>
+          <ul>{{venue.State}}</ul>
+        </div>
       </div>
       <div class="modal-footer">
         <h3>Click for events</h3>
