@@ -113,12 +113,12 @@
   <div id="venueModal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-          <span class="closeBtn">&times;</span>
+          <span class="closeVBtn closeBtn">&times;</span>
           <h2>We found your venue</h2>
       </div>
       <div class="modal-body">
         <p>Results</p>
-        <div ng-repeat="venue in venues">
+        <div class="venue-matches" ng-repeat="venue in venues">
           <ul>{{venue.Name}}</ul>
           <ul>{{venue.City}}</ul>
           <ul>{{venue.State}}</ul>

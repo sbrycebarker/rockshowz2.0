@@ -222,6 +222,16 @@ ul h1 {
   display: flex;
   background-attachment: fixed; }
 
+.venue-matches {
+  width: 100%;
+  display: flex;
+  flex-direction: row; }
+
+.venue-matches ul {
+  margin: 5px auto;
+  flex: 3;
+  border-bottom: 1px solid grey; }
+
 #profile {
   background: url("./assets/yellowconcert.jpg");
   display: flex;

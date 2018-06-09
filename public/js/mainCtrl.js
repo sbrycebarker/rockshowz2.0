@@ -149,6 +149,7 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
   var vModalBtn = document.getElementById('vModalBtn');
   // Get close button
   var closeBtn = document.getElementsByClassName('closeBtn')[0];
+  var closeVBtn = document.getElementsByClassName('closeVBtn')[0];
 
   var srBtn = document.getElementsByClassName('srBtn')[0];
 
@@ -157,6 +158,7 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
   vModalBtn.addEventListener('click', openVModal);
   // Listen for close click
   closeBtn.addEventListener('click', closeModal);
+  closeVBtn.addEventListener('click', closeVModal);
   srBtn.addEventListener('click', closeModal);
   // Listen for outside click
   window.addEventListener('click', outsideClick);
@@ -176,6 +178,7 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
     modal.style.display = 'none';
   }
   function closeVModal(){
+    console.log("close V")
     vModal.style.display = 'none';
   }
 
