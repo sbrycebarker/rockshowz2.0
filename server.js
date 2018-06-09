@@ -121,7 +121,7 @@ app.delete('/favorites/venues/:userid/:venue_name', favevenues.delete)
 // ================================================== ENDPOINTS =========================================
 reload(app);
 
-let port = 8081
+let port = 8080
 app.listen(port, function() {
 console.log("listening on port " + port)
 });
