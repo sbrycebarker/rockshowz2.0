@@ -1,6 +1,6 @@
 body
-  height: 100vh
-  width: 100vw
+  height: 100%
+  width: 100%
   color: silver
   font-family: sans-serif
   position: relative
@@ -10,12 +10,12 @@ body
 
 main
   position: absolute
-  width: 100px
+  width: 100%
   z-index: 0
 
 #header
   height: 5vh
-  width: 100%
+  width: 100vw
   position: fixed
   z-index: 10
   display: flex
@@ -42,6 +42,7 @@ main
   z-index: 5
   border: 1px solid silver
   color: silver
+  display: none
 
 #X-button
   display: none
@@ -54,7 +55,8 @@ main
   margin: 15px
 
 #myNavbar
-  width: 75%
+  width: 85%
+  // border: 1px solid blue
   list-style-type: none
   margin: auto
   display: flex
@@ -77,7 +79,8 @@ main
 
 section
   height: 90vh
-  width: 100vw
+  width: 100%
+  margin: 0
   background-size: cover
   display: flex
   flex-direction: column
@@ -127,7 +130,7 @@ button
 
 #landing
   height: 100vh
-  width: 100vw
+  width: 100%
   background: url('./assets/Black-Background.jpg')
   background-size: cover
   display: flex
@@ -204,6 +207,10 @@ button
   justify-content: center
   align-content: center
 
+.result:hover
+  background-color: white
+  color: black
+
 .result ul
   flex: 4
   vertical-align: middle
@@ -251,9 +258,10 @@ ul h1
 
 footer
   height: 5vh
-  width: 100vw
+  width: 100%
   border-bottom: 1px solid silver
   font-size: 16px
+  margin: 0
   font-weight: bold
   background-color: black
   text-align: center
