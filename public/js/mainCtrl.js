@@ -195,26 +195,26 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
 
   $scope.getfaveBands = function(user) {
     user = $scope.userid
-    faveService.getfaveBands(user).then(function(faves){
-      if (faves) {
-        $scope.favebands = faves.data;
-      } else {
-        $scope.favebands = 'LOG IN!';
-      }
-    })
+    // service.getfaveBands(user).then(function(faves){
+    //   if (faves) {
+    //     $scope.favebands = faves.data;
+    //   } else {
+    //     $scope.favebands = 'LOG IN!';
+    //   }
+    // })
   }
 
 
   $scope.getfaveVenues = function(user) {
     user = $scope.userid
-    faveService.getfaveVenues(user).then(function(faves){
-      if (faves) {
-        console.log("thisthing",faves)
-        $scope.favevenues = faves.data;
-      } else {
-        $scope.favevenues = 'LOG IN!';
-      }
-    })
+    // service.getfaveVenues(user).then(function(faves){
+    //   if (faves) {
+    //     console.log("thisthing",faves)
+    //     $scope.favevenues = faves.data;
+    //   } else {
+    //     $scope.favevenues = 'LOG IN!';
+    //   }
+    // })
   }
 
 
