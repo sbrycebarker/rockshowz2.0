@@ -21,8 +21,6 @@ main {
   margin: auto;
   border-bottom: 1px solid silver;
   background-color: black;
-  transition: width;
-  transition-duration: 1s;
   overflow: hidden; }
 
 #header h1 {
@@ -108,13 +106,20 @@ button {
   text-align: center;
   flex-direction: column; }
 
-.section-body h2 {
+.title {
   height: 50px;
   width: 100%;
   border-bottom: 1px solid silver;
   font-family: helvetica;
   font-size: 30px;
-  letter-spacing: 5px; }
+  letter-spacing: 5px;
+  display: flex;
+  align-items: center;
+  text-align: center; }
+
+.title h2 {
+  width: 150px;
+  margin: auto; }
 
 .button-con {
   height: 50px;
@@ -179,7 +184,7 @@ button {
   text-align: center; }
 
 .login-con h1 {
-  height: 20px;
+  height: 16px;
   width: 50px;
   border: 1px solid white;
   margin: auto; }
@@ -195,8 +200,8 @@ button {
   margin: auto; }
 
 .result {
-  flex: 24;
-  font-size: 14px;
+  flex: 20;
+  font-size: 18px;
   display: flex;
   border-bottom: 1px solid grey;
   flex-direction: row;
@@ -205,7 +210,8 @@ button {
 
 .result:hover {
   background-color: white;
-  color: black; }
+  color: black;
+  cursor: pointer; }
 
 .result ul {
   flex: 4;

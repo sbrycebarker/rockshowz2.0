@@ -40,7 +40,9 @@
 <section id="local" name='local'>
 
   <div class="section-body">
-    <h2>Local</h2>
+    <div class="title">
+      <h2>Local</h2>
+    </div>
     <div class="button-con">
       <button class="search" ng-click="getLocal()">Find Local Shows</button>
     </div>
@@ -49,7 +51,7 @@
         <ul><h1>{{event.Artists[0].Name}}</h1></ul>
         <ul><h1>{{event.Venue.Name}}</h1></ul>
         <ul><h1>{{event.Date}}</h1></ul>
-        <ul><h4 style="boder: 1px solid black">add band</h4><h4>add venue</h4></ul>
+        <ul><h4 style="boder: 1px solid black">favorite?</h4></ul>
       </div>
     </div>
   </div>
@@ -58,7 +60,9 @@
 <section id="artist" name='artist'>
 
   <div class="section-body">
-    <h2>Artist</h2>
+    <div class="title">
+      <h2>Artist</h2>
+    </div>
     <div class="button-con">
       <input id="artistinput" class="artistinput enter"  type="text" name="Artists" ng-model="artist" placeholder="Artist">
       <button id="modalBtn" class="button" ng-click="getBandData({band_name: artist})">Click Here</button>
@@ -96,17 +100,19 @@
 <section id="venue" name='venue'>
 
   <div class="section-body">
-    <h2>Venue</h2>
+    <div class="title">
+      <h2>Venue</h2>
+    </div>
     <div class="button-con">
       <input id="venueinput" class="venueinput enter"  type="text" name="Venue" ng-model="venue" placeholder="Venue">
       <button id="vModalBtn" class="button" ng-click="getVenueId({name: venue})">Click Here</button>
     </div>
     <div class="result-con">
-      <div class="result" ng-repeat="event in bandEvents">
-        <ul><h1>{{event.venue.name}</h1></ul>
-        <ul><h1>{{event.datetime}}</h1></ul>
-        <ul><h1>{{event.venue.city}}</h1></ul>
-        <ul><h1>{{event.venue.region}}</h1></ul>
+      <div class="result" ng-repeat="show in venueEvent">
+        <ul><h1>{{show.venue.name}}</h1></ul>
+        <ul><h1>{{show.datetime}}</h1></ul>
+        <ul><h1>{{show.venue.city}}</h1></ul>
+        <ul><h1>{{show.venue.region}}</h1></ul>
         <ul><h4>add band</h4><h4>add venue</h4></ul>
       </div>
     </div>
@@ -135,7 +141,9 @@
 <section id="profile" name='profile'>
 
   <div class="section-body">
-    <h2>Profile</h2>
+    <div class="title">
+      <h2>Profile</h2>
+    </div>
     <div class="button-con">
       <ul class="nav-item">
         <a class="login" href="/auth">{{user}}</a>
@@ -151,7 +159,9 @@
 <section id="about" name='about'>
 
   <div class="section-body">
-    <h2>About</h2>
+    <div class="title">
+      <h2>About</h2>
+    </div>
     <!-- <div class="button-con">
       <input type="text">
       <button>Search</button>
