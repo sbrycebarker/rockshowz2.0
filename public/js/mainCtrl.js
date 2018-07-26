@@ -1,17 +1,17 @@
 angular.module('rockShowz').controller('mainCtrl', function($scope, service, $state){
 
     $scope.navOpen = function() {
-      var header = document.getElementById('header');
+      let header = document.getElementById('header');
       if (header.style.width == '0px' || header.style.width == 0 ) {
         // console.log('OPEN')
-      header.style.width = '100px'
+      header.style.width = '100px';
     } else {
       header.style.width = '0px';
     }
     }
 
     $scope.navClose = function() {
-      var cartside = document.getElementById('cart-side');
+      let cartside = document.getElementById('cart-side');
         cartside.style.width = '0px';
     }
 
@@ -42,45 +42,45 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
     // =================================== DATA ======================================
 
     $scope.getBandEvents = function(events) {
-      console.log(events)
+      console.log(events);
       service.getBandEvents(events).then(function(result){
-        $scope.bandEvents = result.data
-        console.log("band events", result.data)
+        $scope.bandEvents = result.data;
+        console.log("band events", result.data);
 
       })
     }
 
     $scope.getBandData = function( bandName ) {
-      console.log("getband", bandName)
+      console.log("getband", bandName);
       service.getBandData(bandName).then(function(band){
-        console.log('returnData', band.data)
-        $scope.bandData = band.data
+        console.log('returnData', band.data);
+        $scope.bandData = band.data;
 
       })
     }
     $scope.getVenueData = function(venue){
       // console.log("sent", venue)
-      $scope.venueName = venue.name
+      $scope.venueName = venue.name;
       service.getVenueId(venue).then(function(venid) {
-        console.log("ven info", venid)
-        $scope.vendata = venid.data.Venues[0]
-        let venueId = venid.data.Venues[0].Id
+        console.log("ven info", venid);
+        $scope.vendata = venid.data.Venues[0];
+        let venueId = venid.data.Venues[0].Id;
         // console.log('venueId',venueId)
         setTimeout( function() {
           service.getVenueData(venueId).then(function(venue){
-            console.log("venueEvent", venue.data)
-            $scope.venueEvent = venue.data.Events
+            console.log("venueEvent", venue.data);
+            $scope.venueEvent = venue.data.Events;
           })
-          }, 2100)
+        }, 2100);
     })
     }
 
       $scope.getVenueId = function(venue){
-        console.log("pizza", venue)
+        console.log("pizza", venue);
         service.getVenueId(venue).then(function(venuedata){
-          console.log("pizza",venuedata.data.Venues)
+          console.log("pizza",venuedata.data.Venues);
           if (venuedata) {
-            var place = venuedata.data.Venues
+            let place = venuedata.data.Venues;
             $scope.venues = place;
           } else {
             $scope.venues = "Search for a venue";
@@ -90,35 +90,35 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
 
     $scope.getCoOrd = function() {
       service.getCoOrd().then(function(latlng) {
-        $scope.lat = latlng.data.location.lat
-        $scope.lng = latlng.data.location.lng
+        $scope.lat = latlng.data.location.lat;
+        $scope.lng = latlng.data.location.lng;
         // console.log("lat", $scope.lat, "lng", $scope.lng)
-        $scope.getZip()
+        $scope.getZip();
       })
     }
-    $scope.getCoOrd()
+    $scope.getCoOrd();
 
       $scope.getZip = function() {
-        var lat = $scope.lat
-        var lng = $scope.lng
+        let lat = $scope.lat;
+        let lng = $scope.lng;
         service.getZip(lat, lng).then(function(result) {
-          console.log("zip", result.data.results[0].address_components[5])
-          let loc = result.data.results[0].address_components[5].short_name
+          console.log("zip", result.data.results[0].address_components[5]);
+          let loc = result.data.results[0].address_components[5].short_name;
           if (!loc) {
-          console.log("zip",result.data.results[0].address_components[5].short_name)
-          $scope.location = result.data.results[0].address_components[5].short_name
+          console.log("zip",result.data.results[0].address_components[5].short_name);
+          $scope.location = result.data.results[0].address_components[5].short_name;
         } else {
-          $scope.location = loc
+          $scope.location = loc;
         }
         })
       }
 
       $scope.getLocal = function() {
-        var zip = $scope.location
+        let zip = $scope.location;
         console.log('zipcode', zip)
         service.getLocal(zip).then(function(local){
-          console.log('byZIP', local.data.Events)
-          $scope.local = local.data.Events
+          console.log('byZIP', local.data.Events);
+          $scope.local = local.data.Events;
         })
       }
 
@@ -126,32 +126,32 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
 
       $scope.getUser = function() {
         service.getUser().then(function(user) {
-          console.log("user", user)
+          console.log("user", user);
           if (user) {
             $scope.user = user.displayName;
-            $scope.userid = user.user_id
+            $scope.userid = user.user_id;
             console.log("userinfo", $scope.user)
             $scope.getfaveBands();
-            $scope.getfaveVenues()
+            $scope.getfaveVenues();
           } else {
             $scope.user = 'Log in!';
           }
         })
       }
-      $scope.getUser()
+      $scope.getUser();
   // <<==================================== MODALS =================================>>
 
   // Get modal element
-  var modal = document.getElementById('simpleModal');
-  var vModal = document.getElementById('venueModal')
+  let modal = document.getElementById('simpleModal');
+  let vModal = document.getElementById('venueModal');
   // Get open modal button
-  var modalBtn = document.getElementById('modalBtn');
-  var vModalBtn = document.getElementById('vModalBtn');
+  let modalBtn = document.getElementById('modalBtn');
+  let vModalBtn = document.getElementById('vModalBtn');
   // Get close button
-  var closeBtn = document.getElementsByClassName('closeBtn')[0];
-  var closeVBtn = document.getElementsByClassName('closeVBtn')[0];
+  let closeBtn = document.getElementsByClassName('closeBtn')[0];
+  let closeVBtn = document.getElementsByClassName('closeVBtn')[0];
 
-  var srBtn = document.getElementsByClassName('srBtn')[0];
+  let srBtn = document.getElementsByClassName('srBtn')[0];
 
   // Listen for open click
   modalBtn.addEventListener('click', openModal);
@@ -186,7 +186,7 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
   function outsideClick(e){
     if(e.target == modal){
       modal.style.display = 'none';
-      vModal.style.display = 'none;'
+      vModal.style.display = 'none';
     }
   }
 
@@ -194,7 +194,7 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
   // <<=============================FAVORITE CALLS===================================>>
 
   $scope.getfaveBands = function(user) {
-    user = $scope.userid
+    user = $scope.userid;
     // service.getfaveBands(user).then(function(faves){
     //   if (faves) {
     //     $scope.favebands = faves.data;
@@ -206,7 +206,7 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
 
 
   $scope.getfaveVenues = function(user) {
-    user = $scope.userid
+    user = $scope.userid;
     // service.getfaveVenues(user).then(function(faves){
     //   if (faves) {
     //     console.log("thisthing",faves)
@@ -219,20 +219,20 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
 
 
   $scope.addFaveBands = function(band) {
-    console.log("addfaveband", band)
-    faveService.addFaveBands(band)
-      $scope.favebands.push(band)
-      console.log($scope.favebands)
+    console.log("addfaveband", band);
+    faveService.addFaveBands(band);
+      $scope.favebands.push(band);
+      console.log($scope.favebands);
   }
 
   $scope.addFaveVenues = function(venue) {
-    faveService.addFaveVenues(venue)
-        $scope.favevenues.push(venue)
-        console.log($scope.favevenues)
+    faveService.addFaveVenues(venue);
+        $scope.favevenues.push(venue);
+        console.log($scope.favevenues);
   }
 
   $scope.removeFaveBand = function(band, i) {
-    var removedItem = $scope.favebands.splice(i, 1)
+    let removedItem = $scope.favebands.splice(i, 1);
     faveService.removeFaveBand(band).then(function(){
 
     }, function(err) {
@@ -241,7 +241,7 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
   }
 
   $scope.removeFaveVenue = function(venue, i) {
-    var removedItem = $scope.favevenues.splice(i, 1)
+    let removedItem = $scope.favevenues.splice(i, 1);
     faveService.removeFaveVenue(venue).then(function(){
 
     }, function(err) {

@@ -17,8 +17,8 @@ const express = require('express'),
 
 //  ===================================== Setup =============================================
 
-    app.use(bodyParser.json())
-    app.use(cors())
+    app.use(bodyParser.json());
+    app.use(cors());
     app.use(session({
       resave: true, //Without this you get a constant warning about default values
       saveUninitialized: true, //Without this you get a constant warning about default values
@@ -27,7 +27,7 @@ const express = require('express'),
     app.use(passport.initialize());
     app.use(passport.session());
 
-    app.use(express.static('./public'))
+    app.use(express.static('./public'));
     massive(elephantconnection).then((db) => {
     app.set('db', db);
     passport.use(new Auth0Strategy({
@@ -38,7 +38,7 @@ const express = require('express'),
       },
       function(accessToken, refreshToken, extraParams, profile, done) {
         db.getUserByAuthId([profile.id]).then(function(user) {
-          console.log('gettinguser', user)
+          console.log('gettinguser', user);
           if (!user[0]) {
              //if there isn't one, we'll create one!
             // console.log("creating user", profile)
@@ -60,13 +60,13 @@ const express = require('express'),
 // ======================================= Auth0 Login =======================================
     passport.serializeUser(function(userA, done) {
       console.log('serializing', userA);
-      var userB = userA;
+      let userB = userA;
       done(null, userB); //PUTS 'USER' ON THE SESSION
     });
 
     //USER COMES FROM SESSION - THIS IS INVOKED FOR EVERY ENDPOINT
     passport.deserializeUser(function(userB, done) {
-      var userC = userB;
+      let userC = userB;
       //Things you might do here :
       // Query the database with the user id, get other information to put on req.user
       done(null, userC); //PUTS 'USER' ON REQ.USER
@@ -92,7 +92,7 @@ const express = require('express'),
       if (!req.user){
         return res.send(null);
       } else {
-        console.log("me", req.user)
+        console.log("me", req.user);
         res.status(200).send(req.user);
       }
     })
@@ -106,22 +106,22 @@ const express = require('express'),
 // =================================================== End of Auth0 Login ==================================
 // ================================================== ENDPOINTS =========================================
 
-let favebands = require('./server/bands')
-let favevenues = require('./server/venues')
-let users = require('./server/users')
+let favebands = require('./server/bands');
+let favevenues = require('./server/venues');
+let users = require('./server/users');
 
 // app.get('/all/users', users.index)
-app.get('/favorites/bands/:userId', favebands.read)
-app.get('/favorites/venues/:userId', favevenues.read)
-app.post('/favorites/bands', favebands.create)
-app.post('/favorites/venues', favevenues.create)
-app.delete('/favorites/bands/:userid/:band_name', favebands.delete)
-app.delete('/favorites/venues/:userid/:venue_name', favevenues.delete)
+app.get('/favorites/bands/:userId', favebands.read);
+app.get('/favorites/venues/:userId', favevenues.read);
+app.post('/favorites/bands', favebands.create);
+app.post('/favorites/venues', favevenues.create);
+app.delete('/favorites/bands/:userid/:band_name', favebands.delete);
+app.delete('/favorites/venues/:userid/:venue_name', favevenues.delete);
 
 // ================================================== ENDPOINTS =========================================
 reload(app);
 
-let port = 8080
+let port = 8080;
 app.listen(port, function() {
 console.log("listening on port " + port)
 });
