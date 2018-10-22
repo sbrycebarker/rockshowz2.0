@@ -13,7 +13,7 @@ main {
   z-index: 0; }
 
 #header {
-  height: 5vh;
+  height: 4vh;
   width: 100vw;
   position: fixed;
   z-index: 10;
@@ -56,26 +56,29 @@ main {
   margin: auto;
   display: flex;
   flex-direction: row;
-  justify-content: center; }
+  justify-content: center;
+  vertical-align: middle;
+  align-items: center; }
 
 #myNavbar li {
-  height: 25px;
-  width: 100%;
+  height: 18px;
   margin: auto;
   text-align: center; }
 
 #myNavbar li a {
   text-decoration: none;
+  margin: auto;
   color: silver;
-  font-size: 20px; }
+  font-size: 14px; }
 
 #myNavbar li a:hover {
   color: #135779; }
 
 section {
-  height: 90vh;
+  min-height: 100vh;
   width: 100%;
   margin: 0;
+  padding: 3vh 0;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -99,7 +102,7 @@ button {
   margin: auto 10px; }
 
 .section-body {
-  height: 90%;
+  min-height: 90vh;
   width: 95%;
   background: rgba(0, 0, 0, 0.4);
   margin: auto;
@@ -111,7 +114,7 @@ button {
   width: 100%;
   border-bottom: 1px solid silver;
   font-family: helvetica;
-  font-size: 30px;
+  font-size: 16px;
   letter-spacing: 5px;
   display: flex;
   align-items: center;
@@ -139,18 +142,21 @@ button {
   z-index: -5; }
 
 #title-con {
-  height: 100px;
-  width: 400px;
+  height: 50px;
+  width: 255px;
   margin: auto;
   text-align: center;
   border: 1px solid silver;
   display: flex;
-  position: relative; }
+  vertical-align: middle;
+  position: relative;
+  align-items: center; }
+
+#rock {
+  margin: auto; }
 
 #title-con h2 {
-  margin: auto;
   font-family: helvetica;
-  font-size: 30px;
   letter-spacing: 5px; }
 
 .down-tab {
@@ -199,9 +205,14 @@ button {
 #local h2 {
   margin: auto; }
 
+.result-con {
+  display: flex;
+  flex-direction: column; }
+
 .result {
   flex: 20;
-  font-size: 18px;
+  height: 50px;
+  font-size: 14px;
   display: flex;
   border-bottom: 1px solid grey;
   flex-direction: row;
@@ -214,7 +225,6 @@ button {
   cursor: pointer; }
 
 .result ul {
-  flex: 4;
   vertical-align: middle;
   margin: auto;
   text-align: center;
@@ -223,6 +233,16 @@ button {
 ul h1 {
   margin: auto;
   align-content: center; }
+
+.result ul h4 {
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+  margin: auto;
+  height: 25px;
+  width: 50px;
+  font-size: 10px;
+  background-color: #222222; }
 
 #artist {
   background: url("./assets/greenconcert.jpg");
@@ -275,9 +295,13 @@ footer h1 {
 
 .button {
   background: #222222;
-  padding: 1em 2em;
+  padding: 1em 1em;
+  margin: auto;
   color: #fff;
-  border: 0; }
+  border: 0;
+  font-size: 10px;
+  position: relative;
+  float: right; }
   .button:hover {
     background: #333; }
 

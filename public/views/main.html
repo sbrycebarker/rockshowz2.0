@@ -1,16 +1,16 @@
 <div id="header">
 
 <div id="myNavbar" class="navbar">
-<button ng-click="navOpen()" id="X-button" type="button" name="button">X</button>
-  <li class="nav-item"><a href="#local">Local</a></li>
-  <li class="nav-item"><a href="#artist">Artist</a></li>
-  <li class="nav-item"><a href="#venue">Venue</a></li>
-  <li class="nav-item"><a href="#profile">Profile</a></li>
-  <li class="nav-item"><a href="#about">About</a></li>
-  <li class="nav-item">
+<!-- <button ng-click="navOpen()" id="X-button" type="button" name="button">X</button> -->
+  <li class="nav-item"><a href="" ng-click="moveTo('local')">Local</a></li>
+  <li class="nav-item"><a href="" ng-click="moveTo('artist')">Artist</a></li>
+  <li class="nav-item"><a href="" ng-click="moveTo('venue')">Venue</a></li>
+  <li class="nav-item"><a href="" ng-click="moveTo('profile')">Profile</a></li>
+  <li class="nav-item"><a href="" ng-click="moveTo('about')">About</a></li>
+  <!-- <li class="nav-item">
     <a class="login" href="/auth">{{user}}</a>
     <a class="logout" href="/auth/logout">Logout</a>
-  </li>
+  </li> -->
 </div>
 </div>
 <button ng-click="navOpen()" id="tab" type="button" name="button">></button>
@@ -20,7 +20,7 @@
 <section id="landing" name='landing'>
 
   <div id="title-con">
-    <h2><img src="../styles/assets/greenmetal.png" style="height: 30px" alt=""> ROCKSHOWZ</h2>
+    <img id="rock" src="../styles/assets/greenmetal.png" style="height: 30px" alt=""><h2>ROCKSHOWZ</h2>
       <!-- <button ng-click="navOpen()" type="button" name="button">lalalala</button> -->
   </div>
   <div class="down-tab">
@@ -41,18 +41,19 @@
 
   <div class="section-body">
     <div class="title">
-      <h2>Local</h2>
+      <h2>Local {{zip}}</h2>
     </div>
     <div class="button-con">
       <button class="search" ng-click="getLocal()">Find Local Shows</button>
     </div>
     <div class="result-con">
       <div class="result" ng-repeat="event in local">
-        <ul><h1>{{event.Artists[0].Name}}</h1></ul>
+        <ul><h1>{{event.Artists[0].Name}}Search By zip no longer available</h1></ul>
         <ul><h1>{{event.Venue.Name}}</h1></ul>
         <ul><h1>{{event.Date}}</h1></ul>
         <ul><h4 style="boder: 1px solid black">favorite?</h4></ul>
       </div>
+      <ul>Search By zip no longer available</ul>
     </div>
   </div>
 
@@ -65,7 +66,8 @@
     </div>
     <div class="button-con">
       <input id="artistinput" class="artistinput enter"  type="text" name="Artists" ng-model="artist" placeholder="Artist">
-      <button id="modalBtn" class="button" ng-click="getBandData({band_name: artist})">Click Here</button>
+      <button id="modalBtn" class="button" ng-click="getBandData({band_name: artist})">Search</button>
+      <button type="button" class="button" name="button" ng-click="addFaveBands({band_name: artist})">Add Artist</button>
     </div>
     <div class="result-con">
       <div class="result" ng-repeat="event in bandEvents">
@@ -73,7 +75,6 @@
         <ul><h1>{{event.datetime}}</h1></ul>
         <ul><h1>{{event.venue.city}}</h1></ul>
         <ul><h1>{{event.venue.region}}</h1></ul>
-        <ul><h4>add band</h4><h4>add venue</h4></ul>
       </div>
     </div>
   <div id="simpleModal" class="modal">
@@ -175,7 +176,7 @@
 
 <footer>
   <div>
-    <h1>@ 2018 by Sergio Barker</h1>    
+    <h1>@ 2018 by Sergio Barker</h1>
   </div>
 </footer>
 </main>

@@ -15,28 +15,11 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
         cartside.style.width = '0px';
     }
 
-    $(document).scroll(function (event) {
-    });
-
-    $("a").on('click', function(event) {
-
-     console.log("Everything is Awesome!");
-      if (this.hash !== "") {
-
-        event.preventDefault();
-
-
-        let hash = this.hash;
-
-        $('html, body').animate({
-          scrollTop: $(hash).offset().top - 48
-        }, 1000, function(){
-
-          window.location.hash;
-          // console.log(window.location.hash)
-        });
-      }
-    });
+    $scope.moveTo = function(target){
+      var elmnt = document.getElementById(target);
+      console.log(elmnt)
+      elmnt.scrollIntoView({behavior: "smooth", block: "start"})
+    };
 
 
     // =================================== DATA ======================================
@@ -92,32 +75,33 @@ angular.module('rockShowz').controller('mainCtrl', function($scope, service, $st
       service.getCoOrd().then(function(latlng) {
         $scope.lat = latlng.data.location.lat;
         $scope.lng = latlng.data.location.lng;
-        // console.log("lat", $scope.lat, "lng", $scope.lng)
         $scope.getZip();
       })
     }
     $scope.getCoOrd();
 
       $scope.getZip = function() {
+        // console.log("lat", $scope.lat, "lng", $scope.lng)
         let lat = $scope.lat;
         let lng = $scope.lng;
         service.getZip(lat, lng).then(function(result) {
-          console.log("zip", result.data.results[0].address_components[5]);
-          let loc = result.data.results[0].address_components[5].short_name;
-          if (!loc) {
-          console.log("zip",result.data.results[0].address_components[5].short_name);
-          $scope.location = result.data.results[0].address_components[5].short_name;
+          console.log("zip", result.data.results[0].address_components[7].short_name);
+          let zip = result.data.results[0].address_components[7].short_name;
+          if (!zip) {
+          console.log("no zip",result.data.results[0].address_components);
+          $scope.zip = result.data.results[0].address_components[8].short_name;
         } else {
-          $scope.location = loc;
+          $scope.zip = zip;
         }
         })
       }
 
       $scope.getLocal = function() {
-        let zip = $scope.location;
-        console.log('zipcode', zip)
-        service.getLocal(zip).then(function(local){
-          console.log('byZIP', local.data.Events);
+        let lat = $scope.lat
+        let lng = $scope.lng
+        console.log('getting local at','lat', lat,'lng', lng)
+        service.getLocal(lat, lng).then(function(local){
+          console.log('local shows', local);
           $scope.local = local.data.Events;
         })
       }
