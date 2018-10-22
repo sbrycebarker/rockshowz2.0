@@ -1,6 +1,6 @@
-# Rockshow
+# Rockshowz2.0
 
-This App was created using AngularJs, jQuery, HTML/CSS, Parallax, SQL and NODEjs. We used several APIs from JamBase
+This is my revamp of the Rockshowz site @ https://github.com/Sergeandarden/rockshowz I built for my final project at Devmountain
 
 
 
